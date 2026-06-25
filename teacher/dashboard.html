@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard | KidsAI Coding Academy</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body { background: #F1F5F9; }
+        .portal-layout { display: flex; min-height: 100vh; }
+        .sidebar {
+            width: 260px; background: #0F172A; color: #CBD5E1;
+            padding: 30px 0; flex-shrink: 0; position: sticky;
+            top: 0; height: 100vh; overflow-y: auto;
+        }
+        .sidebar-logo { padding: 0 25px 30px; border-bottom: 1px solid #1E293B; margin-bottom: 20px; }
+        .sidebar-logo span { font-family: var(--font-heading); font-weight: 800; font-size: 1.2rem; color: #fff; }
+        .sidebar-nav { list-style: none; padding: 0 10px; }
+        .sidebar-nav li a {
+            display: flex; align-items: center; gap: 12px; padding: 12px 15px;
+            border-radius: var(--radius-md); color: #94A3B8; text-decoration: none;
+            font-size: 0.95rem; font-weight: 500; transition: all 0.2s; margin-bottom: 4px;
+        }
+        .sidebar-nav li a:hover, .sidebar-nav li a.active { background: #1E293B; color: #fff; }
+        .sidebar-nav li a.active { background: var(--success); }
+        .main-content { flex: 1; padding: 35px; overflow-y: auto; }
+        .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+        .topbar h1 { font-size: 1.8rem; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; margin-bottom: 30px; }
+        .stat-card { background: var(--bg-white); padding: 25px; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
+        .stat-card .stat-value { font-size: 2rem; font-weight: 700; font-family: var(--font-heading); color: var(--success); }
+        .stat-card .stat-label { color: var(--text-muted); font-size: 0.9rem; margin-top: 5px; }
+        .card { background: var(--bg-white); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); padding: 25px; }
+        .card h2 { font-size: 1.2rem; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #F1F5F9; }
+        .bottom-grid { display: grid; grid-template-columns: 1fr 350px; gap: 25px; }
+
+        /* Table */
+        table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        th { text-align: left; padding: 12px 15px; background: #F8FAFC; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        td { padding: 14px 15px; border-bottom: 1px solid #F1F5F9; }
+        tr:last-child td { border: none; }
+        .badge-present { background: #F0FDF4; color: #16A34A; padding: 3px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+        .badge-absent { background: #FEF2F2; color: #DC2626; padding: 3px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+        .badge-pending { background: #FEF3C7; color: #D97706; padding: 3px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+
+        /* Class card */
+        .class-card {
+            border: 1px solid #E2E8F0; border-radius: var(--radius-md);
+            padding: 18px; margin-bottom: 12px; display: flex;
+            justify-content: space-between; align-items: center;
+        }
+        .class-card:last-child { margin-bottom: 0; }
+        .class-time-badge { background: #F0FDF4; color: #16A34A; padding: 6px 14px; border-radius: 20px; font-weight: 600; font-size: 0.85rem; }
+
+        @media(max-width:1100px) { .stats-grid { grid-template-columns: repeat(2,1fr); } .bottom-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+<div class="portal-layout">
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <div style="width:32px;height:32px;background:var(--success);border-radius:6px;margin-bottom:8px;"></div>
+            <span>KidsAI Coding</span>
+        </div>
+        <ul class="sidebar-nav">
+            <li><a href="dashboard.html" class="active">🏠 <span>Dashboard</span></a></li>
+            <li><a href="#">📦 <span>My Batches</span></a></li>
+            <li><a href="#">📋 <span>Attendance</span></a></li>
+            <li><a href="#">📝 <span>Assignments</span></a></li>
+            <li><a href="#">👥 <span>Students</span></a></li>
+            <li><a href="#">👤 <span>Profile</span></a></li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <div class="topbar">
+            <div>
+                <h1>Teacher Portal 📚</h1>
+                <p style="color:var(--text-muted);">Welcome, Priya Sharma</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:15px;">
+                <span style="font-size:1.3rem;cursor:pointer;">🔔</span>
+                <div style="width:42px;height:42px;border-radius:50%;background:var(--success);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;">PS</div>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div style="font-size:2rem;margin-bottom:12px;">📦</div>
+                <div class="stat-value">3</div>
+                <div class="stat-label">Active Batches</div>
+            </div>
+            <div class="stat-card">
+                <div style="font-size:2rem;margin-bottom:12px;">👥</div>
+                <div class="stat-value">18</div>
+                <div class="stat-label">Total Students</div>
+            </div>
+            <div class="stat-card">
+                <div style="font-size:2rem;margin-bottom:12px;">📝</div>
+                <div class="stat-value">7</div>
+                <div class="stat-label">Pending Reviews</div>
+            </div>
+            <div class="stat-card">
+                <div style="font-size:2rem;margin-bottom:12px;">⭐</div>
+                <div class="stat-value">4.9</div>
+                <div class="stat-label">Rating</div>
+            </div>
+        </div>
+
+        <!-- Today's Classes -->
+        <div class="card" style="margin-bottom:25px;">
+            <h2>🎥 Today's Classes</h2>
+            <div class="class-card">
+                <div>
+                    <strong>Python Batch A — Loops & Lists</strong>
+                    <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Batch of 6 · Session 14</p>
+                </div>
+                <div style="display:flex;align-items:center;gap:12px;">
+                    <span class="class-time-badge">10:00 AM</span>
+                    <a href="#" class="btn btn-primary" style="padding:8px 18px;">Start Class</a>
+                </div>
+            </div>
+            <div class="class-card">
+                <div>
+                    <strong>Python Batch B — Functions</strong>
+                    <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Batch of 5 · Session 12</p>
+                </div>
+                <div style="display:flex;align-items:center;gap:12px;">
+                    <span style="background:#EFF6FF;color:var(--primary);padding:6px 14px;border-radius:20px;font-weight:600;font-size:0.85rem;">4:00 PM</span>
+                    <a href="#" class="btn btn-secondary" style="padding:8px 18px;">View Details</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-grid">
+            <!-- Student Performance Table -->
+            <div class="card">
+                <h2>👥 Student Performance</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Attendance</th>
+                            <th>Last Assignment</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Arjun K.</strong></td>
+                            <td><span class="badge-present">93%</span></td>
+                            <td><span class="badge-pending">Pending</span></td>
+                            <td><a href="#" style="color:var(--primary);font-weight:600;text-decoration:none;">View</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sneha M.</strong></td>
+                            <td><span class="badge-present">100%</span></td>
+                            <td><span class="badge-present">Submitted</span></td>
+                            <td><a href="#" style="color:var(--primary);font-weight:600;text-decoration:none;">View</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rohit S.</strong></td>
+                            <td><span class="badge-absent">75%</span></td>
+                            <td><span class="badge-pending">Pending</span></td>
+                            <td><a href="#" style="color:var(--primary);font-weight:600;text-decoration:none;">View</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Preethi A.</strong></td>
+                            <td><span class="badge-present">88%</span></td>
+                            <td><span class="badge-present">Submitted</span></td>
+                            <td><a href="#" style="color:var(--primary);font-weight:600;text-decoration:none;">View</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pending Assignments -->
+            <div class="card">
+                <h2>📝 Pending Reviews</h2>
+                <div style="display:flex;flex-direction:column;gap:12px;">
+                    <div style="border:1px solid #E2E8F0;border-radius:var(--radius-md);padding:15px;">
+                        <strong>Module 3 Functions — Arjun K.</strong>
+                        <p style="font-size:0.85rem;color:var(--text-muted);margin:5px 0;">Submitted Jun 25</p>
+                        <a href="#" class="btn btn-primary" style="padding:8px 16px;font-size:0.85rem;margin-top:8px;display:inline-block;">Review & Grade</a>
+                    </div>
+                    <div style="border:1px solid #E2E8F0;border-radius:var(--radius-md);padding:15px;">
+                        <strong>Module 3 Functions — Rohit S.</strong>
+                        <p style="font-size:0.85rem;color:var(--text-muted);margin:5px 0;">Submitted Jun 25</p>
+                        <a href="#" class="btn btn-primary" style="padding:8px 16px;font-size:0.85rem;margin-top:8px;display:inline-block;">Review & Grade</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>

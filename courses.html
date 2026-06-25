@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Coding Courses | KidsAI Coding Academy</title>
+    <meta name="description" content="Browse our library of live coding courses for kids. Filter by age group, category, and skill level to find the perfect fit for your child.">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .courses-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 40px;
+            padding: 60px 0;
+        }
+
+        .filter-sidebar {
+            background: var(--bg-white);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            height: fit-content;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 100px;
+        }
+
+        .filter-group {
+            margin-bottom: 30px;
+        }
+
+        .filter-group h4 {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+
+        .filter-option input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .courses-layout {
+                grid-template-columns: 1fr;
+            }
+            .filter-sidebar {
+                position: relative;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">
+                <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 6px;"></div>
+                <span>KidsAI Coding</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html" style="color: var(--primary);">Courses</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="login.html" class="btn btn-secondary" style="padding: 8px 20px;">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="courses-layout">
+            <!-- Sidebar -->
+            <aside class="filter-sidebar">
+                <div class="filter-group">
+                    <h4>Age Group</h4>
+                    <label class="filter-option"><input type="checkbox"> Ages 7-10</label>
+                    <label class="filter-option"><input type="checkbox" checked> Ages 10-14</label>
+                    <label class="filter-option"><input type="checkbox"> Ages 14-18</label>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Category</h4>
+                    <label class="filter-option"><input type="checkbox"> Block Coding</label>
+                    <label class="filter-option"><input type="checkbox"> Web Design</label>
+                    <label class="filter-option"><input type="checkbox"> Data Science</label>
+                    <label class="filter-option"><input type="checkbox"> Game Dev</label>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Level</h4>
+                    <label class="filter-option"><input type="checkbox"> Beginner</label>
+                    <label class="filter-option"><input type="checkbox"> Intermediate</label>
+                    <label class="filter-option"><input type="checkbox"> Advanced</label>
+                </div>
+
+                <button class="btn btn-primary" style="width: 100%;">Apply Filters</button>
+            </aside>
+
+            <!-- Results -->
+            <section>
+                <div class="section-header" style="text-align: left; margin-bottom: 30px;">
+                    <h2>Browse Courses</h2>
+                    <p>Showing 12 results for your selection</p>
+                </div>
+
+                <div class="course-grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+                    <!-- Course 1 -->
+                    <div class="course-card">
+                        <div class="course-img-placeholder">Roblox Game Dev</div>
+                        <div class="course-content">
+                            <div class="course-meta">
+                                <span class="course-badge">Ages 8-12</span>
+                                <span>16 Sessions</span>
+                            </div>
+                            <h3>Roblox Game Design</h3>
+                            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;">Learn Lua programming and build your own multiplayer worlds.</p>
+                            <div class="course-price">₹8,999</div>
+                            <div style="margin-top: 20px;">
+                                <a href="course-detail.html" class="btn btn-primary" style="width: 100%; text-align: center;">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course 2 -->
+                    <div class="course-card">
+                        <div class="course-img-placeholder">Scratch Jr</div>
+                        <div class="course-content">
+                            <div class="course-meta">
+                                <span class="course-badge">Ages 7-9</span>
+                                <span>12 Sessions</span>
+                            </div>
+                            <h3>Scratch Visual Coding</h3>
+                            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;">Foundational logic through fun animations and simple games.</p>
+                            <div class="course-price">₹5,499</div>
+                            <div style="margin-top: 20px;">
+                                <a href="#" class="btn btn-primary" style="width: 100%; text-align: center;">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course 3 -->
+                    <div class="course-card">
+                        <div class="course-img-placeholder">Data Science</div>
+                        <div class="course-content">
+                            <div class="course-meta">
+                                <span class="course-badge">Ages 14-18</span>
+                                <span>48 Sessions</span>
+                            </div>
+                            <h3>Data Science with Python</h3>
+                            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;">Analyze real-world data and create interactive visualizations.</p>
+                            <div class="course-price">₹24,999</div>
+                            <div style="margin-top: 20px;">
+                                <a href="#" class="btn btn-primary" style="width: 100%; text-align: center;">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h2>KidsAI Coding</h2>
+                <p>Empowering the next generation of innovators through high-quality coding education.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Academy</h4>
+                <ul>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Curriculum</a></li>
+                    <li><a href="#">Trainers</a></li>
+                    <li><a href="#">Success Stories</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <p>Email: support@kidsaicoding.com</p>
+                <p>Phone: +91 98765 43210</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 KidsAI Coding Academy. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

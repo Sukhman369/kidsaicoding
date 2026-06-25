@@ -1,0 +1,40 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "main.js",
+      "file_type": "code",
+      "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\js\\main.js",
+      "source_location": "L1",
+      "id": "c_users_harma_documents_kidsaicoding_js_main_js",
+      "community": 0,
+      "norm_label": "main.js"
+    },
+    {
+      "label": "animateCount()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\js\\main.js",
+      "source_location": "L35",
+      "id": "main_animatecount",
+      "community": 0,
+      "norm_label": "animatecount()"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\js\\main.js",
+      "source_location": "L35",
+      "weight": 1.0,
+      "_src": "c_users_harma_documents_kidsaicoding_js_main_js",
+      "_tgt": "main_animatecount",
+      "source": "c_users_harma_documents_kidsaicoding_js_main_js",
+      "target": "main_animatecount",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": []
+}

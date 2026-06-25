@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Management | Admin | KidsAI</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body { background: #0F172A; }
+        .portal-layout { display: flex; min-height: 100vh; }
+        .sidebar { width: 260px; background: #020617; color: #94A3B8; padding: 30px 0; flex-shrink: 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+        .sidebar-logo { padding: 0 25px 30px; border-bottom: 1px solid #1E293B; margin-bottom: 20px; }
+        .sidebar-logo span { font-family: var(--font-heading); font-weight: 800; font-size: 1.2rem; color: #fff; }
+        .sidebar-section-label { padding: 10px 25px 5px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: #475569; font-weight: 600; }
+        .sidebar-nav { list-style: none; padding: 0 10px; margin-bottom: 10px; }
+        .sidebar-nav li a { display: flex; align-items: center; gap: 12px; padding: 11px 15px; border-radius: var(--radius-md); color: #94A3B8; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: all 0.2s; margin-bottom: 2px; }
+        .sidebar-nav li a:hover { background: #1E293B; color: #fff; }
+        .sidebar-nav li a.active { background: var(--primary); color: #fff; }
+        .main-content { flex: 1; padding: 30px; overflow-y: auto; background: #1E293B; }
+        .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; background: #0F172A; padding: 16px 24px; border-radius: var(--radius-lg); }
+        .topbar h1 { font-size: 1.4rem; color: #fff; }
+        .data-card { background: #0F172A; border: 1px solid #1E293B; border-radius: var(--radius-lg); padding: 25px; }
+        .data-card h2 { font-size: 1.1rem; color: #fff; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #1E293B; display: flex; justify-content: space-between; align-items: center; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+        th { text-align: left; padding: 12px 15px; color: #475569; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid #1E293B; }
+        td { padding: 13px 15px; border-bottom: 1px solid #1E293B; color: #CBD5E1; }
+        tr:last-child td { border: none; }
+        .badge { padding: 3px 12px; border-radius: 20px; font-size: 0.78rem; font-weight: 600; }
+        .badge-published { background: rgba(34,197,94,0.15); color: #22C55E; }
+        .badge-draft { background: rgba(245,158,11,0.15); color: #F59E0B; }
+        .action-link { color: #60A5FA; text-decoration: none; font-weight: 600; margin-right: 12px; }
+        .action-link.danger { color: #F87171; }
+        .filter-bar { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+        .filter-bar input, .filter-bar select { padding: 10px 16px; border-radius: var(--radius-md); border: 1px solid #334155; background: #0F172A; color: #CBD5E1; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+<div class="portal-layout">
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <div style="width:32px;height:32px;background:var(--primary);border-radius:6px;margin-bottom:8px;"></div>
+            <span>KidsAI Admin</span>
+        </div>
+        <div class="sidebar-section-label">Main</div>
+        <ul class="sidebar-nav"><li><a href="dashboard.html">🏠 <span>Dashboard</span></a></li></ul>
+        <div class="sidebar-section-label">Content</div>
+        <ul class="sidebar-nav">
+            <li><a href="courses.html">📚 <span>Courses</span></a></li>
+            <li><a href="#">📁 <span>Categories</span></a></li>
+            <li><a href="blogs.html" class="active">✍️ <span>Blogs</span></a></li>
+        </ul>
+        <div class="sidebar-section-label">People</div>
+        <ul class="sidebar-nav">
+            <li><a href="#">👩‍🏫 <span>Teachers</span></a></li>
+            <li><a href="#">🎒 <span>Students</span></a></li>
+            <li><a href="#">👨‍👩‍👧 <span>Parents</span></a></li>
+        </ul>
+        <div class="sidebar-section-label">Academic</div>
+        <ul class="sidebar-nav">
+            <li><a href="#">📦 <span>Batches</span></a></li>
+            <li><a href="#">📋 <span>Enrollments</span></a></li>
+            <li><a href="#">📝 <span>Assignments</span></a></li>
+            <li><a href="#">🎓 <span>Certificates</span></a></li>
+        </ul>
+        <div class="sidebar-section-label">Business</div>
+        <ul class="sidebar-nav">
+            <li><a href="#">💳 <span>Payments</span></a></li>
+            <li><a href="#">📊 <span>Reports</span></a></li>
+            <li><a href="#">⚙️ <span>Settings</span></a></li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <div class="topbar">
+            <h1>Blog Management</h1>
+            <div style="display:flex;align-items:center;gap:12px;">
+                <a href="#" class="btn btn-primary" style="padding:10px 20px;">+ New Post</a>
+                <div style="width:42px;height:42px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;">AD</div>
+            </div>
+        </div>
+
+        <div class="filter-bar">
+            <input type="text" placeholder="🔍  Search posts...">
+            <select><option>All Categories</option><option>Python Tips</option><option>Career Guidance</option><option>Parenting</option><option>Announcements</option></select>
+            <select><option>All Status</option><option>Published</option><option>Draft</option></select>
+        </div>
+
+        <div class="data-card">
+            <h2>
+                <span>All Blog Posts <span style="color:#64748B;font-size:0.85rem;font-weight:400;">(12 total)</span></span>
+            </h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Author</th>
+                        <th>Status</th>
+                        <th>Published Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><strong style="color:#fff;">10 Reasons Why Kids Should Learn Python</strong></td>
+                        <td>Python Tips</td>
+                        <td>Priya Sharma</td>
+                        <td><span class="badge badge-published">Published</span></td>
+                        <td>Jun 20, 2026</td>
+                        <td><a href="#" class="action-link">Edit</a><a href="#" class="action-link danger">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><strong style="color:#fff;">How to Build Your First Roblox Game</strong></td>
+                        <td>Game Dev</td>
+                        <td>Karan Mehta</td>
+                        <td><span class="badge badge-published">Published</span></td>
+                        <td>Jun 15, 2026</td>
+                        <td><a href="#" class="action-link">Edit</a><a href="#" class="action-link danger">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><strong style="color:#fff;">A Parent's Guide to Coding Education</strong></td>
+                        <td>Parenting</td>
+                        <td>Admin</td>
+                        <td><span class="badge badge-draft">Draft</span></td>
+                        <td>—</td>
+                        <td><a href="#" class="action-link">Edit</a><a href="#" class="action-link">Publish</a></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><strong style="color:#fff;">Summer Coding Bootcamp 2026 Announced</strong></td>
+                        <td>Announcements</td>
+                        <td>Admin</td>
+                        <td><span class="badge badge-published">Published</span></td>
+                        <td>Jun 10, 2026</td>
+                        <td><a href="#" class="action-link">Edit</a><a href="#" class="action-link danger">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><strong style="color:#fff;">Top 5 Careers for Young Coders in India</strong></td>
+                        <td>Career Guidance</td>
+                        <td>Anita Rao</td>
+                        <td><span class="badge badge-draft">Draft</span></td>
+                        <td>—</td>
+                        <td><a href="#" class="action-link">Edit</a><a href="#" class="action-link">Publish</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</div>
+</body>
+</html>
