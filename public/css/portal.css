@@ -1,0 +1,186 @@
+/* portal.css - Shared styles for Admin, Teacher, Student, and Parent Portals */
+
+.portal-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    background: var(--bg-white);
+    color: var(--text-muted);
+    padding: 30px 0;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    border-right: 1px solid #E2E8F0;
+    overflow-y: auto;
+}
+
+.sidebar-logo {
+    padding: 0 25px 30px;
+    border-bottom: 1px solid #F1F5F9;
+    margin-bottom: 20px;
+}
+
+.sidebar-logo span {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--primary);
+}
+
+.sidebar-section-label {
+    padding: 10px 25px 5px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #94A3B8;
+    font-weight: 600;
+}
+
+.sidebar-nav {
+    list-style: none;
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+
+.sidebar-nav li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 15px;
+    border-radius: var(--radius-md);
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    margin-bottom: 2px;
+}
+
+.sidebar-nav li a:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+.sidebar-nav li a.active {
+    background: var(--primary-light);
+    color: var(--primary);
+    font-weight: 600;
+    border-left: 4px solid var(--primary);
+    border-radius: 4px 8px 8px 4px;
+}
+
+/* Main Content Area */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    background: var(--bg-main);
+}
+
+.topbar-card {
+    background: var(--bg-white);
+    padding: 16px 24px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 30px;
+}
+
+.search-wrap {
+    position: relative;
+    max-width: 350px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94A3B8;
+}
+
+.search-wrap input {
+    padding-left: 40px !important;
+}
+
+/* Stat Cards */
+.stat-card {
+    background: var(--bg-white);
+    padding: 25px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid #F1F5F9;
+    height: 100%;
+}
+
+.icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+/* Data & Tables */
+.data-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    padding: 25px;
+    box-shadow: var(--shadow-sm);
+    height: 100%;
+}
+
+.data-card h2 {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #F1F5F9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Badges */
+.badge-soft-success {
+    background: #DCFCE7;
+    color: #166534;
+}
+
+.badge-soft-info {
+    background: #E0F2FE;
+    color: #0369A1;
+}
+
+/* Quick Actions */
+.quick-action-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    background: #F8FAFC;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    margin-bottom: 10px;
+    border: 1px solid #F1F5F9;
+}
+
+.quick-action-btn:hover {
+    background: var(--primary-light);
+    border-color: #FED7AA;
+    color: var(--primary);
+}
+
+.quick-action-btn span {
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
