@@ -1,8 +1,4 @@
-<?= $this->extend('layouts/main') ?>
-
-<?= $this->section('title') ?>Home<?= $this->endSection() ?>
-
-<?= $this->section('content') ?>
+<?= view('components/header', ['title' => 'Home']) ?>
 
     <!-- Hero Section -->
     <header class="hero py-5" style="background: linear-gradient(135deg, #FFF7ED 0%, #F0F9FF 100%); min-height: 80vh; display: flex; align-items: center;">
@@ -79,4 +75,4 @@
         </div>
     </section>
 
-<?= $this->endSection() ?>
+<?= view('components/footer') ?>

@@ -1,38 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python for Beginners | KidsAI Coding Academy</title>
-    
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom Style -->
-    <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
-</head>
-<body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg sticky-top">
-        <div class="container">
-            <a class="navbar-brand logo" href="<?= base_url() ?>">
-                <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 6px; display: inline-block;"></div>
-                <span class="ms-2">KidsAI Coding</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navMain">
-                <ul class="navbar-nav ms-auto align-items-center gap-3">
-                    <li class="nav-item"><a class="nav-link" href="<?= base_url() ?>">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="<?= base_url('courses') ?>">Courses</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?= base_url('about') ?>">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?= base_url('contact') ?>">Contact</a></li>
-                    <li class="nav-item"><a href="<?= base_url('login') ?>" class="btn btn-outline-primary px-4">Login</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<?= view('components/header', ['title' => 'Python for Beginners']) ?>
 
     <!-- Banner -->
     <div class="bg-light-subtle shadow-sm py-5 mb-5 border-bottom">
@@ -158,9 +124,4 @@
         </div>
     </div>
 
-    <!-- Footer ... same as homepage ... -->
-
-    <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<?= view('components/footer') ?>

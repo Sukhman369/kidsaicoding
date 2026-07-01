@@ -1,45 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Account | KidsAI Coding Academy</title>
-    
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom Style -->
-    <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
-    <style>
-        body {
-            background: linear-gradient(135deg, #F0F9FF 0%, #FFF7ED 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 0;
-        }
-        .register-card {
-            max-width: 550px;
-            width: 100%;
-            background: #fff;
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-        }
-        .auth-logo {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-        .auth-logo div {
-            width: 48px; height: 48px;
-            background: var(--primary);
-            border-radius: 12px;
-            margin: 0 auto 10px;
-        }
-    </style>
-</head>
-<body>
+<?= view('components/header', ['title' => 'Create Account']) ?>
 
+<style>
+    .register-container {
+        background: linear-gradient(135deg, #F0F9FF 0%, #FFF7ED 100%);
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 20px;
+    }
+    .register-card {
+        max-width: 550px;
+        width: 100%;
+        background: #fff;
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    }
+    .auth-logo {
+        text-align: center;
+        margin-bottom: 35px;
+    }
+    .auth-logo div {
+        width: 48px; height: 48px;
+        background: var(--primary);
+        border-radius: 12px;
+        margin: 0 auto 10px;
+    }
+</style>
+
+<div class="register-container">
     <div class="register-card">
         <div class="auth-logo">
             <div class="shadow-sm"></div>
@@ -94,6 +84,6 @@
             </div>
         </form>
     </div>
+</div>
 
-</body>
-</html>
+<?= view('components/footer') ?>
