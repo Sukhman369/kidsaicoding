@@ -1,11 +1,11 @@
-# Graph Report - C:\Users\harma\Documents\kidsaicoding  (2026-07-01)
+# Graph Report - C:\Users\harma\Documents\kidsaicoding  (2026-07-03)
 
 ## Corpus Check
-- 95 files · ~39,146 words
+- 92 files · ~42,258 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 169 nodes · 98 edges · 90 communities detected
+- 166 nodes · 98 edges · 87 communities detected
 - Extraction: 83% EXTRACTED · 17% INFERRED · 0% AMBIGUOUS · INFERRED: 17 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
@@ -97,21 +97,27 @@
 - [[_COMMUNITY_Community 84|Community 84]]
 - [[_COMMUNITY_Community 85|Community 85]]
 - [[_COMMUNITY_Community 86|Community 86]]
-- [[_COMMUNITY_Community 87|Community 87]]
-- [[_COMMUNITY_Community 88|Community 88]]
-- [[_COMMUNITY_Community 89|Community 89]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `View` - 18 edges
-2. `Dashboard` - 10 edges
-3. `Website` - 7 edges
-4. `Content` - 5 edges
-5. `preload` - 4 edges
-6. `Mimes` - 3 edges
-7. `init()` - 3 edges
-8. `getHash()` - 3 edges
-9. `Database` - 2 edges
-10. `Exceptions` - 2 edges
+1. `Dashboard` - 10 edges
+2. `Website` - 7 edges
+3. `Content` - 5 edges
+4. `preload` - 4 edges
+5. `Mimes` - 3 edges
+6. `init()` - 3 edges
+7. `getHash()` - 3 edges
+8. `Database` - 2 edges
+9. `Exceptions` - 2 edges
+10. `BaseController` - 2 edges
+
+## Toxic Hotspots (high risk + high activity)
+1. `preload` - Risk Score: 84% (UNKNOWN)
+2. `.__construct()` - Risk Score: 82% (UNKNOWN)
+3. `.loadAutoloader()` - Risk Score: 82% (UNKNOWN)
+4. `preload.php` - Risk Score: 81% (UNKNOWN)
+5. `.load()` - Risk Score: 81% (UNKNOWN)
+6. `View` - Risk Score: 80% (UNKNOWN)
+7. `Dashboard` - Risk Score: 71% (UNKNOWN)
 
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
@@ -119,362 +125,437 @@
 ## Communities
 
 ### Community 0 - "Community 0"
+_Manages creation, storage, and presentation of digital content on a website._
 Cohesion: 0.19
-Nodes (3): Content, View, Website
+Nodes (2): Content, Website
 
 ### Community 1 - "Community 1"
+
 Cohesion: 0.18
 Nodes (1): Dashboard
 
 ### Community 2 - "Community 2"
+
 Cohesion: 0.53
 Nodes (4): getFirstChildWithTagName(), getHash(), init(), showTab()
 
 ### Community 3 - "Community 3"
+
 Cohesion: 0.5
 Nodes (1): preload
 
 ### Community 4 - "Community 4"
+
 Cohesion: 0.5
 Nodes (1): Mimes
 
 ### Community 5 - "Community 5"
+
 Cohesion: 0.67
 Nodes (1): Database
 
 ### Community 6 - "Community 6"
+
 Cohesion: 0.67
 Nodes (1): Exceptions
 
 ### Community 7 - "Community 7"
+
 Cohesion: 0.67
 Nodes (1): BaseController
 
 ### Community 8 - "Community 8"
+
 Cohesion: 0.67
 Nodes (1): Home
 
 ### Community 9 - "Community 9"
+_Manages the overall application flow, including bootstrapping, routing, and coordinating services._
 Cohesion: 1.0
 Nodes (1): App
 
 ### Community 10 - "Community 10"
+
 Cohesion: 1.0
 Nodes (1): Autoload
 
 ### Community 11 - "Community 11"
+
 Cohesion: 1.0
 Nodes (1): Cache
 
 ### Community 12 - "Community 12"
+
 Cohesion: 1.0
 Nodes (1): ContentSecurityPolicy
 
 ### Community 13 - "Community 13"
+
 Cohesion: 1.0
 Nodes (1): Cookie
 
 ### Community 14 - "Community 14"
+
 Cohesion: 1.0
 Nodes (1): Cors
 
 ### Community 15 - "Community 15"
+
 Cohesion: 1.0
 Nodes (1): CURLRequest
 
 ### Community 16 - "Community 16"
+
 Cohesion: 1.0
 Nodes (1): DocTypes
 
 ### Community 17 - "Community 17"
+
 Cohesion: 1.0
 Nodes (1): Email
 
 ### Community 18 - "Community 18"
+
 Cohesion: 1.0
 Nodes (1): Encryption
 
 ### Community 19 - "Community 19"
+_Oversees the planning, development, and activation of software features._
 Cohesion: 1.0
 Nodes (1): Feature
 
 ### Community 20 - "Community 20"
+
 Cohesion: 1.0
 Nodes (1): Filters
 
 ### Community 21 - "Community 21"
+
 Cohesion: 1.0
 Nodes (1): ForeignCharacters
 
 ### Community 22 - "Community 22"
+
 Cohesion: 1.0
 Nodes (1): Format
 
 ### Community 23 - "Community 23"
+
 Cohesion: 1.0
 Nodes (1): Generators
 
 ### Community 24 - "Community 24"
+
 Cohesion: 1.0
 Nodes (1): Honeypot
 
 ### Community 25 - "Community 25"
+
 Cohesion: 1.0
 Nodes (1): Hostnames
 
 ### Community 26 - "Community 26"
+
 Cohesion: 1.0
 Nodes (1): Images
 
 ### Community 27 - "Community 27"
+
 Cohesion: 1.0
 Nodes (1): Kint
 
 ### Community 28 - "Community 28"
+
 Cohesion: 1.0
 Nodes (1): Logger
 
 ### Community 29 - "Community 29"
+
 Cohesion: 1.0
 Nodes (1): Migrations
 
 ### Community 30 - "Community 30"
+
 Cohesion: 1.0
 Nodes (1): Modules
 
 ### Community 31 - "Community 31"
+
 Cohesion: 1.0
 Nodes (1): Optimize
 
 ### Community 32 - "Community 32"
+
 Cohesion: 1.0
 Nodes (1): Pager
 
 ### Community 33 - "Community 33"
+
 Cohesion: 1.0
 Nodes (1): Paths
 
 ### Community 34 - "Community 34"
+
 Cohesion: 1.0
 Nodes (1): Publisher
 
 ### Community 35 - "Community 35"
+_Manages mapping of incoming requests to the appropriate services, ensuring efficient handling and delivery of traffic._
 Cohesion: 1.0
 Nodes (1): Routing
 
 ### Community 36 - "Community 36"
+_Protects digital information by ensuring confidentiality, integrity, and availability through authentication, encryption, and access controls._
 Cohesion: 1.0
 Nodes (1): Security
 
 ### Community 37 - "Community 37"
+
 Cohesion: 1.0
 Nodes (1): Services
 
 ### Community 38 - "Community 38"
+
 Cohesion: 1.0
 Nodes (1): Session
 
 ### Community 39 - "Community 39"
+
 Cohesion: 1.0
 Nodes (1): Toolbar
 
 ### Community 40 - "Community 40"
+
 Cohesion: 1.0
 Nodes (1): UserAgents
 
 ### Community 41 - "Community 41"
+
 Cohesion: 1.0
 Nodes (1): Validation
 
 ### Community 42 - "Community 42"
+
 Cohesion: 1.0
 Nodes (1): WorkerMode
 
 ### Community 43 - "Community 43"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 44 - "Community 44"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 45 - "Community 45"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 46 - "Community 46"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 47 - "Community 47"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 48 - "Community 48"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 49 - "Community 49"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 50 - "Community 50"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 51 - "Community 51"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 52 - "Community 52"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 53 - "Community 53"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 54 - "Community 54"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 55 - "Community 55"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 56 - "Community 56"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 57 - "Community 57"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 58 - "Community 58"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 59 - "Community 59"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 60 - "Community 60"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 61 - "Community 61"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 62 - "Community 62"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 63 - "Community 63"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 64 - "Community 64"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 65 - "Community 65"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 66 - "Community 66"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 67 - "Community 67"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 68 - "Community 68"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 69 - "Community 69"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 70 - "Community 70"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 71 - "Community 71"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 72 - "Community 72"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 73 - "Community 73"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 74 - "Community 74"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 75 - "Community 75"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 76 - "Community 76"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 77 - "Community 77"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 78 - "Community 78"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 79 - "Community 79"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 80 - "Community 80"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 81 - "Community 81"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 82 - "Community 82"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 83 - "Community 83"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 84 - "Community 84"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 85 - "Community 85"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
 ### Community 86 - "Community 86"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 87 - "Community 87"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 88 - "Community 88"
-Cohesion: 1.0
-Nodes (0): 
-
-### Community 89 - "Community 89"
+_Unable to determine domain due to missing code entities._
 Cohesion: 1.0
 Nodes (0): 
 
@@ -567,89 +648,73 @@ Nodes (0):
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 51`** (1 nodes): `about.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 52`** (1 nodes): `component_test.php`
+- **Thin community `Community 52`** (1 nodes): `contact.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 53`** (1 nodes): `contact.php`
+- **Thin community `Community 53`** (1 nodes): `courses.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 54`** (1 nodes): `courses.php`
+- **Thin community `Community 54`** (1 nodes): `course_detail.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 55`** (1 nodes): `course_detail.php`
+- **Thin community `Community 55`** (1 nodes): `index.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 56`** (1 nodes): `example_page.php`
+- **Thin community `Community 56`** (1 nodes): `login.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 57`** (1 nodes): `index.php`
+- **Thin community `Community 57`** (1 nodes): `register.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 58`** (1 nodes): `login.php`
+- **Thin community `Community 58`** (1 nodes): `blogs.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 59`** (1 nodes): `register.php`
+- **Thin community `Community 59`** (1 nodes): `courses.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 60`** (1 nodes): `welcome_message.php`
+- **Thin community `Community 60`** (1 nodes): `dashboard.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 61`** (1 nodes): `blogs.php`
+- **Thin community `Community 61`** (1 nodes): `settings.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 62`** (1 nodes): `courses.php`
+- **Thin community `Community 62`** (1 nodes): `users.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 63`** (1 nodes): `dashboard.php`
+- **Thin community `Community 63`** (1 nodes): `admin_sidebar.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 64`** (1 nodes): `settings.php`
+- **Thin community `Community 64`** (1 nodes): `footer.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 65`** (1 nodes): `users.php`
+- **Thin community `Community 65`** (1 nodes): `header.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 66`** (1 nodes): `admin_sidebar.php`
+- **Thin community `Community 66`** (1 nodes): `parent_sidebar.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 67`** (1 nodes): `footer.php`
+- **Thin community `Community 67`** (1 nodes): `portal_footer.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 68`** (1 nodes): `header.php`
+- **Thin community `Community 68`** (1 nodes): `portal_header.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 69`** (1 nodes): `parent_sidebar.php`
+- **Thin community `Community 69`** (1 nodes): `portal_topbar.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 70`** (1 nodes): `portal_footer.php`
+- **Thin community `Community 70`** (1 nodes): `student_sidebar.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 71`** (1 nodes): `portal_header.php`
+- **Thin community `Community 71`** (1 nodes): `teacher_sidebar.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 72`** (1 nodes): `portal_topbar.php`
+- **Thin community `Community 72`** (1 nodes): `error_404.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 73`** (1 nodes): `student_sidebar.php`
+- **Thin community `Community 73`** (1 nodes): `error_exception.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 74`** (1 nodes): `teacher_sidebar.php`
+- **Thin community `Community 74`** (1 nodes): `production.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 75`** (1 nodes): `error_404.php`
+- **Thin community `Community 75`** (1 nodes): `error_400.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 76`** (1 nodes): `error_exception.php`
+- **Thin community `Community 76`** (1 nodes): `error_404.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 77`** (1 nodes): `production.php`
+- **Thin community `Community 77`** (1 nodes): `error_exception.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 78`** (1 nodes): `error_400.php`
+- **Thin community `Community 78`** (1 nodes): `production.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 79`** (1 nodes): `error_404.php`
+- **Thin community `Community 79`** (1 nodes): `main.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 80`** (1 nodes): `error_exception.php`
+- **Thin community `Community 80`** (1 nodes): `portal.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 81`** (1 nodes): `production.php`
+- **Thin community `Community 81`** (1 nodes): `dashboard.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 82`** (1 nodes): `main.php`
+- **Thin community `Community 82`** (1 nodes): `assignments.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 83`** (1 nodes): `portal.php`
+- **Thin community `Community 83`** (1 nodes): `dashboard.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 84`** (1 nodes): `dashboard.php`
+- **Thin community `Community 84`** (1 nodes): `my_courses.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 85`** (1 nodes): `assignments.php`
+- **Thin community `Community 85`** (1 nodes): `profile.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 86`** (1 nodes): `dashboard.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 87`** (1 nodes): `my_courses.php`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 88`** (1 nodes): `profile.php`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 89`** (1 nodes): `dashboard.php`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-
-## Suggested Questions
-_Questions this graph is uniquely positioned to answer:_
-
-- **Why does `View` connect `Community 0` to `Community 8`, `Community 1`?**
-  _High betweenness centrality (0.023) - this node is a cross-community bridge._
-- **Are the 17 inferred relationships involving `View` (e.g. with `.index()` and `.courses()`) actually correct?**
-  _`View` has 17 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `App`, `Autoload`, `Cache` to the rest of the system?**
-  _34 weakly-connected nodes found - possible documentation gaps or missing edges._
