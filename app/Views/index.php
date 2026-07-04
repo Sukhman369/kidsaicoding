@@ -1,45 +1,745 @@
 <?= view('components/header', ['title' => 'Home']) ?>
 
     <!-- Hero Section -->
-    <header class="hero py-5" style="background: linear-gradient(135deg, #FFF7ED 0%, #F0F9FF 100%); min-height: 80vh; display: flex; align-items: center;">
-        <div class="container py-lg-5">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6">
-                    <div class="d-inline-flex align-items-center bg-white px-3 py-2 rounded-pill shadow-sm mb-4 border border-primary border-opacity-10 animate-float">
-                        <span class="badge bg-primary text-white rounded-pill px-2 me-2">New</span>
-                        <span class="small fw-bold text-primary">AI for Kids batch starts soon! 🚀</span>
+    <header class="home-hero">
+        <div class="home-hero-container">
+            <div class="hero-left">
+                <span class="hero-tag">
+                    🚀 New Batch Starting Soon
+                </span>
+
+                <h1>
+                    Learn
+                    <span>AI, Coding & Robotics</span>
+                    The Fun Way.
+                </h1>
+
+                <p>
+                    Interactive project-based learning for kids aged 6–18.
+                    Build games, websites, apps and AI projects with expert mentors
+                    from the comfort of your home.
+                </p>
+
+                <div class="hero-features">
+                    <div>✔ Live Interactive Classes</div>
+                    <div>✔ STEM Accredited Curriculum</div>
+                    <div>✔ Build Real Projects</div>
+                    <div>✔ Certified Mentors</div>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="#" class="btn-hero-primary">
+                        Explore Courses
+                    </a>
+                    <a href="#" class="btn-hero-secondary">
+                        Book Free Demo
+                    </a>
+                </div>
+
+                <div class="hero-trust">
+                    <div class="hero-trust-item">
+                        <strong>10,000+</strong>
+                        <span>Students</span>
                     </div>
-                    <h1 class="display-3 fw-extrabold mb-4 animate-slide-up" style="font-family: 'Outfit', sans-serif; letter-spacing: -2px; line-height: 1.1;">
-                        The Fun Way to <br><span class="text-primary text-gradient">Master Coding</span>
-                    </h1>
-                    <p class="lead text-muted mb-5 pe-lg-5 animate-slide-up" style="animation-delay: 0.1s;">
-                        Interactive, project-based learning for kids aged 7-18. Build games, apps, and AI models with expert mentors from the comfort of your home.
-                    </p>
-                    <div class="d-flex flex-wrap gap-3 animate-slide-up" style="animation-delay: 0.2s;">
-                        <a href="<?= base_url('courses') ?>" class="btn btn-primary btn-lg shadow-lg px-5 py-3 rounded-4 fw-bold">Explore Courses</a>
-                        <a href="#" class="btn btn-white btn-lg shadow-sm px-5 py-3 rounded-4 fw-bold border">Book Free Demo</a>
+                    <div class="hero-trust-item">
+                        <strong>4.9★</strong>
+                        <span>Google Rating</span>
+                    </div>
+                    <div class="hero-trust-item">
+                        <strong>STEM</strong>
+                        <span>Accredited</span>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="hero-card position-relative animate-fade-in">
-                        <div class="bg-white rounded-5 shadow-2xl p-4 p-md-5 border border-white position-relative z-1 overflow-hidden" style="min-height: 400px; display:flex; align-items:center; justify-content:center;">
-                            <div class="text-center">
-                                <div class="h2 fw-bold mb-3">Building Future <br>Innovators 🎮</div>
-                                <div class="d-flex justify-content-center gap-2">
-                                    <div class="badge bg-soft-primary text-primary px-3 py-2">Roblox</div>
-                                    <div class="badge bg-soft-success text-success px-3 py-2">Python</div>
-                                    <div class="badge bg-soft-warning text-warning px-3 py-2">Web Dev</div>
-                                </div>
-                            </div>
-                            <!-- Decorative elements -->
-                            <div class="position-absolute top-0 end-0 p-4 opacity-10 h1">{}</div>
-                            <div class="position-absolute bottom-0 start-0 p-4 opacity-10 h1">[]</div>
-                        </div>
-                    </div>
+            </div>
+
+            <div class="hero-right">
+                <div class="hero-image-placeholder">
+                    IMAGE PLACEHOLDER
                 </div>
             </div>
         </div>
     </header>
+
+<!-- Course Section Start -->
+<section class="home-courses">
+
+    <div class="section-title">
+        <h2>
+
+            Choose an <span>AI & Coding Course</span> That Inspires Your Child
+        </h2>
+    </div>
+
+    <div class="course-grid">
+
+        <!-- Card 1 -->
+        <div class="course-card">
+            <div class="course-image">
+                <span class="badge ai">AI</span>
+                <span class="badge age">Age 5-15</span>
+                <div class="image-placeholder">
+                    <span>1:1 Class</span>
+                </div>
+            </div>
+            <div class="course-body">
+                <h3>AI & Coding Grandmaster</h3>
+                <div class="course-meta">
+                    <span>🎓 Grade 1-10</span>
+                    <span>📚 144 Lessons</span>
+                    <span>📝 350+ Activities</span>
+                    <span>⏱ 12-18 Months</span>
+                </div>
+                <p class="description">
+                    Explore interactive lessons to become an AI & Coding expert through projects and practical learning.
+                </p>
+                <h4>Learning Outcomes</h4>
+                <ul>
+                    <li>Build apps, games & websites</li>
+                    <li>Master AI & Coding</li>
+                    <li>Project-based learning</li>
+                    <li>STEM.org Certificate</li>
+                </ul>
+            </div>
+            <div class="course-footer">
+                <a href="#">Download Curriculum ↓</a>
+                <button>Try a Free Lesson</button>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="course-card">
+            <div class="course-image">
+                <span class="badge ai">AI</span>
+                <span class="badge age">Age 5-17</span>
+                <div class="image-placeholder">
+                    <span>Expert Led</span>
+                </div>
+            </div>
+            <div class="course-body">
+                <h3>AI & Coding Prodigy</h3>
+                <div class="course-meta">
+                    <span>🎓 Grade 1-12</span>
+                    <span>📚 96 Lessons</span>
+                    <span>📝 184 Activities</span>
+                    <span>⏱ 9-12 Months</span>
+                </div>
+                <p class="description">
+                    Learn coding through exciting projects, AI applications and real-world challenges.
+                </p>
+                <h4>Learning Outcomes</h4>
+                <ul>
+                    <li>Code like a pro</li>
+                    <li>Create amazing apps</li>
+                    <li>Earn STEM Certificate</li>
+                    <li>Master problem solving</li>
+                </ul>
+            </div>
+            <div class="course-footer">
+                <a href="#">Download Curriculum ↓</a>
+                <button>Try a Free Lesson</button>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="course-card">
+            <div class="course-image">
+                <span class="badge ai">AI</span>
+                <span class="badge age">Age 7-18</span>
+                <div class="image-placeholder">
+                    <span>Creative Lab</span>
+                </div>
+            </div>
+            <div class="course-body">
+                <h3>AI & Coding Champion</h3>
+                <div class="course-meta">
+                    <span>🎓 Grade 3-12</span>
+                    <span>📚 48 Lessons</span>
+                    <span>📝 120+ Activities</span>
+                    <span>⏱ 6-8 Months</span>
+                </div>
+                <p class="description">
+                    Dive into advanced AI concepts and advanced app development with hands-on labs.
+                </p>
+                <h4>Learning Outcomes</h4>
+                <ul>
+                    <li>Advanced AI Models</li>
+                    <li>Full-stack Web Apps</li>
+                    <li>Data Science Basics</li>
+                    <li>Global Certification</li>
+                </ul>
+            </div>
+            <div class="course-footer">
+                <a href="#">Download Curriculum ↓</a>
+                <button>Try a Free Lesson</button>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="course-card">
+            <div class="course-image">
+                <span class="badge ai">AI</span>
+                <span class="badge age">Age 6-16</span>
+                <div class="image-placeholder">
+                    <span>Skill Builder</span>
+                </div>
+            </div>
+            <div class="course-body">
+                <h3>AI & Coding Wizard</h3>
+                <div class="course-meta">
+                    <span>🎓 Grade 2-11</span>
+                    <span>📚 72 Lessons</span>
+                    <span>📝 150+ Activities</span>
+                    <span>⏱ 8-10 Months</span>
+                </div>
+                <p class="description">
+                    Master the magic of coding and artificial intelligence to create futuristic projects.
+                </p>
+                <h4>Learning Outcomes</h4>
+                <ul>
+                    <li>Python programming</li>
+                    <li>Game development</li>
+                    <li>AI Chatbots</li>
+                    <li>Digital Portfolio</li>
+                </ul>
+            </div>
+            <div class="course-footer">
+                <a href="#">Download Curriculum ↓</a>
+                <button>Try a Free Lesson</button>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<!-- Course Section End -->
+<!-- Plans section Start -->
+ <section class="pricing">
+
+    <div class="section-heading">
+        <h2>Choose the Perfect Learning Plan</h2>
+        <p>Flexible plans designed for every child's learning style.</p>
+    </div>
+
+    <div class="pricing-grid">
+
+        <!-- PLAN 1 -->
+        <div class="price-card">
+            <div class="price-header prime">
+                <h3>Prime</h3>
+            </div>
+            <div class="price-body">
+                <h1 class="price-main">₹1,365</h1>
+                <span>/ Session</span>
+                <h4 class="old-price"><del>₹2,100</del></h4>
+                <div class="discount-badge">35% OFF</div>
+                <a href="#" class="price-btn">Book Free Demo</a>
+                <h5 class="price-info-title">Private 1-on-1 Classes</h5>
+                <ul class="price-features-list">
+                    <li>45-minute live personalized sessions</li>
+                    <li>2–3 classes every week</li>
+                    <li>Dedicated mentor</li>
+                    <li>Unlimited rescheduling</li>
+                    <li>Progress tracking dashboard</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- PLAN 2 -->
+        <div class="price-card featured">
+            <div class="popular-badge">MOST POPULAR</div>
+            <div class="price-header premier">
+                <h3>Premier</h3>
+            </div>
+            <div class="price-body">
+                <h1 class="price-main">₹1,102</h1>
+                <span>/ Session</span>
+                <h4 class="old-price"><del>₹1,575</del></h4>
+                <div class="discount-badge">30% OFF</div>
+                <a href="#" class="price-btn">Book Free Demo</a>
+                <h5 class="price-info-title">Micro Group (2–3 Students)</h5>
+                <ul class="price-features-list">
+                    <li>60-minute live classes</li>
+                    <li>8 classes per month</li>
+                    <li>Collaborative learning</li>
+                    <li>Flexible rescheduling</li>
+                    <li>Project-based learning</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- PLAN 3 -->
+        <div class="price-card">
+            <div class="price-header plus">
+                <h3>Plus</h3>
+            </div>
+            <div class="price-body">
+                <h1 class="price-main">₹744</h1>
+                <span>/ Session</span>
+                <h4 class="old-price"><del>₹992</del></h4>
+                <div class="discount-badge">25% OFF</div>
+                <a href="#" class="price-btn">Book Free Demo</a>
+                <h5 class="price-info-title">Small Group (4–5 Students)</h5>
+                <ul class="price-features-list">
+                    <li>60-minute interactive classes</li>
+                    <li>8 classes every month</li>
+                    <li>Team collaboration</li>
+                    <li>No rescheduling</li>
+                    <li>Affordable learning</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<!-- Plans Section Ends -->
+
+<!-- Benefits Section Start -->
+<section class="benefits-section">
+
+    <!-- Scholarship Banner -->
+    <div class="scholarship-banner">
+        <div class="penguin">🐧</div>
+        <p>Complete a <strong>FREE Trial Lesson</strong> to unlock additional scholarships!</p>
+    </div>
+
+    <!-- Benefits Card -->
+    <div class="benefits-card">
+        <div class="sparkle">✨</div>
+        <h2>Every student at <span>KidsAI</span> gets these amazing benefits!</h2>
+        <ul>
+            <li>A handpicked mentor matched to your child's learning style.</li>
+            <li>Two FREE monthly doubt-clearing sessions.</li>
+            <li>Unlimited AI Tutor access anytime.</li>
+            <li>24×7 Parent Support Team.</li>
+            <li>Lifetime access to recordings & worksheets.</li>
+            <li>STEM Accredited Certificate after milestones.</li>
+            <li>Worksheets & quizzes after every class.</li>
+            <li>Monthly progress reports.</li>
+            <li>Flexible payment options.</li>
+            <li>100% Money Back Guarantee.</li>
+            <li>Student Dashboard with analytics.</li>
+        </ul>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="benefits-footer">
+        <p>Start with a FREE Trial Lesson at your preferred date & time. No commitments. No hidden charges.</p>
+        <a href="#" class="trial-btn">Try a FREE Lesson</a>
+    </div>
+
+</section>
+<!-- Benefits Section Ends -->
+
+<!-- Testimonials Section Start -->
+<section class="testimonials">
+
+    <div class="section-heading">
+        <h2>Hear From Our Happy Students</h2>
+        <p>Real students sharing their coding journey through projects & innovation.</p>
+    </div>
+
+    <div class="testimonial-slider-wrap">
+        <button class="slider-btn prev">❮</button>
+        <button class="slider-btn next">❯</button>
+
+        <div class="testimonial-slider">
+
+            <!-- Card 1 -->
+            <div class="testimonial-card">
+                <div class="video-box">
+                    <div class="play-btn">▶</div>
+                    VIDEO THUMBNAIL
+                </div>
+                <div class="testimonial-content">
+                    <div class="stars">★★★★★</div>
+                    <h3>Aarav Sharma</h3>
+                    <span>Grade 6 • AI & Coding</span>
+                    <p>"I built my own platformer games and learned Python logic in just a few months!"</p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="testimonial-card">
+                <div class="video-box">
+                    <div class="play-btn">▶</div>
+                    VIDEO THUMBNAIL
+                </div>
+                <div class="testimonial-content">
+                    <div class="stars">★★★★★</div>
+                    <h3>Priya Patel</h3>
+                    <span>Grade 8 • Web Development</span>
+                    <p>"Learning to build responsive websites was so much fun. My confidence has grown so much!"</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="testimonial-card">
+                <div class="video-box">
+                    <div class="play-btn">▶</div>
+                    VIDEO THUMBNAIL
+                </div>
+                <div class="testimonial-content">
+                    <div class="stars">★★★★★</div>
+                    <h3>Rohan Mehta</h3>
+                    <span>Grade 10 • Python Advanced</span>
+                    <p>"The hands-on projects helped me discover my real passion for software engineering."</p>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="testimonial-card">
+                <div class="video-box">
+                    <div class="play-btn">▶</div>
+                    VIDEO THUMBNAIL
+                </div>
+                <div class="testimonial-content">
+                    <div class="stars">★★★★★</div>
+                    <h3>Ananya Iyer</h3>
+                    <span>Grade 5 • Game Design</span>
+                    <p>"I love how we can create anything we imagine. My mentor is always there to help me."</p>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="testimonial-card">
+                <div class="video-box">
+                    <div class="play-btn">▶</div>
+                    VIDEO THUMBNAIL
+                </div>
+                <div class="testimonial-content">
+                    <div class="stars">★★★★★</div>
+                    <h3>Ishaan Gupta</h3>
+                    <span>Grade 7 • App Development</span>
+                    <p>"Building my first mobile app was a dream come true. KidsAI makes it so simple!"</p>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="testimonial-card">
+                <div class="video-box">
+                    <div class="play-btn">▶</div>
+                    VIDEO THUMBNAIL
+                </div>
+                <div class="testimonial-content">
+                    <div class="stars">★★★★★</div>
+                    <h3>Zoya Khan</h3>
+                    <span>Grade 9 • Artificial Intelligence</span>
+                    <p>"Understanding machine learning through fun experiments was the best part of my summer."</p>
+                </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="testimonial-card">
+                <div class="video-box">
+                    <div class="play-btn">▶</div>
+                    VIDEO THUMBNAIL
+                </div>
+                <div class="testimonial-content">
+                    <div class="stars">★★★★★</div>
+                    <h3>Kabir Singh</h3>
+                    <span>Grade 4 • Scratch Jr.</span>
+                    <p>"I made a story with talking animals! Coding is like playing with digital blocks."</p>
+                </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="testimonial-card">
+                <div class="video-box">
+                    <div class="play-btn">▶</div>
+                    VIDEO THUMBNAIL
+                </div>
+                <div class="testimonial-content">
+                    <div class="stars">★★★★★</div>
+                    <h3>Sana Reddy</h3>
+                    <span>Grade 11 • Data Science</span>
+                    <p>"The complex topics were explained so clearly. I'm now ready for my college projects."</p>
+                </div>
+            </div>
+
+            <!-- Card 9 -->
+            <div class="testimonial-card">
+                <div class="video-box">
+                    <div class="play-btn">▶</div>
+                    VIDEO THUMBNAIL
+                </div>
+                <div class="testimonial-content">
+                    <div class="stars">★★★★★</div>
+                    <h3>Arjun Das</h3>
+                    <span>Grade 6 • Robotics</span>
+                    <p>"Programing virtual robots to navigate mazes was incredibly exciting and challenging."</p>
+                </div>
+            </div>
+
+            <!-- Card 10 -->
+            <div class="testimonial-card">
+                <div class="video-box">
+                    <div class="play-btn">▶</div>
+                    VIDEO THUMBNAIL
+                </div>
+                <div class="testimonial-content">
+                    <div class="stars">★★★★★</div>
+                    <h3>Meera Nair</h3>
+                    <span>Grade 8 • UI/UX Design</span>
+                    <p>"I learned how to design beautiful app interfaces. It's the perfect mix of art and tech."</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="slider-dots">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+</section>
+<!-- Testimonials Section Ends -->
+
+<!-- Mentor Section Start -->
+<section class="mentor-section">
+
+    <div class="section-title">
+        <h2>Learn From Industry Expert Mentors</h2>
+        <p>Our carefully selected mentors make coding fun, practical, and engaging for every child.</p>
+    </div>
+
+    <div class="mentor-container">
+
+        <!-- LEFT: Image Placeholder -->
+        <div class="mentor-image-placeholder">
+            IMAGE PLACEHOLDER
+        </div>
+
+        <!-- RIGHT: Stats Grid -->
+        <div class="mentor-grid">
+
+            <div class="mentor-card">
+                <div class="icon">🎓</div>
+                <h3>1000+</h3>
+                <p>Expert Mentors</p>
+            </div>
+
+            <div class="mentor-card">
+                <div class="icon">🏆</div>
+                <h3>8+ Years</h3>
+                <p>Teaching Experience</p>
+            </div>
+
+            <div class="mentor-card">
+                <div class="icon">⭐</div>
+                <h3>4.9/5</h3>
+                <p>Student Rating</p>
+            </div>
+
+            <div class="mentor-card">
+                <div class="icon">💻</div>
+                <h3>10+</h3>
+                <p>Programming Languages</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="mentor-buttons">
+        <a href="#" class="btn-outline">Become a Mentor</a>
+        <a href="#" class="btn-fill">Book Free Demo</a>
+    </div>
+
+</section>
+<!-- Mentor Section Ends -->
+
+<!-- Guarantee Section Start -->
+<section class="guarantee-section">
+
+    <div class="section-title">
+        <h2>100% Risk-Free Learning Guarantee</h2>
+        <p>We are committed to providing the best learning experience for every child.</p>
+    </div>
+
+    <div class="guarantee-card">
+
+        <!-- LEFT: Visual Seal -->
+        <div class="guarantee-image">
+            <div class="badge-seal-placeholder">
+                100%<br>GUARANTEE
+            </div>
+        </div>
+
+        <!-- RIGHT: Content -->
+        <div class="guarantee-content">
+            <h3>Your Satisfaction Comes First</h3>
+            <p>
+                We believe in the quality of our mentors and curriculum.
+                If you feel our classes aren't the right fit after your first
+                session, we'll refund your payment—no complicated process,
+                no hidden conditions.
+            </p>
+
+            <div class="guarantee-list">
+                <div class="check-item"><span>✔</span> 100% Money Back</div>
+                <div class="check-item"><span>✔</span> Cancel Anytime</div>
+                <div class="check-item"><span>✔</span> Transparent Pricing</div>
+                <div class="check-item"><span>✔</span> Dedicated Support</div>
+            </div>
+
+            <div class="guarantee-btn-wrap">
+                <a href="#" class="btn-fill">Book Free Trial</a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<!-- Guarantee Section Ends -->
+
+<!-- Why Code Section Start -->
+<section class="why-code">
+
+    <div class="section-title">
+        <h2>Why Every Child Should Learn Coding</h2>
+        <p>Coding isn't just about computers. It develops creativity, confidence and problem-solving skills that last a lifetime.</p>
+    </div>
+
+    <!-- ITEM 1 -->
+    <div class="why-row">
+        <div class="why-image">
+            IMAGE PLACEHOLDER
+        </div>
+        <div class="why-content">
+            <div class="icon-box">🧠</div>
+            <h3>Develop Critical Thinking</h3>
+            <p>
+                Coding strengthens logical reasoning, analytical thinking and creative problem-solving,
+                helping children perform better in academics and everyday life.
+            </p>
+        </div>
+    </div>
+
+    <!-- ITEM 2 -->
+    <div class="why-row reverse">
+        <div class="why-image">
+            IMAGE PLACEHOLDER
+        </div>
+        <div class="why-content">
+            <div class="icon-box">🚀</div>
+            <h3>Prepare for Future Careers</h3>
+            <p>
+                Technology is shaping every industry. Learning programming early gives children
+                confidence to succeed in tomorrow's digital world.
+            </p>
+        </div>
+    </div>
+
+    <!-- ITEM 3 -->
+    <div class="why-row">
+        <div class="why-image">
+            IMAGE PLACEHOLDER
+        </div>
+        <div class="why-content">
+            <div class="icon-box">🎯</div>
+            <h3>Learn Through Projects</h3>
+            <p>
+                Kids build games, websites, AI applications and real projects,
+                making learning practical and enjoyable.
+            </p>
+        </div>
+    </div>
+
+    <div class="why-btn-wrap">
+        <a href="#">Start Free Trial</a>
+    </div>
+
+</section>
+<!-- Why Code Section Ends -->
+
+<!-- Team Section Start -->
+<section class="team-section">
+
+    <div class="section-title">
+        <h2>Meet Our Expert Team</h2>
+        <p>Experienced educators and technology professionals dedicated to inspiring the next generation of innovators.</p>
+    </div>
+
+    <div class="team-grid">
+
+        <!-- CARD 1 -->
+        <div class="team-card">
+            <div class="team-image-placeholder">IMAGE PLACEHOLDER</div>
+            <div class="team-content">
+                <h3>Gaurav</h3>
+                <span>Founder & Lead Mentor</span>
+                <p>Passionate educator with 10+ years of experience teaching AI, Python and Robotics to young innovators.</p>
+            </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="team-card">
+            <div class="team-image-placeholder">IMAGE PLACEHOLDER</div>
+            <div class="team-content">
+                <h3>Rupali</h3>
+                <span>Head of Curriculum</span>
+                <p>Expert in STEM education with focus on project-based learning and interactive student engagement.</p>
+            </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="team-card">
+            <div class="team-image-placeholder">IMAGE PLACEHOLDER</div>
+            <div class="team-content">
+                <h3>Manish</h3>
+                <span>Senior AI Mentor</span>
+                <p>Tech professional with background in Machine Learning, dedicated to making complex AI concepts simple.</p>
+            </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="team-card">
+            <div class="team-image-placeholder">IMAGE PLACEHOLDER</div>
+            <div class="team-content">
+                <h3>Sukhman<h3>
+                <span>Creative Design Lead</span>
+                <p>Specializes in teaching UI/UX and Web Design, helping students build beautiful digital experiences.</p>
+            </div>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="team-card">
+            <div class="team-image-placeholder">IMAGE PLACEHOLDER</div>
+            <div class="team-content">
+                <h3>Sameer</h3>
+                <span>Robotics Expert</span>
+                <p>Engineer focused on hands-on robotics and hardware programming for students of all skill levels.</p>
+            </div>
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="team-card">
+            <div class="team-image-placeholder">IMAGE PLACEHOLDER</div>
+            <div class="team-content">
+                <h3>Name</h3>
+                <span>Student Success Mgr</span>
+                <p>Ensures every child's learning journey is personalized, fun and productive at every step.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="team-btn-wrap">
+        <a href="#">Meet The Entire Team</a>
+    </div>
+
+</section>
+<!-- Team Section Ends -->
+
+
+
+
+
 
     <!-- Features Section -->
     <section class="py-5 mt-5">
@@ -76,3 +776,22 @@
     </section>
 
 <?= view('components/footer') ?>
+
+<script>
+    // Testimonial Slider Navigation
+    const slider = document.querySelector('.testimonial-slider');
+    const prevBtn = document.querySelector('.slider-btn.prev');
+    const nextBtn = document.querySelector('.slider-btn.next');
+
+    if (slider && prevBtn && nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            const cardWidth = slider.querySelector('.testimonial-card').offsetWidth + 25;
+            slider.scrollBy({ left: cardWidth, behavior: 'smooth' });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            const cardWidth = slider.querySelector('.testimonial-card').offsetWidth + 25;
+            slider.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+        });
+    }
+</script>

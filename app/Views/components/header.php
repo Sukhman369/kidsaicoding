@@ -34,7 +34,7 @@
 
     <!-- Navigation Component -->
     <nav class="custom-navbar">
-        <div class="container d-flex justify-content-between align-items-center py-3">
+        <div class="container d-flex justify-content-between align-items-center py-2">
             <a class="navbar-brand d-flex align-items-center gap-2 text-decoration-none" href="<?= base_url() ?>">
                 <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 8px;"></div>
                 <span class="fw-bold h4 mb-0" style="font-family: 'Outfit', sans-serif; color: var(--primary);">KidsAI Coding</span>
