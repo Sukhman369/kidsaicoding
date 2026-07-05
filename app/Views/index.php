@@ -9,15 +9,11 @@
                 </span>
 
                 <h1>
-                    Learn
-                    <span>AI, Coding & Robotics</span>
-                    The Fun Way.
+                    <?= isset($settings['hero_title']) ? $settings['hero_title'] : 'Learn AI, Coding & Robotics The Fun Way.' ?>
                 </h1>
 
                 <p>
-                    Interactive project-based learning for kids aged 6–18.
-                    Build games, websites, apps and AI projects with expert mentors
-                    from the comfort of your home.
+                    <?= isset($settings['hero_subtitle']) ? nl2br($settings['hero_subtitle']) : 'Interactive project-based learning for kids aged 6–18. Build games, websites, apps and AI projects with expert mentors.' ?>
                 </p>
 
                 <div class="hero-features">
@@ -28,12 +24,13 @@
                 </div>
 
                 <div class="hero-buttons">
-                    <a href="#" class="btn-hero-primary">
+                    <a href="#courses" class="btn-hero-primary">
                         Explore Courses
                     </a>
-                    <a href="#" class="btn-hero-secondary">
+                    <a href="<?= base_url('book-free-class') ?>" class="btn-hero-secondary">
                         Book Free Demo
                     </a>
+
                 </div>
 
                 <div class="hero-trust">
@@ -61,156 +58,59 @@
     </header>
 
 <!-- Course Section Start -->
-<section class="home-courses">
+<section class="home-courses" id="courses">
 
     <div class="section-title">
         <h2>
-
             Choose an <span>AI & Coding Course</span> That Inspires Your Child
         </h2>
     </div>
 
     <div class="course-grid">
 
-        <!-- Card 1 -->
+        <?php foreach($courses as $course): ?>
         <div class="course-card">
             <div class="course-image">
-                <span class="badge ai">AI</span>
-                <span class="badge age">Age 5-15</span>
-                <div class="image-placeholder">
-                    <span>1:1 Class</span>
-                </div>
+                <?php if($course['badge']): ?>
+                    <span class="badge ai"><?= $course['badge'] ?></span>
+                <?php endif; ?>
+                <span class="badge age">Age <?= $course['age_range'] ?></span>
+                
+                <?php if($course['image_path']): ?>
+                    <img src="<?= base_url($course['image_path']) ?>" alt="<?= $course['title'] ?>" style="width: 100%; height: 200px; object-fit: cover; border-radius: 20px 20px 0 0;">
+                <?php else: ?>
+                    <div class="image-placeholder">
+                        <span><?= $course['course_type'] ?? 'Interactive Class' ?></span>
+                    </div>
+                <?php endif; ?>
             </div>
             <div class="course-body">
-                <h3>AI & Coding Grandmaster</h3>
+                <h3><?= $course['title'] ?></h3>
                 <div class="course-meta">
-                    <span>🎓 Grade 1-10</span>
-                    <span>📚 144 Lessons</span>
-                    <span>📝 350+ Activities</span>
-                    <span>⏱ 12-18 Months</span>
+                    <span>🎓 Grade <?= $course['grade_range'] ?></span>
+                    <span>📚 <?= $course['num_lessons'] ?> Lessons</span>
+                    <span>📝 <?= $course['num_activities'] ?> Activities</span>
+                    <span>⏱ <?= $course['duration'] ?></span>
                 </div>
                 <p class="description">
-                    Explore interactive lessons to become an AI & Coding expert through projects and practical learning.
+                    <?= $course['description'] ?>
                 </p>
-                <h4>Learning Outcomes</h4>
-                <ul>
-                    <li>Build apps, games & websites</li>
-                    <li>Master AI & Coding</li>
-                    <li>Project-based learning</li>
-                    <li>STEM.org Certificate</li>
-                </ul>
             </div>
-            <div class="course-footer">
-                <a href="#">Download Curriculum ↓</a>
-                <button>Try a Free Lesson</button>
+            <div class="course-footer" style="padding: 25px; border-top: 1px solid #eee; display: flex; flex-direction: column; gap: 15px;">
+                <a href="<?= base_url('book-free-class') ?>" style="width: 100%; padding: 12px; background: #4f46e5; color: white; border: none; border-radius: 12px; font-weight: 700; cursor: pointer; transition: all 0.3s; text-align: center; text-decoration: none;">Try a Free Lesson</a>
             </div>
-        </div>
 
-        <!-- Card 2 -->
-        <div class="course-card">
-            <div class="course-image">
-                <span class="badge ai">AI</span>
-                <span class="badge age">Age 5-17</span>
-                <div class="image-placeholder">
-                    <span>Expert Led</span>
-                </div>
-            </div>
-            <div class="course-body">
-                <h3>AI & Coding Prodigy</h3>
-                <div class="course-meta">
-                    <span>🎓 Grade 1-12</span>
-                    <span>📚 96 Lessons</span>
-                    <span>📝 184 Activities</span>
-                    <span>⏱ 9-12 Months</span>
-                </div>
-                <p class="description">
-                    Learn coding through exciting projects, AI applications and real-world challenges.
-                </p>
-                <h4>Learning Outcomes</h4>
-                <ul>
-                    <li>Code like a pro</li>
-                    <li>Create amazing apps</li>
-                    <li>Earn STEM Certificate</li>
-                    <li>Master problem solving</li>
-                </ul>
-            </div>
-            <div class="course-footer">
-                <a href="#">Download Curriculum ↓</a>
-                <button>Try a Free Lesson</button>
-            </div>
         </div>
+        <?php endforeach; ?>
 
-        <!-- Card 3 -->
-        <div class="course-card">
-            <div class="course-image">
-                <span class="badge ai">AI</span>
-                <span class="badge age">Age 7-18</span>
-                <div class="image-placeholder">
-                    <span>Creative Lab</span>
-                </div>
-            </div>
-            <div class="course-body">
-                <h3>AI & Coding Champion</h3>
-                <div class="course-meta">
-                    <span>🎓 Grade 3-12</span>
-                    <span>📚 48 Lessons</span>
-                    <span>📝 120+ Activities</span>
-                    <span>⏱ 6-8 Months</span>
-                </div>
-                <p class="description">
-                    Dive into advanced AI concepts and advanced app development with hands-on labs.
-                </p>
-                <h4>Learning Outcomes</h4>
-                <ul>
-                    <li>Advanced AI Models</li>
-                    <li>Full-stack Web Apps</li>
-                    <li>Data Science Basics</li>
-                    <li>Global Certification</li>
-                </ul>
-            </div>
-            <div class="course-footer">
-                <a href="#">Download Curriculum ↓</a>
-                <button>Try a Free Lesson</button>
-            </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="course-card">
-            <div class="course-image">
-                <span class="badge ai">AI</span>
-                <span class="badge age">Age 6-16</span>
-                <div class="image-placeholder">
-                    <span>Skill Builder</span>
-                </div>
-            </div>
-            <div class="course-body">
-                <h3>AI & Coding Wizard</h3>
-                <div class="course-meta">
-                    <span>🎓 Grade 2-11</span>
-                    <span>📚 72 Lessons</span>
-                    <span>📝 150+ Activities</span>
-                    <span>⏱ 8-10 Months</span>
-                </div>
-                <p class="description">
-                    Master the magic of coding and artificial intelligence to create futuristic projects.
-                </p>
-                <h4>Learning Outcomes</h4>
-                <ul>
-                    <li>Python programming</li>
-                    <li>Game development</li>
-                    <li>AI Chatbots</li>
-                    <li>Digital Portfolio</li>
-                </ul>
-            </div>
-            <div class="course-footer">
-                <a href="#">Download Curriculum ↓</a>
-                <button>Try a Free Lesson</button>
-            </div>
-        </div>
+        <?php if(empty($courses)): ?>
+            <p style="text-align: center; grid-column: 1/-1; padding: 40px; color: #666;">Our exciting courses are coming soon! Stay tuned.</p>
+        <?php endif; ?>
 
     </div>
 
 </section>
+
 <!-- Course Section End -->
 <!-- Plans section Start -->
  <section class="pricing">
@@ -736,11 +636,6 @@
 </section>
 <!-- Team Section Ends -->
 
-
-
-
-
-
     <!-- Features Section -->
     <section class="py-5 mt-5">
         <div class="container">
@@ -775,7 +670,8 @@
         </div>
     </section>
 
-<?= view('components/footer') ?>
+<?= view('components/footer', ['settings' => $settings]) ?>
+
 
 <script>
     // Testimonial Slider Navigation

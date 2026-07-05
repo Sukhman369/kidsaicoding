@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?? 'Home' ?> | KidsAI Coding Academy</title>
+    <title><?= $title ?? 'Home' ?> | Kids AI Coding Squad</title>
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -24,9 +24,16 @@
             font-size: 0.95rem;
             transition: all 0.2s ease;
         }
-        .nav-links li a:hover {
+        .nav-links li a:not(.btn):hover {
             color: var(--primary) !important;
         }
+        .btn-primary:hover {
+            background-color: #4338ca !important;
+            color: white !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3) !important;
+        }
+
     </style>
 </head>
 
@@ -37,7 +44,7 @@
         <div class="container d-flex justify-content-between align-items-center py-2">
             <a class="navbar-brand d-flex align-items-center gap-2 text-decoration-none" href="<?= base_url() ?>">
                 <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 8px;"></div>
-                <span class="fw-bold h4 mb-0" style="font-family: 'Outfit', sans-serif; color: var(--primary);">KidsAI Coding</span>
+                <span class="fw-bold h4 mb-0" style="font-family: 'Outfit', sans-serif; color: var(--primary);">Kids AI Coding Squad</span>
             </a>
             
             <ul class="nav-links d-none d-lg-flex list-unstyled align-items-center gap-4 mb-0">
@@ -45,8 +52,10 @@
                 <li><a href="<?= base_url('courses') ?>" class="text-decoration-none fw-semibold <?= strpos(current_url(), 'courses') !== false ? 'text-primary' : 'text-muted' ?>">Courses</a></li>
                 <li><a href="<?= base_url('about') ?>" class="text-decoration-none fw-semibold <?= strpos(current_url(), 'about') !== false ? 'text-primary' : 'text-muted' ?>">About</a></li>
                 <li><a href="<?= base_url('contact') ?>" class="text-decoration-none fw-semibold <?= strpos(current_url(), 'contact') !== false ? 'text-primary' : 'text-muted' ?>">Contact</a></li>
-                <li><a href="<?= base_url('login') ?>" class="btn btn-secondary px-4 py-2 fw-bold text-white shadow-sm" style="border-radius: 12px; background: #0F172A; border: none;">Login</a></li>
+                <li><a href="<?= base_url('login') ?>" class="text-decoration-none fw-bold text-dark px-3">Login</a></li>
+                <li><a href="<?= base_url('book-free-class') ?>" class="btn btn-primary px-4 py-2 fw-bold text-white shadow-sm" style="border-radius: 12px; background: #4f46e5; border: none;">Book Free Class</a></li>
             </ul>
+
 
             <!-- Mobile Toggler (Simplified) -->
             <button class="btn d-lg-none p-0 border-0 shadow-none text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">

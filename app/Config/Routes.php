@@ -6,13 +6,28 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
+$routes->get('setup', 'Setup::index');
 
-// Public Pages
+
+// Auth Routes
+$routes->get('login', 'Auth::login');
+$routes->post('login', 'Auth::postLogin');
+$routes->get('logout', 'Auth::logout');
+
+// Booking Flow
+$routes->get('book-free-class', 'Booking::index');
+$routes->post('book-free-class/step1', 'Booking::processStep1');
+$routes->get('book-free-class/confirm-booking', 'Booking::step2');
+$routes->post('book-free-class/submit', 'Booking::submit');
+
+$routes->get('book-free-class/success', 'Booking::success');
+
+
 $routes->get('courses', 'Website::courses');
 $routes->get('course/(:segment)', 'Website::courseDetail/$1');
+
 $routes->get('about', 'Website::about');
 $routes->get('contact', 'Website::contact');
-$routes->get('login', 'Website::login');
 $routes->get('register', 'Website::register');
 
 // Portal Pages (Student)
@@ -29,9 +44,28 @@ $routes->get('teacher/reviews', 'Teacher\Dashboard::reviews');
 // Portal Pages (Parent)
 $routes->get('parent/dashboard', 'Parent\Dashboard::index');
 
-// Admin Pages
-$routes->get('admin/dashboard', 'Admin\Dashboard::index');
-$routes->get('admin/courses', 'Admin\Content::courses');
-$routes->get('admin/blogs', 'Admin\Content::blogs');
-$routes->get('admin/users', 'Admin\Content::users');
-$routes->get('admin/settings', 'Admin\Content::settings');
+// Admin Panel (Protected)
+$routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($routes) {
+    $routes->get('dashboard', 'Dashboard::index');
+    
+    // Courses Management
+    $routes->get('courses', 'Courses::index');
+    $routes->get('courses/create', 'Courses::create');
+    $routes->post('courses/store', 'Courses::store');
+    $routes->get('courses/edit/(:num)', 'Courses::edit/$1');
+    $routes->post('courses/update/(:num)', 'Courses::update/$1');
+    $routes->get('courses/delete/(:num)', 'Courses::delete/$1');
+
+    // User Management
+    $routes->get('users', 'Users::index');
+    $routes->post('users/store', 'Users::store');
+    $routes->get('users/delete/(:num)', 'Users::delete/$1');
+
+    // Booking Management
+    $routes->get('bookings', 'Bookings::index');
+    $routes->post('bookings/update/(:num)', 'Bookings::updateStatus/$1');
+
+    // Settings
+    $routes->get('settings', 'Settings::index');
+    $routes->post('settings/update', 'Settings::update');
+});
