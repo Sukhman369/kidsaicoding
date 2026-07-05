@@ -9,10 +9,10 @@ $routes->get('/', 'Home::index');
 $routes->get('setup', 'Setup::index');
 
 
-// Auth Routes
-$routes->get('login', 'Auth::login');
-$routes->post('login', 'Auth::postLogin');
+// Auth Routes (Students/General)
+$routes->get('login', 'Website::login');
 $routes->get('logout', 'Auth::logout');
+
 
 // Booking Flow
 $routes->get('book-free-class', 'Booking::index');
@@ -46,7 +46,12 @@ $routes->get('parent/dashboard', 'Parent\Dashboard::index');
 
 // Admin Panel (Protected)
 $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($routes) {
+    // Admin Auth
+    $routes->get('login', '\App\Controllers\Auth::login', ['namespace' => '']);
+    $routes->post('login', '\App\Controllers\Auth::postLogin', ['namespace' => '']);
+
     $routes->get('dashboard', 'Dashboard::index');
+
     
     // Courses Management
     $routes->get('courses', 'Courses::index');

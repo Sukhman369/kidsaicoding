@@ -147,7 +147,8 @@
             </div>
         <?php endif; ?>
 
-        <form action="<?= base_url('login') ?>" method="POST">
+        <form action="<?= base_url('admin/login') ?>" method="POST">
+
             <?= csrf_field() ?>
             <div class="form-group">
                 <label for="email">Email Address</label>

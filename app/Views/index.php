@@ -112,87 +112,10 @@
 </section>
 
 <!-- Course Section End -->
-<!-- Plans section Start -->
- <section class="pricing">
+ 
+<!-- Sections -->
+<?php //echo view('sections/plans') ?>
 
-    <div class="section-heading">
-        <h2>Choose the Perfect Learning Plan</h2>
-        <p>Flexible plans designed for every child's learning style.</p>
-    </div>
-
-    <div class="pricing-grid">
-
-        <!-- PLAN 1 -->
-        <div class="price-card">
-            <div class="price-header prime">
-                <h3>Prime</h3>
-            </div>
-            <div class="price-body">
-                <h1 class="price-main">₹1,365</h1>
-                <span>/ Session</span>
-                <h4 class="old-price"><del>₹2,100</del></h4>
-                <div class="discount-badge">35% OFF</div>
-                <a href="#" class="price-btn">Book Free Demo</a>
-                <h5 class="price-info-title">Private 1-on-1 Classes</h5>
-                <ul class="price-features-list">
-                    <li>45-minute live personalized sessions</li>
-                    <li>2–3 classes every week</li>
-                    <li>Dedicated mentor</li>
-                    <li>Unlimited rescheduling</li>
-                    <li>Progress tracking dashboard</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- PLAN 2 -->
-        <div class="price-card featured">
-            <div class="popular-badge">MOST POPULAR</div>
-            <div class="price-header premier">
-                <h3>Premier</h3>
-            </div>
-            <div class="price-body">
-                <h1 class="price-main">₹1,102</h1>
-                <span>/ Session</span>
-                <h4 class="old-price"><del>₹1,575</del></h4>
-                <div class="discount-badge">30% OFF</div>
-                <a href="#" class="price-btn">Book Free Demo</a>
-                <h5 class="price-info-title">Micro Group (2–3 Students)</h5>
-                <ul class="price-features-list">
-                    <li>60-minute live classes</li>
-                    <li>8 classes per month</li>
-                    <li>Collaborative learning</li>
-                    <li>Flexible rescheduling</li>
-                    <li>Project-based learning</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- PLAN 3 -->
-        <div class="price-card">
-            <div class="price-header plus">
-                <h3>Plus</h3>
-            </div>
-            <div class="price-body">
-                <h1 class="price-main">₹744</h1>
-                <span>/ Session</span>
-                <h4 class="old-price"><del>₹992</del></h4>
-                <div class="discount-badge">25% OFF</div>
-                <a href="#" class="price-btn">Book Free Demo</a>
-                <h5 class="price-info-title">Small Group (4–5 Students)</h5>
-                <ul class="price-features-list">
-                    <li>60-minute interactive classes</li>
-                    <li>8 classes every month</li>
-                    <li>Team collaboration</li>
-                    <li>No rescheduling</li>
-                    <li>Affordable learning</li>
-                </ul>
-            </div>
-        </div>
-
-    </div>
-
-</section>
-<!-- Plans Section Ends -->
 
 <!-- Benefits Section Start -->
 <section class="benefits-section">

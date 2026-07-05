@@ -1975,12 +1975,21 @@
       "norm_label": "dashboard.php"
     },
     {
+      "label": "plans.php",
+      "file_type": "code",
+      "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\sections\\plans.php",
+      "source_location": "L1",
+      "id": "c_users_harma_documents_kidsaicoding_app_views_sections_plans_php",
+      "community": 95,
+      "norm_label": "plans.php"
+    },
+    {
       "label": "assignments.php",
       "file_type": "code",
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\student\\assignments.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_student_assignments_php",
-      "community": 95,
+      "community": 96,
       "norm_label": "assignments.php"
     },
     {
@@ -1989,7 +1998,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\student\\dashboard.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_student_dashboard_php",
-      "community": 96,
+      "community": 97,
       "norm_label": "dashboard.php"
     },
     {
@@ -1998,7 +2007,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\student\\my_courses.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_student_my_courses_php",
-      "community": 97,
+      "community": 98,
       "norm_label": "my_courses.php"
     },
     {
@@ -2007,7 +2016,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\student\\profile.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_student_profile_php",
-      "community": 98,
+      "community": 99,
       "norm_label": "profile.php"
     },
     {
@@ -2016,7 +2025,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\teacher\\dashboard.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_teacher_dashboard_php",
-      "community": 99,
+      "community": 100,
       "norm_label": "dashboard.php"
     }
   ],

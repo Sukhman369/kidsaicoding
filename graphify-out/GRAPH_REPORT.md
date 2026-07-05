@@ -1,11 +1,11 @@
 # Graph Report - C:\Users\harma\Documents\kidsaicoding  (2026-07-05)
 
 ## Corpus Check
-- 112 files · ~57,318 words
+- 113 files · ~57,698 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 224 nodes · 158 edges · 100 communities detected
+- 225 nodes · 158 edges · 101 communities detected
 - Extraction: 76% EXTRACTED · 24% INFERRED · 0% AMBIGUOUS · INFERRED: 38 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
@@ -110,6 +110,7 @@
 - [[_COMMUNITY_Community 97|Community 97]]
 - [[_COMMUNITY_Community 98|Community 98]]
 - [[_COMMUNITY_Community 99|Community 99]]
+- [[_COMMUNITY_Community 100|Community 100]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `View` - 28 edges
@@ -528,6 +529,10 @@ Nodes (0):
 Cohesion: 1.0
 Nodes (0): 
 
+### Community 100 - "Community 100"
+Cohesion: 1.0
+Nodes (0): 
+
 ## Knowledge Gaps
 - **35 isolated node(s):** `App`, `Autoload`, `Cache`, `ContentSecurityPolicy`, `Cookie` (+30 more)
   These have ≤1 connection - possible missing edges or undocumented components.
@@ -697,22 +702,24 @@ Nodes (0):
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 94`** (1 nodes): `dashboard.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 95`** (1 nodes): `assignments.php`
+- **Thin community `Community 95`** (1 nodes): `plans.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 96`** (1 nodes): `dashboard.php`
+- **Thin community `Community 96`** (1 nodes): `assignments.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 97`** (1 nodes): `my_courses.php`
+- **Thin community `Community 97`** (1 nodes): `dashboard.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 98`** (1 nodes): `profile.php`
+- **Thin community `Community 98`** (1 nodes): `my_courses.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 99`** (1 nodes): `dashboard.php`
+- **Thin community `Community 99`** (1 nodes): `profile.php`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 100`** (1 nodes): `dashboard.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `View` connect `Community 0` to `Community 1`, `Community 2`, `Community 3`, `Community 4`?**
-  _High betweenness centrality (0.089) - this node is a cross-community bridge._
+  _High betweenness centrality (0.088) - this node is a cross-community bridge._
 - **Are the 27 inferred relationships involving `View` (e.g. with `.login()` and `.index()`) actually correct?**
   _`View` has 27 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 8 inferred relationships involving `Session` (e.g. with `.login()` and `.postLogin()`) actually correct?**
