@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="hero-buttons">
-                    <a href="#courses" class="btn-hero-primary">
+                    <a href="<?= base_url('courses') ?>" class="btn-hero-primary">
                         Explore Courses
                     </a>
                     <a href="<?= base_url('book-free-class') ?>" class="btn-hero-secondary">
@@ -112,7 +112,7 @@
 </section>
 
 <!-- Course Section End -->
- 
+
 <!-- Sections -->
 <?php //echo view('sections/plans') ?>
 
@@ -148,7 +148,7 @@
     <!-- Bottom CTA -->
     <div class="benefits-footer">
         <p>Start with a FREE Trial Lesson at your preferred date & time. No commitments. No hidden charges.</p>
-        <a href="#" class="trial-btn">Try a FREE Lesson</a>
+        <a href="<?= base_url('book-free-class') ?>" class="trial-btn">Try a FREE Lesson</a>
     </div>
 
 </section>
@@ -370,7 +370,7 @@
 
     <div class="mentor-buttons">
         <a href="#" class="btn-outline">Become a Mentor</a>
-        <a href="#" class="btn-fill">Book Free Demo</a>
+        <a href="<?= base_url('book-free-demo') ?>" class="btn-fill">Book Free Demo</a>
     </div>
 
 </section>
@@ -411,7 +411,7 @@
             </div>
 
             <div class="guarantee-btn-wrap">
-                <a href="#" class="btn-fill">Book Free Trial</a>
+                <a href="<?= base_url('book-free-demo') ?>" class="btn-fill">Book Free Trial</a>
             </div>
         </div>
 
@@ -474,7 +474,7 @@
     </div>
 
     <div class="why-btn-wrap">
-        <a href="#">Start Free Trial</a>
+        <a href="<?= base_url('book-free-demo') ?>">Start Free Trial</a>
     </div>
 
 </section>
@@ -553,7 +553,7 @@
     </div>
 
     <div class="team-btn-wrap">
-        <a href="#">Meet The Entire Team</a>
+        <a href="<?= base_url('about') ?>">Meet The Entire Team</a>
     </div>
 
 </section>
