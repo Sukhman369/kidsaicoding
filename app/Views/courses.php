@@ -168,7 +168,7 @@
                              data-junior="<?= $isJunior ?>"
                              data-middle="<?= $isMiddle ?>"
                              data-senior="<?= $isSenior ?>"
-                             data-track="<?= $trackShort ?>"
+                             data-track="<?= esc(!empty($course['course_type']) ? $course['course_type'] : 'Other') ?>"
                              data-diff="<?= esc($course['difficulty'] ?? 'Beginner') ?>"
                              data-price="<?= intval($course['price'] ?? 0) ?>"
                              data-pop="<?= intval($course['rating_count'] ?? 10) ?>">

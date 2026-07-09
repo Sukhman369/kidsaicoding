@@ -58,14 +58,16 @@
         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-bottom: 24px;">
             <div class="form-group">
                 <label style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; color: var(--text-main);">Category Track</label>
-                <input type="text" name="course_type" list="tracksList" value="Programming" placeholder="Select/Type track category" style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; outline: none; background: #fff;">
-                <datalist id="tracksList">
-                    <option value="Programming">
-                    <option value="Game Design">
-                    <option value="AI & Robotics">
-                    <option value="Web Dev">
-                    <option value="Other">
-                </datalist>
+                <div style="display: flex; gap: 8px;">
+                    <select onchange="if(this.value !== '') { document.getElementById('course_type_input').value = this.value; }" style="padding: 12px; border: 1px solid var(--border); border-radius: 8px; width: 40%; background: #ffffff; outline: none;">
+                        <option value="">-- Choose --</option>
+                        <option value="Programming" selected>Programming</option>
+                        <option value="Game Design">Game Design</option>
+                        <option value="AI & Robotics">AI & Robotics</option>
+                        <option value="Web Dev">Web Dev</option>
+                    </select>
+                    <input type="text" name="course_type" id="course_type_input" value="Programming" placeholder="Or enter manual track name" required style="width: 60%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; outline: none;">
+                </div>
             </div>
             <div class="form-group">
                 <label style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; color: var(--text-main);">Difficulty Level</label>

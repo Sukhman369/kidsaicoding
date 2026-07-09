@@ -18,7 +18,7 @@
             border-bottom: 1px solid rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 2000 !important;
         }
         .nav-links li a {
             font-size: 0.95rem;

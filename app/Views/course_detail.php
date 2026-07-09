@@ -189,7 +189,7 @@
 
         <!-- Right: Pricing Card / Register Widget -->
         <aside class="col-lg-4">
-            <div class="card border-0 shadow-lg p-4 rounded-4 sticky-top" style="top: 100px; z-index: 10; border: 1px solid #f1f5f9;">
+            <div class="card border-0 shadow-lg p-4 rounded-4 sticky-top" style="top: 100px; z-index: 900 !important; border: 1px solid #f1f5f9;">
                 
                 <!-- Graphic Image Banner -->
                 <?php if(!empty($course['image_path'])): ?>
