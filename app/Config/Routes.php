@@ -83,4 +83,7 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
     $routes->get('team/edit/(:num)', 'Team::edit/$1');
     $routes->post('team/update/(:num)', 'Team::update/$1');
     $routes->get('team/delete/(:num)', 'Team::delete/$1');
+
+    // Students List (separate from Users/RBAC)
+    $routes->get('students', 'Students::index');
 });

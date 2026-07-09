@@ -21,7 +21,7 @@
             </svg>
         </div>
         <div class="sidebar-profile-info">
-            <span class="sidebar-profile-name">Administrator</span>
+            <span class="sidebar-profile-name"><?= esc(session()->get('userName') ?? 'Administrator') ?></span>
             <span class="sidebar-profile-badge">Super Admin</span>
         </div>
     </div>
@@ -52,7 +52,7 @@
         <div class="sidebar-section-label">Management</div>
         <ul class="sidebar-nav list-unstyled">
             <li>
-                <a href="<?= base_url('admin/courses') ?>" class="sidebar-link <?= current_url() == base_url('admin/courses') ? 'active' : '' ?>">
+                <a href="<?= base_url('admin/courses') ?>" class="sidebar-link <?= str_contains(current_url(), 'admin/courses') ? 'active' : '' ?>">
                     <span class="sidebar-link-icon">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
@@ -62,7 +62,7 @@
                 </a>
             </li>
             <li>
-                <a href="<?= base_url('admin/users') ?>" class="sidebar-link <?= current_url() == base_url('admin/users') ? 'active' : '' ?>">
+                <a href="<?= base_url('admin/users') ?>" class="sidebar-link <?= str_contains(current_url(), 'admin/users') ? 'active' : '' ?>">
                     <span class="sidebar-link-icon">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
@@ -74,7 +74,27 @@
                 </a>
             </li>
             <li>
-                <a href="<?= base_url('admin/blogs') ?>" class="sidebar-link <?= current_url() == base_url('admin/blogs') ? 'active' : '' ?>">
+                <a href="<?= base_url('admin/bookings') ?>" class="sidebar-link <?= str_contains(current_url(), 'admin/bookings') ? 'active' : '' ?>">
+                    <span class="sidebar-link-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                    </span>
+                    <span class="sidebar-link-text">Bookings</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?= base_url('admin/team') ?>" class="sidebar-link <?= str_contains(current_url(), 'admin/team') ? 'active' : '' ?>">
+                    <span class="sidebar-link-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                        </svg>
+                    </span>
+                    <span class="sidebar-link-text">Team Members</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?= base_url('admin/blogs') ?>" class="sidebar-link <?= str_contains(current_url(), 'admin/blogs') ? 'active' : '' ?>">
                     <span class="sidebar-link-icon">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
@@ -91,7 +111,7 @@
         <div class="sidebar-section-label">System</div>
         <ul class="sidebar-nav list-unstyled">
             <li>
-                <a href="<?= base_url('admin/settings') ?>" class="sidebar-link <?= current_url() == base_url('admin/settings') ? 'active' : '' ?>">
+                <a href="<?= base_url('admin/settings') ?>" class="sidebar-link <?= str_contains(current_url(), 'admin/settings') ? 'active' : '' ?>">
                     <span class="sidebar-link-icon">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="3"/>

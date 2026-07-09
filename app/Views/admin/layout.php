@@ -164,17 +164,19 @@
             Kids<span>AI</span>
         </div>
         <nav class="sidebar-menu">
+            <!-- Main -->
+            <div style="padding: 12px 24px 6px; font-size: 11px; text-transform: uppercase; font-weight: 700; color: #475569; letter-spacing: 0.05em;">Main</div>
             <a href="<?= base_url('admin/dashboard') ?>" class="menu-item <?= url_is('admin/dashboard') ? 'active' : '' ?>">
                 <i class="fa-solid fa-gauge"></i> Dashboard
             </a>
-            <a href="<?= base_url('admin/courses') ?>" class="menu-item <?= url_is('admin/courses*') ? 'active' : '' ?>">
-                <i class="fa-solid fa-graduation-cap"></i> Courses
-            </a>
-            <a href="<?= base_url('admin/users') ?>" class="menu-item <?= url_is('admin/users*') ? 'active' : '' ?>">
-                <i class="fa-solid fa-users"></i> Users
-            </a>
             <a href="<?= base_url('admin/bookings') ?>" class="menu-item <?= url_is('admin/bookings*') ? 'active' : '' ?>">
                 <i class="fa-solid fa-calendar-check"></i> Bookings
+            </a>
+
+            <!-- Content Management -->
+            <div style="padding: 20px 24px 6px; font-size: 11px; text-transform: uppercase; font-weight: 700; color: #475569; letter-spacing: 0.05em;">Content</div>
+            <a href="<?= base_url('admin/courses') ?>" class="menu-item <?= url_is('admin/courses*') ? 'active' : '' ?>">
+                <i class="fa-solid fa-graduation-cap"></i> Courses
             </a>
             <a href="<?= base_url('admin/team') ?>" class="menu-item <?= url_is('admin/team*') ? 'active' : '' ?>">
                 <i class="fa-solid fa-people-group"></i> Team Members
@@ -182,6 +184,17 @@
             <a href="<?= base_url('admin/settings') ?>" class="menu-item <?= url_is('admin/settings*') ? 'active' : '' ?>">
                 <i class="fa-solid fa-gears"></i> Site Settings
             </a>
+
+            <!-- People -->
+            <div style="padding: 20px 24px 6px; font-size: 11px; text-transform: uppercase; font-weight: 700; color: #475569; letter-spacing: 0.05em;">People</div>
+            <a href="<?= base_url('admin/students') ?>" class="menu-item <?= url_is('admin/students*') ? 'active' : '' ?>">
+                <i class="fa-solid fa-user-graduate"></i> Students
+            </a>
+            <a href="<?= base_url('admin/users') ?>" class="menu-item <?= url_is('admin/users*') ? 'active' : '' ?>">
+                <i class="fa-solid fa-user-shield"></i> Admins / RBAC
+            </a>
+
+            <!-- Logout -->
             <a href="<?= base_url('logout') ?>" class="menu-item" style="margin-top: auto; color: #f87171;">
                 <i class="fa-solid fa-right-from-bracket"></i> Logout
             </a>
