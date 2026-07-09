@@ -17,7 +17,12 @@
                 </tr>
             </thead>
             <tbody>
-                <?php $i = 1; foreach($students as $student): ?>
+                <?php 
+                $currentPage = (int) ($pager->getCurrentPage('students') ?? 1);
+                $perPage = 10;
+                $i = ($currentPage - 1) * $perPage + 1;
+                foreach($students as $student): 
+                ?>
                 <tr style="border-bottom: 1px solid var(--border);">
                     <td style="padding: 14px 12px; color: var(--text-muted); font-weight: 600;"><?= $i++ ?></td>
                     <td style="padding: 14px 12px;">
@@ -48,6 +53,13 @@
             </tbody>
         </table>
     </div>
+
+    <!-- Pagination Links -->
+    <?php if (isset($pager)): ?>
+        <div style="margin-top: 16px;">
+            <?= $pager->links('students', 'admin_pager') ?>
+        </div>
+    <?php endif; ?>
 </div>
 
 <?= $this->endSection() ?>

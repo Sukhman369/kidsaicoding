@@ -27,6 +27,7 @@
                     <h5 class="text-white fw-bold mb-4">Company</h5>
                     <ul class="list-unstyled d-grid gap-2 small">
                         <li><a href="<?= base_url('about') ?>" class="text-white-50 text-decoration-none">About Us</a></li>
+                        <li><a href="<?= base_url('blog') ?>" class="text-white-50 text-decoration-none">Blog</a></li>
                         <li><a href="<?= base_url('contact') ?>" class="text-white-50 text-decoration-none">Contact</a></li>
                         <li><a href="#" class="text-white-50 text-decoration-none">Careers</a></li>
                     </ul>

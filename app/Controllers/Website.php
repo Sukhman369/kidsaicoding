@@ -91,4 +91,32 @@ class Website extends BaseController
         }
         return view('register');
     }
+
+    public function blogs()
+    {
+        $blogModel = new \App\Models\BlogModel();
+        $blogs = $blogModel->where('status', 'published')
+                           ->orderBy('created_at', 'DESC')
+                           ->findAll();
+
+        return view('blogs', [
+            'blogs' => $blogs
+        ]);
+    }
+
+    public function blogDetail($slug)
+    {
+        $blogModel = new \App\Models\BlogModel();
+        $blog = $blogModel->where('slug', $slug)
+                          ->where('status', 'published')
+                          ->first();
+                          
+        if (!$blog) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Blog post not found");
+        }
+
+        return view('blog_detail', [
+            'blog' => $blog
+        ]);
+    }
 }

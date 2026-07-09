@@ -3,6 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use App\Models\UserModel;
 
 class Students extends BaseController
 {
@@ -12,17 +13,17 @@ class Students extends BaseController
             return redirect()->to('/admin/login');
         }
 
-        $db = \Config\Database::connect();
+        $userModel = new UserModel();
 
-        $students = $db->table('users')
-            ->where('role', 'student')
-            ->orderBy('created_at', 'DESC')
-            ->get()
-            ->getResultArray();
+        // Paginate students: 10 per page
+        $students = $userModel->where('role', 'student')
+                             ->orderBy('created_at', 'DESC')
+                             ->paginate(10, 'students');
 
         $data = [
             'title'    => 'Student Management',
             'students' => $students,
+            'pager'    => $userModel->pager,
         ];
 
         return view('admin/students', $data);

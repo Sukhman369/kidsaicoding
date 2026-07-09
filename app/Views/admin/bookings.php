@@ -59,6 +59,13 @@
             </tbody>
         </table>
     </div>
+    
+    <!-- Pagination Links -->
+    <?php if (isset($pager)): ?>
+        <div style="margin-top: 16px;">
+            <?= $pager->links('bookings', 'admin_pager') ?>
+        </div>
+    <?php endif; ?>
 </div>
 
 <?= $this->endSection() ?>

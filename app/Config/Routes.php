@@ -29,6 +29,9 @@ $routes->get('book-free-class/success', 'Booking::success');
 $routes->get('courses', 'Website::courses');
 $routes->get('course/(:segment)', 'Website::courseDetail/$1');
 
+$routes->get('blog', 'Website::blogs');
+$routes->get('blog/(:segment)', 'Website::blogDetail/$1');
+
 $routes->get('about', 'Website::about');
 $routes->get('contact', 'Website::contact');
 
@@ -86,4 +89,12 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
 
     // Students List (separate from Users/RBAC)
     $routes->get('students', 'Students::index');
+
+    // Blogs CRUD
+    $routes->get('blogs', 'Blogs::index');
+    $routes->get('blogs/create', 'Blogs::create');
+    $routes->post('blogs/store', 'Blogs::store');
+    $routes->get('blogs/edit/(:num)', 'Blogs::edit/$1');
+    $routes->post('blogs/update/(:num)', 'Blogs::update/$1');
+    $routes->get('blogs/delete/(:num)', 'Blogs::delete/$1');
 });

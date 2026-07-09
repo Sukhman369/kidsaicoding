@@ -181,6 +181,9 @@
             <a href="<?= base_url('admin/team') ?>" class="menu-item <?= url_is('admin/team*') ? 'active' : '' ?>">
                 <i class="fa-solid fa-people-group"></i> Team Members
             </a>
+            <a href="<?= base_url('admin/blogs') ?>" class="menu-item <?= url_is('admin/blogs*') ? 'active' : '' ?>">
+                <i class="fa-solid fa-newspaper"></i> Blogs
+            </a>
             <a href="<?= base_url('admin/settings') ?>" class="menu-item <?= url_is('admin/settings*') ? 'active' : '' ?>">
                 <i class="fa-solid fa-gears"></i> Site Settings
             </a>
