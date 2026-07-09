@@ -35,6 +35,9 @@ class Courses extends BaseController
     public function store()
     {
         $data = $this->request->getPost();
+        if (empty($data) || !isset($data['title'])) {
+            return redirect()->back()->with('error', 'Course creation failed. Did your uploaded banner or icon file exceed the server\'s upload size limits? Please try again with smaller .webp files.')->withInput();
+        }
         $data['slug'] = url_title($data['title'], '-', true);
         
         // Handle Image Upload
@@ -99,6 +102,9 @@ class Courses extends BaseController
     public function update($id)
     {
         $data = $this->request->getPost();
+        if (empty($data) || !isset($data['title'])) {
+            return redirect()->back()->with('error', 'Course update failed. Did your uploaded banner or icon file exceed the server\'s upload size limits? Please try again with smaller .webp files.')->withInput();
+        }
         
         // Handle Image Upload
         $img = $this->request->getFile('image');
