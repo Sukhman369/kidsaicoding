@@ -354,3 +354,257 @@
     font-weight: 600;
     font-size: 0.9rem;
 }
+
+/* ══════════════════════════════════════════
+   STUDENT DASHBOARD SPECIFIC CLASSES
+   ══════════════════════════════════════════ */
+.gamified-header-card {
+    background: linear-gradient(135deg, #ffffff 0%, #fff8f0 100%);
+    border: 1px solid #ffd8a8;
+    position: relative;
+    overflow: hidden;
+}
+
+.gamified-header-card::after {
+    content: "";
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, rgba(249, 115, 22, 0.12) 0%, rgba(249, 115, 22, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.xp-badge {
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    color: #ffffff;
+    font-weight: 800;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.35);
+}
+
+.level-indicator {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #ea580c;
+}
+
+.student-stat-card {
+    background: var(--bg-white);
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.student-stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    border-color: #cbd5e1;
+}
+
+.student-stat-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+.student-stat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.student-stat-number {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    line-height: 1.15;
+}
+
+.student-stat-name {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    transition: all 0.25s ease;
+}
+
+.todo-item:hover {
+    border-color: #cbd5e1;
+    background: #f1f5f9;
+}
+
+.todo-item.completed {
+    background: #f8fafc;
+    opacity: 0.65;
+}
+
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    color: #94a3b8;
+}
+
+.btn-todo-action {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 2px 6px;
+    color: #94a3b8;
+    transition: color 0.15s;
+}
+
+.btn-todo-action:hover {
+    color: var(--danger);
+}
+
+.streak-pulse {
+    animation: firePulse 1.4s infinite alternate ease-in-out;
+}
+
+@keyframes firePulse {
+    0% { transform: scale(1); filter: drop-shadow(0 0 1px rgba(249, 115, 22, 0.4)); }
+    100% { transform: scale(1.1); filter: drop-shadow(0 0 6px rgba(249, 115, 22, 0.7)); }
+}
+
+.live-class-card {
+    border-left: 5px solid var(--primary);
+    background: #fffcf9;
+    border-top: 1px solid #ffedd5;
+    border-right: 1px solid #ffedd5;
+    border-bottom: 1px solid #ffedd5;
+}
+
+/* ══════════════════════════════════════════
+   STUDENT PORTAL BRIGHT SIDEBAR OVERRIDES (PRD v2.0)
+   ══════════════════════════════════════════ */
+.student-sidebar {
+    background: #ffffff !important;
+    border-right: 1px solid #e2e8f0 !important;
+    box-shadow: 4px 0 24px rgba(15, 23, 42, 0.03) !important;
+}
+
+/* Brand */
+.student-sidebar .sidebar-brand {
+    border-bottom: 1px solid #f1f5f9;
+}
+.student-sidebar .sidebar-brand-name {
+    color: #0f172a !important;
+    font-size: 1.15rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.student-sidebar .sidebar-brand-role {
+    color: #94a3b8 !important;
+}
+
+/* Student Profile Card */
+.student-sidebar .sidebar-profile {
+    background: linear-gradient(135deg, #fff7ed 0%, #f0f9ff 100%) !important;
+    border: 1px solid #ffedd5 !important;
+}
+.student-sidebar .sidebar-profile-name {
+    color: #1e293b !important;
+}
+.student-sidebar .sidebar-profile-badge {
+    color: var(--primary) !important;
+    font-weight: 700;
+}
+.student-sidebar .sidebar-avatar {
+    background: linear-gradient(135deg, var(--secondary), #38bdf8) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 8px rgba(14, 165, 233, 0.2);
+}
+
+/* Nav Links */
+.student-sidebar .sidebar-section-label {
+    color: #94a3b8 !important;
+}
+.student-sidebar .sidebar-link {
+    color: #475569 !important;
+    font-weight: 600;
+    transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.student-sidebar .sidebar-link-icon {
+    background: #f8fafc !important;
+    color: #64748b !important;
+    transition: all 0.22s ease;
+}
+.student-sidebar .sidebar-link:hover {
+    background: #f0f9ff !important;
+    color: var(--secondary) !important;
+    transform: translateX(4px);
+}
+.student-sidebar .sidebar-link:hover .sidebar-link-icon {
+    background: rgba(14, 165, 233, 0.1) !important;
+    color: var(--secondary) !important;
+}
+
+/* Active Link State */
+.student-sidebar .sidebar-link.active {
+    background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%) !important;
+    color: var(--primary) !important;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.06);
+}
+.student-sidebar .sidebar-link.active .sidebar-link-icon {
+    background: var(--primary) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 10px rgba(249, 115, 22, 0.25);
+}
+
+.student-sidebar .sidebar-active-dot {
+    background: var(--primary) !important;
+    box-shadow: 0 0 8px rgba(249, 115, 22, 0.7) !important;
+}
+
+/* Footer / Logout */
+.student-sidebar .sidebar-footer {
+    border-top: 1px solid #f1f5f9;
+}
+.student-sidebar .sidebar-logout {
+    color: #64748b !important;
+    font-weight: 600;
+    transition: all 0.22s ease;
+}
+.student-sidebar .sidebar-logout-icon {
+    background: #f8fafc !important;
+    color: #64748b !important;
+}
+.student-sidebar .sidebar-logout:hover {
+    background: #fef2f2 !important;
+    color: var(--danger) !important;
+    transform: translateX(4px);
+}
+.student-sidebar .sidebar-logout:hover .sidebar-logout-icon {
+    background: rgba(239, 68, 68, 0.1) !important;
+    color: var(--danger) !important;
+}
+
+
