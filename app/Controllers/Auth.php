@@ -8,7 +8,8 @@ class Auth extends BaseController
 {
     public function login()
     {
-        if (session()->get('isLoggedIn') && session()->get('userRole') === 'admin') {
+        $allowedRoles = ['admin', 'super_admin', 'blogger', 'course_manager', 'trainer'];
+        if (session()->get('isLoggedIn') && in_array(session()->get('userRole'), $allowedRoles)) {
             return redirect()->to('/admin/dashboard');
         }
         return view('auth/login');
@@ -28,7 +29,8 @@ class Auth extends BaseController
         $user = $userModel->loginByName($username, $password);
 
         if ($user) {
-            if ($user['role'] !== 'admin') {
+            $allowedRoles = ['admin', 'super_admin', 'blogger', 'course_manager', 'trainer'];
+            if (!in_array($user['role'], $allowedRoles)) {
                 return redirect()->back()->with('error', 'Unauthorized access.');
             }
 

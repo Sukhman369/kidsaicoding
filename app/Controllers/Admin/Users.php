@@ -16,12 +16,15 @@ class Users extends BaseController
 
     public function index()
     {
-        if (!session()->get('isLoggedIn') || session()->get('userRole') !== 'admin') {
-            return redirect()->to('/admin/login');
+        $role = session()->get('userRole');
+        if (!session()->get('isLoggedIn') || !in_array($role, ['admin', 'super_admin'])) {
+            return redirect()->to('/admin/dashboard')->with('error', 'Only super administrators have access to RBAC console.');
         }
 
-        // Paginate users: 10 per page
-        $users = $this->userModel->orderBy('created_at', 'DESC')->paginate(10, 'users');
+        // Paginate users: 10 per page (excl. students/parents)
+        $users = $this->userModel->whereIn('role', ['admin', 'super_admin', 'blogger', 'course_manager', 'trainer'])
+                                 ->orderBy('created_at', 'DESC')
+                                 ->paginate(10, 'users');
 
         $data = [
             'title' => 'User Management',
@@ -33,22 +36,28 @@ class Users extends BaseController
 
     public function store()
     {
-        if (!session()->get('isLoggedIn') || session()->get('userRole') !== 'admin') {
-            return redirect()->to('/admin/login');
+        $role = session()->get('userRole');
+        if (!session()->get('isLoggedIn') || !in_array($role, ['admin', 'super_admin'])) {
+            return redirect()->to('/admin/dashboard')->with('error', 'Only super administrators have access to write/delete RBAC.');
         }
 
         $data = $this->request->getPost();
-        $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
-        $data['status'] = 'active';
+        $this->userModel->insert([
+            'name'     => $data['name'],
+            'email'    => $data['email'],
+            'password' => password_hash($data['password'], PASSWORD_DEFAULT),
+            'role'     => $data['role'],
+            'status'   => 'active'
+        ]);
 
-        $this->userModel->insert($data);
         return redirect()->to('/admin/users')->with('success', 'User created successfully.');
     }
 
     public function delete($id)
     {
-        if (!session()->get('isLoggedIn') || session()->get('userRole') !== 'admin') {
-            return redirect()->to('/admin/login');
+        $role = session()->get('userRole');
+        if (!session()->get('isLoggedIn') || !in_array($role, ['admin', 'super_admin'])) {
+            return redirect()->to('/admin/dashboard')->with('error', 'Only super administrators have access to write/delete RBAC.');
         }
 
         if ($id == session()->get('userId')) {

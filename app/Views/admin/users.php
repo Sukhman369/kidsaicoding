@@ -25,8 +25,14 @@
                             <div style="font-size: 13px; color: var(--text-muted);"><?= $user['email'] ?></div>
                         </td>
                         <td style="padding: 16px 12px;">
-                            <span style="padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; background: #f1f5f9; color: #475569; text-transform: capitalize;">
-                                <?= $user['role'] ?>
+                            <span style="padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; background: #eef2ff; color: #4338ca;">
+                                <?php
+                                if ($user['role'] === 'admin') echo 'Super Admin';
+                                elseif ($user['role'] === 'blogger') echo 'Blogger';
+                                elseif ($user['role'] === 'course_manager') echo 'Course Manager';
+                                elseif ($user['role'] === 'trainer') echo 'Trainer';
+                                else echo esc($user['role']);
+                                ?>
                             </span>
                         </td>
                         <td style="padding: 16px 12px;">
@@ -74,10 +80,10 @@
             <div class="form-group" style="margin-bottom: 16px;">
                 <label style="display: block; margin-bottom: 6px; font-weight: 600; font-size: 14px;">Role</label>
                 <select name="role" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px;">
-                    <option value="student">Student</option>
-                    <option value="teacher">Teacher</option>
-                    <option value="parent">Parent</option>
-                    <option value="admin">Admin</option>
+                    <option value="admin">Super Admin</option>
+                    <option value="blogger">Blogger</option>
+                    <option value="course_manager">Course Manager</option>
+                    <option value="trainer">Trainer</option>
                 </select>
             </div>
             <div class="form-group" style="margin-bottom: 24px;">

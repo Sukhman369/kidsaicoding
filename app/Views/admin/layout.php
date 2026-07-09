@@ -164,38 +164,62 @@
             Kids<span>AI</span>
         </div>
         <nav class="sidebar-menu">
+            <?php 
+            $role = session()->get('userRole'); 
+            $isSuper = in_array($role, ['admin', 'super_admin']);
+            $isTrainer = ($role === 'trainer');
+            $isBlogger = ($role === 'blogger');
+            $isCourse = ($role === 'course_manager');
+            ?>
+
             <!-- Main -->
             <div style="padding: 12px 24px 6px; font-size: 11px; text-transform: uppercase; font-weight: 700; color: #475569; letter-spacing: 0.05em;">Main</div>
             <a href="<?= base_url('admin/dashboard') ?>" class="menu-item <?= url_is('admin/dashboard') ? 'active' : '' ?>">
                 <i class="fa-solid fa-gauge"></i> Dashboard
             </a>
-            <a href="<?= base_url('admin/bookings') ?>" class="menu-item <?= url_is('admin/bookings*') ? 'active' : '' ?>">
-                <i class="fa-solid fa-calendar-check"></i> Bookings
-            </a>
+            <?php if ($isSuper || $isTrainer): ?>
+                <a href="<?= base_url('admin/bookings') ?>" class="menu-item <?= url_is('admin/bookings*') ? 'active' : '' ?>">
+                    <i class="fa-solid fa-calendar-check"></i> Bookings
+                </a>
+            <?php endif; ?>
 
             <!-- Content Management -->
-            <div style="padding: 20px 24px 6px; font-size: 11px; text-transform: uppercase; font-weight: 700; color: #475569; letter-spacing: 0.05em;">Content</div>
-            <a href="<?= base_url('admin/courses') ?>" class="menu-item <?= url_is('admin/courses*') ? 'active' : '' ?>">
-                <i class="fa-solid fa-graduation-cap"></i> Courses
-            </a>
-            <a href="<?= base_url('admin/team') ?>" class="menu-item <?= url_is('admin/team*') ? 'active' : '' ?>">
-                <i class="fa-solid fa-people-group"></i> Team Members
-            </a>
-            <a href="<?= base_url('admin/blogs') ?>" class="menu-item <?= url_is('admin/blogs*') ? 'active' : '' ?>">
-                <i class="fa-solid fa-newspaper"></i> Blogs
-            </a>
-            <a href="<?= base_url('admin/settings') ?>" class="menu-item <?= url_is('admin/settings*') ? 'active' : '' ?>">
-                <i class="fa-solid fa-gears"></i> Site Settings
-            </a>
+            <?php if ($isSuper || $isCourse || $isBlogger): ?>
+                <div style="padding: 20px 24px 6px; font-size: 11px; text-transform: uppercase; font-weight: 700; color: #475569; letter-spacing: 0.05em;">Content</div>
+                <?php if ($isSuper || $isCourse): ?>
+                    <a href="<?= base_url('admin/courses') ?>" class="menu-item <?= url_is('admin/courses*') ? 'active' : '' ?>">
+                        <i class="fa-solid fa-graduation-cap"></i> Courses
+                    </a>
+                <?php endif; ?>
+                <?php if ($isSuper): ?>
+                    <a href="<?= base_url('admin/team') ?>" class="menu-item <?= url_is('admin/team*') ? 'active' : '' ?>">
+                        <i class="fa-solid fa-people-group"></i> Team Members
+                    </a>
+                <?php endif; ?>
+                <?php if ($isSuper || $isBlogger): ?>
+                    <a href="<?= base_url('admin/blogs') ?>" class="menu-item <?= url_is('admin/blogs*') ? 'active' : '' ?>">
+                        <i class="fa-solid fa-newspaper"></i> Blogs
+                    </a>
+                <?php endif; ?>
+                <?php if ($isSuper): ?>
+                    <a href="<?= base_url('admin/settings') ?>" class="menu-item <?= url_is('admin/settings*') ? 'active' : '' ?>">
+                        <i class="fa-solid fa-gears"></i> Site Settings
+                    </a>
+                <?php endif; ?>
+            <?php endif; ?>
 
             <!-- People -->
-            <div style="padding: 20px 24px 6px; font-size: 11px; text-transform: uppercase; font-weight: 700; color: #475569; letter-spacing: 0.05em;">People</div>
-            <a href="<?= base_url('admin/students') ?>" class="menu-item <?= url_is('admin/students*') ? 'active' : '' ?>">
-                <i class="fa-solid fa-user-graduate"></i> Students
-            </a>
-            <a href="<?= base_url('admin/users') ?>" class="menu-item <?= url_is('admin/users*') ? 'active' : '' ?>">
-                <i class="fa-solid fa-user-shield"></i> Admins / RBAC
-            </a>
+            <?php if ($isSuper || $isTrainer): ?>
+                <div style="padding: 20px 24px 6px; font-size: 11px; text-transform: uppercase; font-weight: 700; color: #475569; letter-spacing: 0.05em;">People</div>
+                <a href="<?= base_url('admin/students') ?>" class="menu-item <?= url_is('admin/students*') ? 'active' : '' ?>">
+                    <i class="fa-solid fa-user-graduate"></i> Students
+                </a>
+                <?php if ($isSuper): ?>
+                    <a href="<?= base_url('admin/users') ?>" class="menu-item <?= url_is('admin/users*') ? 'active' : '' ?>">
+                        <i class="fa-solid fa-user-shield"></i> Admins / RBAC
+                    </a>
+                <?php endif; ?>
+            <?php endif; ?>
 
             <!-- Logout -->
             <a href="<?= base_url('logout') ?>" class="menu-item" style="margin-top: auto; color: #f87171;">
@@ -212,7 +236,16 @@
             <div class="user-profile">
                 <div style="text-align: right;">
                     <div style="font-weight: 600; font-size: 14px;"><?= session()->get('userName') ?></div>
-                    <div style="font-size: 12px; color: var(--text-muted);">Administrator</div>
+                    <div style="font-size: 12px; color: var(--text-muted);">
+                        <?php
+                        $role = session()->get('userRole');
+                        if ($role === 'admin' || $role === 'super_admin') echo 'Super Admin';
+                        elseif ($role === 'blogger') echo 'Blogger';
+                        elseif ($role === 'course_manager') echo 'Course Manager';
+                        elseif ($role === 'trainer') echo 'Trainer';
+                        else echo esc(ucfirst($role));
+                        ?>
+                    </div>
                 </div>
                 <img src="https://ui-avatars.com/api/?name=<?= session()->get('userName') ?>&background=4f46e5&color=fff" alt="Avatar">
             </div>

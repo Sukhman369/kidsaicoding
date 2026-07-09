@@ -24,8 +24,40 @@ class AuthFilter implements FilterInterface
         if (str_starts_with($uri, 'admin/')) {
             // Exclude login routes
             if ($uri !== 'admin/login') {
-                if (!$session->get('isLoggedIn') || $session->get('userRole') !== 'admin') {
+                $allowedRoles = ['admin', 'super_admin', 'blogger', 'course_manager', 'trainer'];
+                $role = $session->get('userRole');
+                if (!$session->get('isLoggedIn') || !in_array($role, $allowedRoles)) {
                     return redirect()->to('/admin/login')->with('error', 'Please log in to access the administrator panel.');
+                }
+
+                // Sub-route permissions based on role
+                if ($role === 'blogger') {
+                    // Blogger can only access dashboard, blogs, logout
+                    if (!str_starts_with($uri, 'admin/dashboard') && !str_starts_with($uri, 'admin/blogs') && !str_starts_with($uri, 'admin/logout')) {
+                        return redirect()->to('/admin/dashboard')->with('error', 'Access Denied: Blogger permissions only.');
+                    }
+                }
+
+                if ($role === 'course_manager') {
+                    // Course Manager can only access dashboard, courses, logout
+                    if (!str_starts_with($uri, 'admin/dashboard') && !str_starts_with($uri, 'admin/courses') && !str_starts_with($uri, 'admin/logout')) {
+                        return redirect()->to('/admin/dashboard')->with('error', 'Access Denied: Course Manager permissions only.');
+                    }
+                }
+
+                if ($role === 'trainer') {
+                    // Trainer can only access dashboard, bookings, students, logout
+                    $allowedTrainerUris = ['admin/dashboard', 'admin/bookings', 'admin/students', 'admin/logout'];
+                    $isAllowed = false;
+                    foreach ($allowedTrainerUris as $u) {
+                        if (str_starts_with($uri, $u)) {
+                            $isAllowed = true;
+                            break;
+                        }
+                    }
+                    if (!$isAllowed) {
+                        return redirect()->to('/admin/dashboard')->with('error', 'Access Denied: Trainer permissions only.');
+                    }
                 }
             }
         }
