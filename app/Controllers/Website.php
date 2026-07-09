@@ -12,6 +12,9 @@ class Website extends BaseController
                                ->findAll();
 
         return view('courses', [
+            'title' => 'Coding & AI Courses',
+            'meta_description' => 'Explore Scratch coding, Game design, modern Web Development, Python algorithms, and hands-on AI courses custom designed for kids and teens.',
+            'meta_keywords' => 'coding courses for kids, learn game design, python courses, artificial intelligence lessons',
             'courses' => $courses
         ]);
     }
@@ -31,6 +34,9 @@ class Website extends BaseController
         $outcomes = $outcomeModel->where('course_id', $course['id'])->findAll();
 
         return view('course_detail', [
+            'title' => $course['title'],
+            'meta_description' => esc(strip_tags($course['summary'] ?? $course['description'])),
+            'meta_image' => $course['image_path'] ?? null,
             'course' => $course,
             'outcomes' => $outcomes
         ]);
@@ -67,13 +73,20 @@ class Website extends BaseController
         }
 
         return view('about', [
+            'title' => 'About Us',
+            'meta_description' => 'Meet the passionate STEM educators, AI mentors, and engineering leads behind KidsAI Coding Academy.',
+            'meta_keywords' => 'about kidsai, math tutors, robotics leads, programming instructors India',
             'team' => $team
         ]);
     }
 
     public function contact()
     {
-        return view('contact');
+        return view('contact', [
+            'title' => 'Contact Us',
+            'meta_description' => 'Have questions about classes or curriculum? Direct message us, email, or request a call from our education counselors.',
+            'meta_keywords' => 'kidsai support, contact coding school, curriculum queries, academy helpline'
+        ]);
     }
 
     public function login()
@@ -100,6 +113,9 @@ class Website extends BaseController
                            ->findAll();
 
         return view('blogs', [
+            'title' => 'Blog & resources',
+            'meta_description' => 'Explore the latest articles, computational tutorials, and guides discussing kids programming, robotics, and STEM classrooms.',
+            'meta_keywords' => 'stemed blog, python kids instructions, machine learning guides parents',
             'blogs' => $blogs
         ]);
     }
@@ -115,7 +131,16 @@ class Website extends BaseController
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Blog post not found");
         }
 
+        // Clean meta description (limit tags and limit description size)
+        $metaDesc = trim(strip_tags($blog['excerpt'] ?? $blog['content']));
+        if (strlen($metaDesc) > 160) {
+            $metaDesc = substr($metaDesc, 0, 157) . '...';
+        }
+
         return view('blog_detail', [
+            'title' => $blog['title'],
+            'meta_description' => $metaDesc,
+            'meta_image' => $blog['image_path'] ?? null,
             'blog' => $blog
         ]);
     }

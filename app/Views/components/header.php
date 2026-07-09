@@ -3,7 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?? 'Home' ?> | <?= esc(get_setting('brand_name', 'Kids AI Coding Squad')) ?></title>
+    <title><?= esc($title ?? 'Home') ?> | <?= esc(get_setting('brand_name', 'Kids AI Coding Squad')) ?></title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="<?= esc($meta_description ?? 'Empowering kids and teens aged 7-18 with premium AI coding lessons, Python programming, robotics, and interactive computational STEM curriculum.') ?>">
+    <meta name="keywords" content="<?= esc($meta_keywords ?? 'kids coding, AI lessons, Python for kids, programming courses for children, STEM education') ?>">
+    <link rel="canonical" href="<?= current_url() ?>">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<?= current_url() ?>">
+    <meta property="og:title" content="<?= esc($title ?? 'Home') ?> | <?= esc(get_setting('brand_name', 'Kids AI Coding Squad')) ?>">
+    <meta property="og:description" content="<?= esc($meta_description ?? 'Empowering kids and teens aged 7-18 with premium AI coding lessons, Python programming, robotics, and interactive computational STEM curriculum.') ?>">
+    <?php if (isset($meta_image) && !empty($meta_image)): ?>
+        <meta property="og:image" content="<?= base_url($meta_image) ?>">
+    <?php endif; ?>
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="<?= current_url() ?>">
+    <meta property="twitter:title" content="<?= esc($title ?? 'Home') ?> | <?= esc(get_setting('brand_name', 'Kids AI Coding Squad')) ?>">
+    <meta property="twitter:description" content="<?= esc($meta_description ?? 'Empowering kids and teens aged 7-18 with premium AI coding lessons, Python programming, robotics, and interactive computational STEM curriculum.') ?>">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
