@@ -27,7 +27,7 @@
             <div class="form-group">
                 <label style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; color: var(--text-main);">Course Banner Image</label>
                 <input type="file" name="image" accept="image/webp" required style="width: 100%; padding: 10px; border: 1px dashed var(--border); border-radius: 8px; background: #fafafa;">
-                <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 4px;"><b>Mandatory: WEBP format (.webp) only.</b> Recommended: 600x400px.</p>
+                <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 4px;"><b>Mandatory: WEBP format (.webp) only.</b> Recommended Resolution: 600x400px. Max Size: 2MB.</p>
             </div>
             <div class="form-group">
                 <label style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; color: var(--text-main);">Publish Status</label>
@@ -148,6 +148,7 @@
             <div class="form-group">
                 <label style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; color: var(--text-main);">Instructor Headshot (.webp only)</label>
                 <input type="file" name="instructor_image" accept="image/webp" style="width: 100%; padding: 10px; border: 1px dashed var(--border); border-radius: 8px; background: #fafafa;">
+                <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 4px;"><b>Mandatory: WEBP format (.webp) only.</b> Recommended Resolution: 300x300px (1:1). Max Size: 2MB.</p>
             </div>
         </div>
         <div class="form-group" style="margin-bottom: 24px;">

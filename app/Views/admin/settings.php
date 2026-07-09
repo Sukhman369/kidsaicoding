@@ -145,7 +145,7 @@
                 <input type="text" name="settings[why_code_r1_title]" value="<?= esc(get_setting('why_code_r1_title', 'Develop Critical Thinking')) ?>" placeholder="Title" style="width: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem;">
                 <textarea name="settings[why_code_r1_desc]" rows="2" placeholder="Description" style="width: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; resize: vertical;"><?= esc(get_setting('why_code_r1_desc', 'Coding strengthens logical reasoning, analytical thinking and creative problem-solving, helping children perform better in academics and everyday life.')) ?></textarea>
                 <div>
-                    <label style="display: block; font-size: 0.72rem; font-weight: 600; margin-bottom: 4px;">Representative Image (Recommended: 600x400px, <b>WebP format only</b>)</label>
+                    <label style="display: block; font-size: 0.72rem; font-weight: 600; margin-bottom: 4px;">Representative Image (Recommended: 600x400px, <b>WebP format only</b>, Max Size: 2MB)</label>
                     <?php if (get_setting('why_code_r1_image')): ?>
                         <img src="<?= base_url(get_setting('why_code_r1_image')) ?>" alt="Row 1 Image" style="max-height: 48px; border-radius: 6px; display: block; margin-bottom: 6px;">
                     <?php endif; ?>
@@ -162,7 +162,7 @@
                 <input type="text" name="settings[why_code_r2_title]" value="<?= esc(get_setting('why_code_r2_title', 'Prepare for Future Careers')) ?>" placeholder="Title" style="width: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem;">
                 <textarea name="settings[why_code_r2_desc]" rows="2" placeholder="Description" style="width: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; resize: vertical;"><?= esc(get_setting('why_code_r2_desc', "Technology is shaping every industry. Learning programming early gives children\nconfidence to succeed in tomorrow's digital world.")) ?></textarea>
                 <div>
-                    <label style="display: block; font-size: 0.72rem; font-weight: 600; margin-bottom: 4px;">Representative Image (Recommended: 600x400px, <b>WebP format only</b>)</label>
+                    <label style="display: block; font-size: 0.72rem; font-weight: 600; margin-bottom: 4px;">Representative Image (Recommended: 600x400px, <b>WebP format only</b>, Max Size: 2MB)</label>
                     <?php if (get_setting('why_code_r2_image')): ?>
                         <img src="<?= base_url(get_setting('why_code_r2_image')) ?>" alt="Row 2 Image" style="max-height: 48px; border-radius: 6px; display: block; margin-bottom: 6px;">
                     <?php endif; ?>
@@ -179,7 +179,7 @@
                 <input type="text" name="settings[why_code_r3_title]" value="<?= esc(get_setting('why_code_r3_title', 'Learn Through Projects')) ?>" placeholder="Title" style="width: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem;">
                 <textarea name="settings[why_code_r3_desc]" rows="2" placeholder="Description" style="width: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; resize: vertical;"><?= esc(get_setting('why_code_r3_desc', 'Kids build games, websites, AI applications and real projects, making learning practical and enjoyable.')) ?></textarea>
                 <div>
-                    <label style="display: block; font-size: 0.72rem; font-weight: 600; margin-bottom: 4px;">Representative Image (Recommended: 600x400px, <b>WebP format only</b>)</label>
+                    <label style="display: block; font-size: 0.72rem; font-weight: 600; margin-bottom: 4px;">Representative Image (Recommended: 600x400px, <b>WebP format only</b>, Max Size: 2MB)</label>
                     <?php if (get_setting('why_code_r3_image')): ?>
                         <img src="<?= base_url(get_setting('why_code_r3_image')) ?>" alt="Row 3 Image" style="max-height: 48px; border-radius: 6px; display: block; margin-bottom: 6px;">
                     <?php endif; ?>

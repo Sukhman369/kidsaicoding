@@ -33,7 +33,7 @@
                     </div>
                 <?php endif; ?>
                 <input type="file" name="image" accept="image/webp" style="width: 100%; padding: 10px; border: 1px dashed var(--border); border-radius: 8px; background: #fafafa;">
-                <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 4px;"><b>Mandatory: WEBP format (.webp) only.</b> Leave blank to keep current image.</p>
+                <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 4px;"><b>Mandatory: WEBP format (.webp) only.</b> Recommended Resolution: 600x400px. Max Size: 2MB. Leave blank to keep active image.</p>
             </div>
             <div class="form-group">
                 <label style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; color: var(--text-main);">Publish Status</label>
@@ -160,7 +160,7 @@
                     </div>
                 <?php endif; ?>
                 <input type="file" name="instructor_image" accept="image/webp" style="width: 100%; padding: 10px; border: 1px dashed var(--border); border-radius: 8px; background: #fafafa;">
-                <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 4px;">Leave empty to keep current picture.</p>
+                <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 4px;"><b>Mandatory: WEBP format (.webp) only.</b> Recommended Resolution: 300x300px (1:1). Max Size: 2MB. Leave empty to keep active picture.</p>
             </div>
         </div>
         <div class="form-group" style="margin-bottom: 24px;">
