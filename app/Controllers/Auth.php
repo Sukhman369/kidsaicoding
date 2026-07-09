@@ -125,11 +125,14 @@ class Auth extends BaseController
         $role = session()->get('userRole');
         $referer = $this->request->getServer('HTTP_REFERER') ?? '';
 
+        // Clean out session variables explicitly
+        session()->remove(['isLoggedIn', 'userRole', 'userId', 'userName', 'userEmail']);
+
         session()->destroy();
 
         if ($role === 'admin' || strpos($referer, '/admin') !== false) {
-            return redirect()->to('/admin/login');
+            return redirect()->to('/admin/login')->with('success', 'Logged out successfully.');
         }
-        return redirect()->to('/login');
+        return redirect()->to('/login')->with('success', 'Logged out successfully.');
     }
 }

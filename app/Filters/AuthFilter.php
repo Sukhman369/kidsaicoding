@@ -18,7 +18,7 @@ class AuthFilter implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
         $session = session();
-        $uri = $request->getUri()->getPath();
+        $uri = ltrim($request->getUri()->getPath(), '/');
 
         // 1. Admin Area Protection
         if (str_starts_with($uri, 'admin/')) {
@@ -47,7 +47,7 @@ class AuthFilter implements FilterInterface
      */
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
     {
-        $uri = $request->getUri()->getPath();
+        $uri = ltrim($request->getUri()->getPath(), '/');
 
         if (str_starts_with($uri, 'admin/') || str_starts_with($uri, 'student/')) {
             $response->setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0');

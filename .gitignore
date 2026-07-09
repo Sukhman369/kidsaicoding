@@ -1,0 +1,47 @@
+# ==========================================
+# KidsAI Coding Academy - Git Ignore Config
+# ==========================================
+
+# --- Dependencies & Frontend Build Assets ---
+/vendor/
+/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Environment & Secret Files ---
+.env
+.env.test
+.env.production
+php_errors.log
+
+# --- CodeIgniter 4 Writable Directory ---
+# Ignore all runtime generated files in writable/ but keep the directory structure and security assets
+/writable/*
+!/writable/index.html
+!/writable/.htaccess
+
+# --- IDEs and OS Metadata ---
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# --- Graphify Index & Auto-Generated Documentation ---
+/graphify-out/
+.graphifyignore
+
+# --- Agentic AI Workspaces & Tool Logs ---
+.agent/
+.agents/
+.claude/
+.codex/
+.opencode/
+opencode.json
+AGENTS.md
