@@ -37,17 +37,30 @@
             <p class="text-muted small">Sign in to your dashboard</p>
         </div>
 
-        <form action="#" method="POST">
+        <?php if(session()->getFlashdata('error')): ?>
+            <div style="background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; margin-bottom: 20px; padding: 12px; border-radius: 8px; font-weight: 500; font-size: 0.85rem;">
+                <i class="fa-solid fa-circle-exclamation" style="margin-right: 6px;"></i> <?= session()->getFlashdata('error') ?>
+            </div>
+        <?php endif; ?>
+
+        <?php if(session()->getFlashdata('success')): ?>
+            <div style="background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; margin-bottom: 20px; padding: 12px; border-radius: 8px; font-weight: 500; font-size: 0.85rem;">
+                <i class="fa-solid fa-circle-check" style="margin-right: 6px;"></i> <?= session()->getFlashdata('success') ?>
+            </div>
+        <?php endif; ?>
+
+        <form action="<?= base_url('login') ?>" method="POST">
+            <?= csrf_field() ?>
             <div class="mb-3">
                 <label class="form-label small fw-bold">Email Address</label>
-                <input type="email" class="form-control form-control-lg" placeholder="name@example.com" required>
+                <input type="email" name="email" class="form-control form-control-lg" placeholder="name@example.com" value="<?= old('email') ?>" required>
             </div>
             <div class="mb-3">
                 <div class="d-flex justify-content-between">
                     <label class="form-label small fw-bold">Password</label>
                     <a href="#" class="small text-secondary text-decoration-none">Forgot?</a>
                 </div>
-                <input type="password" class="form-control form-control-lg" placeholder="••••••••" required>
+                <input type="password" name="password" class="form-control form-control-lg" placeholder="••••••••" required>
             </div>
             
             <div class="mb-4 form-check">

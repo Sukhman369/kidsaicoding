@@ -11,6 +11,9 @@ $routes->get('setup', 'Setup::index');
 
 // Auth Routes (Students/General)
 $routes->get('login', 'Website::login');
+$routes->post('login', 'Auth::postStudentLogin');
+$routes->get('register', 'Website::register');
+$routes->post('register', 'Auth::postStudentRegister');
 $routes->get('logout', 'Auth::logout');
 
 
@@ -28,7 +31,6 @@ $routes->get('course/(:segment)', 'Website::courseDetail/$1');
 
 $routes->get('about', 'Website::about');
 $routes->get('contact', 'Website::contact');
-$routes->get('register', 'Website::register');
 
 // Portal Pages (Student)
 $routes->get('student/dashboard', 'Student\Dashboard::index');

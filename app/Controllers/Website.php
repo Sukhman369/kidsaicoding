@@ -78,11 +78,17 @@ class Website extends BaseController
 
     public function login()
     {
+        if (session()->get('isLoggedIn') && session()->get('userRole') === 'student') {
+            return redirect()->to('/student/dashboard');
+        }
         return view('login');
     }
 
     public function register()
     {
+        if (session()->get('isLoggedIn') && session()->get('userRole') === 'student') {
+            return redirect()->to('/student/dashboard');
+        }
         return view('register');
     }
 }
