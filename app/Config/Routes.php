@@ -73,4 +73,12 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
     // Settings
     $routes->get('settings', 'Settings::index');
     $routes->post('settings/update', 'Settings::update');
+
+    // Team CRUD
+    $routes->get('team', 'Team::index');
+    $routes->get('team/create', 'Team::create');
+    $routes->post('team/store', 'Team::store');
+    $routes->get('team/edit/(:num)', 'Team::edit/$1');
+    $routes->post('team/update/(:num)', 'Team::update/$1');
+    $routes->get('team/delete/(:num)', 'Team::delete/$1');
 });

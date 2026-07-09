@@ -54,7 +54,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Common.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_common_php",
-      "community": 47,
+      "community": 49,
       "norm_label": "common.php"
     },
     {
@@ -117,7 +117,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Config\\Constants.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_config_constants_php",
-      "community": 48,
+      "community": 50,
       "norm_label": "constants.php"
     },
     {
@@ -198,7 +198,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Config\\Database.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_config_database_php",
-      "community": 8,
+      "community": 9,
       "norm_label": "database.php"
     },
     {
@@ -207,7 +207,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Config\\Database.php",
       "source_location": "L10",
       "id": "database_database",
-      "community": 8,
+      "community": 9,
       "norm_label": "database"
     },
     {
@@ -216,7 +216,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Config\\Database.php",
       "source_location": "L193",
       "id": "database_database_construct",
-      "community": 8,
+      "community": 9,
       "norm_label": ".__construct()"
     },
     {
@@ -279,7 +279,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Config\\Events.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_config_events_php",
-      "community": 49,
+      "community": 51,
       "norm_label": "events.php"
     },
     {
@@ -288,7 +288,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Config\\Exceptions.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_config_exceptions_php",
-      "community": 9,
+      "community": 10,
       "norm_label": "exceptions.php"
     },
     {
@@ -297,7 +297,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Config\\Exceptions.php",
       "source_location": "L14",
       "id": "exceptions_exceptions",
-      "community": 9,
+      "community": 10,
       "norm_label": "exceptions"
     },
     {
@@ -306,7 +306,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Config\\Exceptions.php",
       "source_location": "L102",
       "id": "exceptions_exceptions_handler",
-      "community": 9,
+      "community": 10,
       "norm_label": ".handler()"
     },
     {
@@ -639,7 +639,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Config\\Routes.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_config_routes_php",
-      "community": 50,
+      "community": 52,
       "norm_label": "routes.php"
     },
     {
@@ -702,7 +702,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Config\\Session.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_config_session_php",
-      "community": 2,
+      "community": 1,
       "norm_label": "session.php"
     },
     {
@@ -711,7 +711,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Config\\Session.php",
       "source_location": "L9",
       "id": "session_session",
-      "community": 2,
+      "community": 1,
       "norm_label": "session"
     },
     {
@@ -810,7 +810,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Config\\Boot\\development.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_config_boot_development_php",
-      "community": 51,
+      "community": 53,
       "norm_label": "development.php"
     },
     {
@@ -819,7 +819,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Config\\Boot\\production.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_config_boot_production_php",
-      "community": 52,
+      "community": 54,
       "norm_label": "production.php"
     },
     {
@@ -828,7 +828,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Config\\Boot\\testing.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_config_boot_testing_php",
-      "community": 53,
+      "community": 55,
       "norm_label": "testing.php"
     },
     {
@@ -837,7 +837,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Auth.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_controllers_auth_php",
-      "community": 2,
+      "community": 1,
       "norm_label": "auth.php"
     },
     {
@@ -846,7 +846,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Auth.php",
       "source_location": "L7",
       "id": "auth_auth",
-      "community": 2,
+      "community": 1,
       "norm_label": "auth"
     },
     {
@@ -855,7 +855,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Auth.php",
       "source_location": "L9",
       "id": "auth_auth_login",
-      "community": 2,
+      "community": 1,
       "norm_label": ".login()"
     },
     {
@@ -864,7 +864,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Auth.php",
       "source_location": "L17",
       "id": "auth_auth_postlogin",
-      "community": 2,
+      "community": 1,
       "norm_label": ".postlogin()"
     },
     {
@@ -873,7 +873,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Auth.php",
       "source_location": "L44",
       "id": "auth_auth_logout",
-      "community": 2,
+      "community": 1,
       "norm_label": ".logout()"
     },
     {
@@ -882,7 +882,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\BaseController.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_controllers_basecontroller_php",
-      "community": 10,
+      "community": 11,
       "norm_label": "basecontroller.php"
     },
     {
@@ -891,7 +891,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\BaseController.php",
       "source_location": "L21",
       "id": "basecontroller_basecontroller",
-      "community": 10,
+      "community": 11,
       "norm_label": "basecontroller"
     },
     {
@@ -900,7 +900,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\BaseController.php",
       "source_location": "L33",
       "id": "basecontroller_basecontroller_initcontroller",
-      "community": 10,
+      "community": 11,
       "norm_label": ".initcontroller()"
     },
     {
@@ -909,7 +909,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Booking.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_controllers_booking_php",
-      "community": 2,
+      "community": 1,
       "norm_label": "booking.php"
     },
     {
@@ -918,7 +918,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Booking.php",
       "source_location": "L8",
       "id": "booking_booking",
-      "community": 2,
+      "community": 1,
       "norm_label": "booking"
     },
     {
@@ -927,7 +927,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Booking.php",
       "source_location": "L10",
       "id": "booking_booking_index",
-      "community": 2,
+      "community": 1,
       "norm_label": ".index()"
     },
     {
@@ -936,7 +936,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Booking.php",
       "source_location": "L15",
       "id": "booking_booking_processstep1",
-      "community": 2,
+      "community": 1,
       "norm_label": ".processstep1()"
     },
     {
@@ -945,7 +945,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Booking.php",
       "source_location": "L28",
       "id": "booking_booking_step2",
-      "community": 2,
+      "community": 1,
       "norm_label": ".step2()"
     },
     {
@@ -954,7 +954,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Booking.php",
       "source_location": "L36",
       "id": "booking_booking_submit",
-      "community": 2,
+      "community": 1,
       "norm_label": ".submit()"
     },
     {
@@ -963,7 +963,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Booking.php",
       "source_location": "L61",
       "id": "booking_booking_success",
-      "community": 2,
+      "community": 1,
       "norm_label": ".success()"
     },
     {
@@ -999,7 +999,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Setup.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_controllers_setup_php",
-      "community": 1,
+      "community": 2,
       "norm_label": "setup.php"
     },
     {
@@ -1008,7 +1008,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Setup.php",
       "source_location": "L7",
       "id": "setup_setup",
-      "community": 1,
+      "community": 2,
       "norm_label": "setup"
     },
     {
@@ -1017,7 +1017,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Setup.php",
       "source_location": "L9",
       "id": "setup_setup_index",
-      "community": 1,
+      "community": 2,
       "norm_label": ".index()"
     },
     {
@@ -1051,7 +1051,7 @@
       "label": ".courseDetail()",
       "file_type": "code",
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Website.php",
-      "source_location": "L12",
+      "source_location": "L19",
       "id": "website_website_coursedetail",
       "community": 0,
       "norm_label": ".coursedetail()"
@@ -1060,7 +1060,7 @@
       "label": ".about()",
       "file_type": "code",
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Website.php",
-      "source_location": "L18",
+      "source_location": "L39",
       "id": "website_website_about",
       "community": 0,
       "norm_label": ".about()"
@@ -1069,7 +1069,7 @@
       "label": ".contact()",
       "file_type": "code",
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Website.php",
-      "source_location": "L23",
+      "source_location": "L44",
       "id": "website_website_contact",
       "community": 0,
       "norm_label": ".contact()"
@@ -1078,7 +1078,7 @@
       "label": ".login()",
       "file_type": "code",
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Website.php",
-      "source_location": "L28",
+      "source_location": "L49",
       "id": "website_website_login",
       "community": 0,
       "norm_label": ".login()"
@@ -1087,7 +1087,7 @@
       "label": ".register()",
       "file_type": "code",
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Website.php",
-      "source_location": "L33",
+      "source_location": "L54",
       "id": "website_website_register",
       "community": 0,
       "norm_label": ".register()"
@@ -1098,7 +1098,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Admin\\Bookings.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_controllers_admin_bookings_php",
-      "community": 1,
+      "community": 2,
       "norm_label": "bookings.php"
     },
     {
@@ -1107,7 +1107,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Admin\\Bookings.php",
       "source_location": "L7",
       "id": "bookings_bookings",
-      "community": 1,
+      "community": 2,
       "norm_label": "bookings"
     },
     {
@@ -1116,7 +1116,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Admin\\Bookings.php",
       "source_location": "L9",
       "id": "bookings_bookings_index",
-      "community": 1,
+      "community": 2,
       "norm_label": ".index()"
     },
     {
@@ -1125,7 +1125,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Admin\\Bookings.php",
       "source_location": "L22",
       "id": "bookings_bookings_updatestatus",
-      "community": 1,
+      "community": 2,
       "norm_label": ".updatestatus()"
     },
     {
@@ -1240,7 +1240,7 @@
       "label": ".edit()",
       "file_type": "code",
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Admin\\Courses.php",
-      "source_location": "L57",
+      "source_location": "L86",
       "id": "courses_courses_edit",
       "community": 3,
       "norm_label": ".edit()"
@@ -1249,7 +1249,7 @@
       "label": ".update()",
       "file_type": "code",
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Admin\\Courses.php",
-      "source_location": "L69",
+      "source_location": "L102",
       "id": "courses_courses_update",
       "community": 3,
       "norm_label": ".update()"
@@ -1258,7 +1258,7 @@
       "label": ".delete()",
       "file_type": "code",
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Admin\\Courses.php",
-      "source_location": "L90",
+      "source_location": "L153",
       "id": "courses_courses_delete",
       "community": 3,
       "norm_label": ".delete()"
@@ -1287,7 +1287,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Teacher\\Dashboard.php",
       "source_location": "L9",
       "id": "dashboard_dashboard_index",
-      "community": 0,
+      "community": 1,
       "norm_label": ".index()"
     },
     {
@@ -1296,7 +1296,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Admin\\Settings.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_controllers_admin_settings_php",
-      "community": 1,
+      "community": 2,
       "norm_label": "settings.php"
     },
     {
@@ -1305,7 +1305,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Admin\\Settings.php",
       "source_location": "L8",
       "id": "settings_settings",
-      "community": 1,
+      "community": 2,
       "norm_label": "settings"
     },
     {
@@ -1314,7 +1314,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Admin\\Settings.php",
       "source_location": "L10",
       "id": "settings_settings_index",
-      "community": 1,
+      "community": 2,
       "norm_label": ".index()"
     },
     {
@@ -1323,7 +1323,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Admin\\Settings.php",
       "source_location": "L27",
       "id": "settings_settings_update",
-      "community": 1,
+      "community": 2,
       "norm_label": ".update()"
     },
     {
@@ -1453,12 +1453,66 @@
       "norm_label": ".reviews()"
     },
     {
+      "label": "2026-07-09-164021_CreateTeamMembersTable.php",
+      "file_type": "code",
+      "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Database\\Migrations\\2026-07-09-164021_CreateTeamMembersTable.php",
+      "source_location": "L1",
+      "id": "c_users_harma_documents_kidsaicoding_app_database_migrations_2026_07_09_164021_createteammemberstable_php",
+      "community": 8,
+      "norm_label": "2026-07-09-164021_createteammemberstable.php"
+    },
+    {
+      "label": "CreateTeamMembersTable",
+      "file_type": "code",
+      "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Database\\Migrations\\2026-07-09-164021_CreateTeamMembersTable.php",
+      "source_location": "L7",
+      "id": "2026_07_09_164021_createteammemberstable_createteammemberstable",
+      "community": 8,
+      "norm_label": "createteammemberstable"
+    },
+    {
+      "label": ".up()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Database\\Migrations\\2026-07-09-164021_CreateTeamMembersTable.php",
+      "source_location": "L9",
+      "id": "2026_07_09_164021_createteammemberstable_createteammemberstable_up",
+      "community": 8,
+      "norm_label": ".up()"
+    },
+    {
+      "label": ".down()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Database\\Migrations\\2026-07-09-164021_CreateTeamMembersTable.php",
+      "source_location": "L52",
+      "id": "2026_07_09_164021_createteammemberstable_createteammemberstable_down",
+      "community": 8,
+      "norm_label": ".down()"
+    },
+    {
+      "label": "setting_helper.php",
+      "file_type": "code",
+      "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Helpers\\setting_helper.php",
+      "source_location": "L1",
+      "id": "c_users_harma_documents_kidsaicoding_app_helpers_setting_helper_php",
+      "community": 45,
+      "norm_label": "setting_helper.php"
+    },
+    {
+      "label": "get_setting()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Helpers\\setting_helper.php",
+      "source_location": "L14",
+      "id": "setting_helper_get_setting",
+      "community": 45,
+      "norm_label": "get_setting()"
+    },
+    {
       "label": "Validation.php",
       "file_type": "code",
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Language\\en\\Validation.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_language_en_validation_php",
-      "community": 54,
+      "community": 56,
       "norm_label": "validation.php"
     },
     {
@@ -1467,7 +1521,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Models\\CourseModel.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_models_coursemodel_php",
-      "community": 45,
+      "community": 46,
       "norm_label": "coursemodel.php"
     },
     {
@@ -1476,7 +1530,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Models\\CourseModel.php",
       "source_location": "L7",
       "id": "coursemodel_coursemodel",
-      "community": 45,
+      "community": 46,
       "norm_label": "coursemodel"
     },
     {
@@ -1485,7 +1539,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Models\\CourseOutcomeModel.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_models_courseoutcomemodel_php",
-      "community": 46,
+      "community": 47,
       "norm_label": "courseoutcomemodel.php"
     },
     {
@@ -1494,7 +1548,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Models\\CourseOutcomeModel.php",
       "source_location": "L7",
       "id": "courseoutcomemodel_courseoutcomemodel",
-      "community": 46,
+      "community": 47,
       "norm_label": "courseoutcomemodel"
     },
     {
@@ -1503,7 +1557,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Models\\SettingModel.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_models_settingmodel_php",
-      "community": 1,
+      "community": 2,
       "norm_label": "settingmodel.php"
     },
     {
@@ -1512,7 +1566,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Models\\SettingModel.php",
       "source_location": "L7",
       "id": "settingmodel_settingmodel",
-      "community": 1,
+      "community": 2,
       "norm_label": "settingmodel"
     },
     {
@@ -1521,7 +1575,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Models\\SettingModel.php",
       "source_location": "L17",
       "id": "settingmodel_settingmodel_getsetting",
-      "community": 1,
+      "community": 2,
       "norm_label": ".getsetting()"
     },
     {
@@ -1530,8 +1584,26 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Models\\SettingModel.php",
       "source_location": "L23",
       "id": "settingmodel_settingmodel_updatesetting",
-      "community": 1,
+      "community": 2,
       "norm_label": ".updatesetting()"
+    },
+    {
+      "label": "TeamMemberModel.php",
+      "file_type": "code",
+      "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Models\\TeamMemberModel.php",
+      "source_location": "L1",
+      "id": "c_users_harma_documents_kidsaicoding_app_models_teammembermodel_php",
+      "community": 48,
+      "norm_label": "teammembermodel.php"
+    },
+    {
+      "label": "TeamMemberModel",
+      "file_type": "code",
+      "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Models\\TeamMemberModel.php",
+      "source_location": "L7",
+      "id": "teammembermodel_teammembermodel",
+      "community": 48,
+      "norm_label": "teammembermodel"
     },
     {
       "label": "UserModel.php",
@@ -1539,7 +1611,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Models\\UserModel.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_models_usermodel_php",
-      "community": 11,
+      "community": 1,
       "norm_label": "usermodel.php"
     },
     {
@@ -1548,7 +1620,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Models\\UserModel.php",
       "source_location": "L7",
       "id": "usermodel_usermodel",
-      "community": 11,
+      "community": 1,
       "norm_label": "usermodel"
     },
     {
@@ -1557,8 +1629,17 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Models\\UserModel.php",
       "source_location": "L23",
       "id": "usermodel_usermodel_login",
-      "community": 11,
+      "community": 1,
       "norm_label": ".login()"
+    },
+    {
+      "label": ".loginByName()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Models\\UserModel.php",
+      "source_location": "L34",
+      "id": "usermodel_usermodel_loginbyname",
+      "community": 1,
+      "norm_label": ".loginbyname()"
     },
     {
       "label": "about.php",
@@ -1566,7 +1647,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\about.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_about_php",
-      "community": 55,
+      "community": 57,
       "norm_label": "about.php"
     },
     {
@@ -1575,7 +1656,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\contact.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_contact_php",
-      "community": 56,
+      "community": 58,
       "norm_label": "contact.php"
     },
     {
@@ -1584,7 +1665,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\courses.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_courses_php",
-      "community": 57,
+      "community": 59,
       "norm_label": "courses.php"
     },
     {
@@ -1593,7 +1674,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\course_detail.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_course_detail_php",
-      "community": 58,
+      "community": 60,
       "norm_label": "course_detail.php"
     },
     {
@@ -1602,7 +1683,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\index.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_index_php",
-      "community": 59,
+      "community": 61,
       "norm_label": "index.php"
     },
     {
@@ -1611,7 +1692,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\login.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_login_php",
-      "community": 60,
+      "community": 62,
       "norm_label": "login.php"
     },
     {
@@ -1620,7 +1701,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\register.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_register_php",
-      "community": 61,
+      "community": 63,
       "norm_label": "register.php"
     },
     {
@@ -1629,7 +1710,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\admin\\blogs.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_admin_blogs_php",
-      "community": 62,
+      "community": 64,
       "norm_label": "blogs.php"
     },
     {
@@ -1638,7 +1719,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\admin\\bookings.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_admin_bookings_php",
-      "community": 63,
+      "community": 65,
       "norm_label": "bookings.php"
     },
     {
@@ -1647,7 +1728,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\admin\\courses.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_admin_courses_php",
-      "community": 64,
+      "community": 66,
       "norm_label": "courses.php"
     },
     {
@@ -1656,7 +1737,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\admin\\dashboard.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_admin_dashboard_php",
-      "community": 65,
+      "community": 67,
       "norm_label": "dashboard.php"
     },
     {
@@ -1665,7 +1746,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\admin\\layout.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_admin_layout_php",
-      "community": 66,
+      "community": 68,
       "norm_label": "layout.php"
     },
     {
@@ -1674,7 +1755,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\admin\\settings.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_admin_settings_php",
-      "community": 67,
+      "community": 69,
       "norm_label": "settings.php"
     },
     {
@@ -1683,7 +1764,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\admin\\users.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_admin_users_php",
-      "community": 68,
+      "community": 70,
       "norm_label": "users.php"
     },
     {
@@ -1692,7 +1773,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\admin\\courses\\create.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_admin_courses_create_php",
-      "community": 69,
+      "community": 71,
       "norm_label": "create.php"
     },
     {
@@ -1701,7 +1782,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\admin\\courses\\edit.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_admin_courses_edit_php",
-      "community": 70,
+      "community": 72,
       "norm_label": "edit.php"
     },
     {
@@ -1710,7 +1791,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\admin\\courses\\index.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_admin_courses_index_php",
-      "community": 71,
+      "community": 73,
       "norm_label": "index.php"
     },
     {
@@ -1719,7 +1800,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\auth\\login.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_auth_login_php",
-      "community": 72,
+      "community": 74,
       "norm_label": "login.php"
     },
     {
@@ -1728,7 +1809,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\booking\\step1.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_booking_step1_php",
-      "community": 73,
+      "community": 75,
       "norm_label": "step1.php"
     },
     {
@@ -1737,7 +1818,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\booking\\step2.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_booking_step2_php",
-      "community": 74,
+      "community": 76,
       "norm_label": "step2.php"
     },
     {
@@ -1746,7 +1827,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\booking\\success.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_booking_success_php",
-      "community": 75,
+      "community": 77,
       "norm_label": "success.php"
     },
     {
@@ -1755,7 +1836,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\components\\admin_sidebar.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_components_admin_sidebar_php",
-      "community": 76,
+      "community": 78,
       "norm_label": "admin_sidebar.php"
     },
     {
@@ -1764,7 +1845,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\components\\footer.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_components_footer_php",
-      "community": 77,
+      "community": 79,
       "norm_label": "footer.php"
     },
     {
@@ -1773,7 +1854,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\components\\header.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_components_header_php",
-      "community": 78,
+      "community": 80,
       "norm_label": "header.php"
     },
     {
@@ -1782,7 +1863,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\components\\parent_sidebar.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_components_parent_sidebar_php",
-      "community": 79,
+      "community": 81,
       "norm_label": "parent_sidebar.php"
     },
     {
@@ -1791,7 +1872,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\components\\portal_footer.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_components_portal_footer_php",
-      "community": 80,
+      "community": 82,
       "norm_label": "portal_footer.php"
     },
     {
@@ -1800,7 +1881,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\components\\portal_header.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_components_portal_header_php",
-      "community": 81,
+      "community": 83,
       "norm_label": "portal_header.php"
     },
     {
@@ -1809,7 +1890,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\components\\portal_topbar.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_components_portal_topbar_php",
-      "community": 82,
+      "community": 84,
       "norm_label": "portal_topbar.php"
     },
     {
@@ -1818,7 +1899,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\components\\student_sidebar.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_components_student_sidebar_php",
-      "community": 83,
+      "community": 85,
       "norm_label": "student_sidebar.php"
     },
     {
@@ -1827,7 +1908,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\components\\teacher_sidebar.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_components_teacher_sidebar_php",
-      "community": 84,
+      "community": 86,
       "norm_label": "teacher_sidebar.php"
     },
     {
@@ -1836,7 +1917,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\errors\\cli\\error_404.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_errors_cli_error_404_php",
-      "community": 85,
+      "community": 87,
       "norm_label": "error_404.php"
     },
     {
@@ -1845,7 +1926,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\errors\\cli\\error_exception.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_errors_cli_error_exception_php",
-      "community": 86,
+      "community": 88,
       "norm_label": "error_exception.php"
     },
     {
@@ -1854,7 +1935,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\errors\\cli\\production.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_errors_cli_production_php",
-      "community": 87,
+      "community": 89,
       "norm_label": "production.php"
     },
     {
@@ -1917,7 +1998,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\errors\\html\\error_400.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_errors_html_error_400_php",
-      "community": 88,
+      "community": 90,
       "norm_label": "error_400.php"
     },
     {
@@ -1926,7 +2007,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\errors\\html\\error_404.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_errors_html_error_404_php",
-      "community": 89,
+      "community": 91,
       "norm_label": "error_404.php"
     },
     {
@@ -1935,7 +2016,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\errors\\html\\error_exception.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_errors_html_error_exception_php",
-      "community": 90,
+      "community": 92,
       "norm_label": "error_exception.php"
     },
     {
@@ -1944,7 +2025,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\errors\\html\\production.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_errors_html_production_php",
-      "community": 91,
+      "community": 93,
       "norm_label": "production.php"
     },
     {
@@ -1953,7 +2034,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\layouts\\main.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_layouts_main_php",
-      "community": 92,
+      "community": 94,
       "norm_label": "main.php"
     },
     {
@@ -1962,7 +2043,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\layouts\\portal.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_layouts_portal_php",
-      "community": 93,
+      "community": 95,
       "norm_label": "portal.php"
     },
     {
@@ -1971,7 +2052,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\parent\\dashboard.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_parent_dashboard_php",
-      "community": 94,
+      "community": 96,
       "norm_label": "dashboard.php"
     },
     {
@@ -1980,7 +2061,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\sections\\plans.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_sections_plans_php",
-      "community": 95,
+      "community": 97,
       "norm_label": "plans.php"
     },
     {
@@ -1989,7 +2070,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\student\\assignments.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_student_assignments_php",
-      "community": 96,
+      "community": 98,
       "norm_label": "assignments.php"
     },
     {
@@ -1998,7 +2079,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\student\\dashboard.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_student_dashboard_php",
-      "community": 97,
+      "community": 99,
       "norm_label": "dashboard.php"
     },
     {
@@ -2007,7 +2088,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\student\\my_courses.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_student_my_courses_php",
-      "community": 98,
+      "community": 100,
       "norm_label": "my_courses.php"
     },
     {
@@ -2016,7 +2097,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\student\\profile.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_student_profile_php",
-      "community": 99,
+      "community": 101,
       "norm_label": "profile.php"
     },
     {
@@ -2025,7 +2106,7 @@
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Views\\teacher\\dashboard.php",
       "source_location": "L1",
       "id": "c_users_harma_documents_kidsaicoding_app_views_teacher_dashboard_php",
-      "community": 100,
+      "community": 102,
       "norm_label": "dashboard.php"
     }
   ],
@@ -3064,15 +3145,15 @@
     },
     {
       "relation": "calls",
-      "confidence": "EXTRACTED",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Auth.php",
       "source_location": "L23",
       "weight": 1.0,
       "_src": "auth_auth_postlogin",
-      "_tgt": "auth_auth_login",
-      "source": "auth_auth_login",
-      "target": "auth_auth_postlogin",
-      "confidence_score": 1.0
+      "_tgt": "usermodel_usermodel_loginbyname",
+      "source": "auth_auth_postlogin",
+      "target": "usermodel_usermodel_loginbyname"
     },
     {
       "relation": "contains",
@@ -3258,7 +3339,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Website.php",
-      "source_location": "L12",
+      "source_location": "L19",
       "weight": 1.0,
       "_src": "website_website",
       "_tgt": "website_website_coursedetail",
@@ -3270,7 +3351,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Website.php",
-      "source_location": "L18",
+      "source_location": "L39",
       "weight": 1.0,
       "_src": "website_website",
       "_tgt": "website_website_about",
@@ -3282,7 +3363,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Website.php",
-      "source_location": "L23",
+      "source_location": "L44",
       "weight": 1.0,
       "_src": "website_website",
       "_tgt": "website_website_contact",
@@ -3294,7 +3375,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Website.php",
-      "source_location": "L28",
+      "source_location": "L49",
       "weight": 1.0,
       "_src": "website_website",
       "_tgt": "website_website_login",
@@ -3306,7 +3387,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Website.php",
-      "source_location": "L33",
+      "source_location": "L54",
       "weight": 1.0,
       "_src": "website_website",
       "_tgt": "website_website_register",
@@ -3486,7 +3567,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Admin\\Courses.php",
-      "source_location": "L57",
+      "source_location": "L86",
       "weight": 1.0,
       "_src": "courses_courses",
       "_tgt": "courses_courses_edit",
@@ -3498,7 +3579,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Admin\\Courses.php",
-      "source_location": "L69",
+      "source_location": "L102",
       "weight": 1.0,
       "_src": "courses_courses",
       "_tgt": "courses_courses_update",
@@ -3510,11 +3591,23 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Admin\\Courses.php",
-      "source_location": "L90",
+      "source_location": "L153",
       "weight": 1.0,
       "_src": "courses_courses",
       "_tgt": "courses_courses_delete",
       "source": "courses_courses",
+      "target": "courses_courses_delete",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Controllers\\Admin\\Courses.php",
+      "source_location": "L136",
+      "weight": 1.0,
+      "_src": "courses_courses_update",
+      "_tgt": "courses_courses_delete",
+      "source": "courses_courses_update",
       "target": "courses_courses_delete",
       "confidence_score": 1.0
     },
@@ -3749,6 +3842,54 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Database\\Migrations\\2026-07-09-164021_CreateTeamMembersTable.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_src": "c_users_harma_documents_kidsaicoding_app_database_migrations_2026_07_09_164021_createteammemberstable_php",
+      "_tgt": "2026_07_09_164021_createteammemberstable_createteammemberstable",
+      "source": "c_users_harma_documents_kidsaicoding_app_database_migrations_2026_07_09_164021_createteammemberstable_php",
+      "target": "2026_07_09_164021_createteammemberstable_createteammemberstable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Database\\Migrations\\2026-07-09-164021_CreateTeamMembersTable.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_src": "2026_07_09_164021_createteammemberstable_createteammemberstable",
+      "_tgt": "2026_07_09_164021_createteammemberstable_createteammemberstable_up",
+      "source": "2026_07_09_164021_createteammemberstable_createteammemberstable",
+      "target": "2026_07_09_164021_createteammemberstable_createteammemberstable_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Database\\Migrations\\2026-07-09-164021_CreateTeamMembersTable.php",
+      "source_location": "L52",
+      "weight": 1.0,
+      "_src": "2026_07_09_164021_createteammemberstable_createteammemberstable",
+      "_tgt": "2026_07_09_164021_createteammemberstable_createteammemberstable_down",
+      "source": "2026_07_09_164021_createteammemberstable_createteammemberstable",
+      "target": "2026_07_09_164021_createteammemberstable_createteammemberstable_down",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Helpers\\setting_helper.php",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_src": "c_users_harma_documents_kidsaicoding_app_helpers_setting_helper_php",
+      "_tgt": "setting_helper_get_setting",
+      "source": "c_users_harma_documents_kidsaicoding_app_helpers_setting_helper_php",
+      "target": "setting_helper_get_setting",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Models\\CourseModel.php",
       "source_location": "L7",
       "weight": 1.0,
@@ -3809,6 +3950,18 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Models\\TeamMemberModel.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_src": "c_users_harma_documents_kidsaicoding_app_models_teammembermodel_php",
+      "_tgt": "teammembermodel_teammembermodel",
+      "source": "c_users_harma_documents_kidsaicoding_app_models_teammembermodel_php",
+      "target": "teammembermodel_teammembermodel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Models\\UserModel.php",
       "source_location": "L7",
       "weight": 1.0,
@@ -3828,6 +3981,18 @@
       "_tgt": "usermodel_usermodel_login",
       "source": "usermodel_usermodel",
       "target": "usermodel_usermodel_login",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\harma\\Documents\\kidsaicoding\\app\\Models\\UserModel.php",
+      "source_location": "L34",
+      "weight": 1.0,
+      "_src": "usermodel_usermodel",
+      "_tgt": "usermodel_usermodel_loginbyname",
+      "source": "usermodel_usermodel",
+      "target": "usermodel_usermodel_loginbyname",
       "confidence_score": 1.0
     },
     {

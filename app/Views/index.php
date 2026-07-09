@@ -509,37 +509,22 @@
     </div>
 
     <div class="team-grid">
-
-        <!-- CARD 1 -->
-        <div class="team-card">
-            <div class="team-image-placeholder">IMAGE PLACEHOLDER</div>
-            <div class="team-content">
-                <h3>Gaurav</h3>
-                <span>Founder & Lead Mentor</span>
-                <p>Passionate educator with 10+ years of experience teaching AI, Python and Robotics to young innovators.</p>
+        <?php foreach ($team as $member): ?>
+            <div class="team-card">
+                <?php if (!empty($member['image_path'])): ?>
+                    <img src="<?= base_url($member['image_path']) ?>" alt="<?= esc($member['name']) ?>" style="width: 100%; height: 240px; object-fit: cover; border-bottom: 1px solid #f1f5f9;">
+                <?php else: ?>
+                    <div class="team-image-placeholder">
+                        <div style="font-size: 3.5rem;">👨‍🏫</div>
+                    </div>
+                <?php endif; ?>
+                <div class="team-content">
+                    <h3><?= esc($member['name']) ?></h3>
+                    <span><?= esc($member['role']) ?></span>
+                    <p><?= esc($member['bio']) ?></p>
+                </div>
             </div>
-        </div>
-
-        <!-- CARD 2 -->
-        <div class="team-card">
-            <div class="team-image-placeholder">IMAGE PLACEHOLDER</div>
-            <div class="team-content">
-                <h3>Rupali</h3>
-                <span>Head of Curriculum</span>
-                <p>Expert in STEM education with focus on project-based learning and interactive student engagement.</p>
-            </div>
-        </div>
-
-        <!-- CARD 3 -->
-        <div class="team-card">
-            <div class="team-image-placeholder">IMAGE PLACEHOLDER</div>
-            <div class="team-content">
-                <h3>Manish</h3>
-                <span>Senior AI Mentor</span>
-                <p>Tech professional with background in Machine Learning, dedicated to making complex AI concepts simple.</p>
-            </div>
-        </div>
-
+        <?php endforeach; ?>
     </div>
 
     <div class="team-btn-wrap">

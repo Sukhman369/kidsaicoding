@@ -176,8 +176,10 @@
             <a href="<?= base_url('admin/bookings') ?>" class="menu-item <?= url_is('admin/bookings*') ? 'active' : '' ?>">
                 <i class="fa-solid fa-calendar-check"></i> Bookings
             </a>
+            <a href="<?= base_url('admin/team') ?>" class="menu-item <?= url_is('admin/team*') ? 'active' : '' ?>">
+                <i class="fa-solid fa-people-group"></i> Team Members
+            </a>
             <a href="<?= base_url('admin/settings') ?>" class="menu-item <?= url_is('admin/settings*') ? 'active' : '' ?>">
-
                 <i class="fa-solid fa-gears"></i> Site Settings
             </a>
             <a href="<?= base_url('logout') ?>" class="menu-item" style="margin-top: auto; color: #f87171;">

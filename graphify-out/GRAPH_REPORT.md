@@ -1,12 +1,12 @@
 # Graph Report - C:\Users\harma\Documents\kidsaicoding  (2026-07-09)
 
 ## Corpus Check
-- 113 files · ~57,802 words
+- 116 files · ~64,211 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 225 nodes · 158 edges · 101 communities detected
-- Extraction: 76% EXTRACTED · 24% INFERRED · 0% AMBIGUOUS · INFERRED: 38 edges (avg confidence: 0.8)
+- 234 nodes · 165 edges · 103 communities detected
+- Extraction: 76% EXTRACTED · 24% INFERRED · 0% AMBIGUOUS · INFERRED: 39 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
@@ -111,6 +111,8 @@
 - [[_COMMUNITY_Community 98|Community 98]]
 - [[_COMMUNITY_Community 99|Community 99]]
 - [[_COMMUNITY_Community 100|Community 100]]
+- [[_COMMUNITY_Community 101|Community 101]]
+- [[_COMMUNITY_Community 102|Community 102]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `View` - 28 edges
@@ -135,14 +137,14 @@ Nodes (5): Content, Dashboard, Home, View, Website
 
 ### Community 1 - "Community 1"
 Cohesion: 0.13
-Nodes (4): Bookings, SettingModel, Settings, Setup
+Nodes (4): Auth, Booking, Session, UserModel
 
 ### Community 2 - "Community 2"
-Cohesion: 0.2
-Nodes (3): Auth, Booking, Session
+Cohesion: 0.13
+Nodes (4): Bookings, SettingModel, Settings, Setup
 
 ### Community 3 - "Community 3"
-Cohesion: 0.22
+Cohesion: 0.25
 Nodes (1): Courses
 
 ### Community 4 - "Community 4"
@@ -162,20 +164,20 @@ Cohesion: 0.5
 Nodes (1): Mimes
 
 ### Community 8 - "Community 8"
-Cohesion: 0.67
-Nodes (1): Database
+Cohesion: 0.5
+Nodes (1): CreateTeamMembersTable
 
 ### Community 9 - "Community 9"
 Cohesion: 0.67
-Nodes (1): Exceptions
+Nodes (1): Database
 
 ### Community 10 - "Community 10"
 Cohesion: 0.67
-Nodes (1): BaseController
+Nodes (1): Exceptions
 
 ### Community 11 - "Community 11"
 Cohesion: 0.67
-Nodes (1): UserModel
+Nodes (1): BaseController
 
 ### Community 12 - "Community 12"
 Cohesion: 1.0
@@ -311,19 +313,19 @@ Nodes (1): WorkerMode
 
 ### Community 45 - "Community 45"
 Cohesion: 1.0
-Nodes (1): CourseModel
+Nodes (0): 
 
 ### Community 46 - "Community 46"
 Cohesion: 1.0
-Nodes (1): CourseOutcomeModel
+Nodes (1): CourseModel
 
 ### Community 47 - "Community 47"
 Cohesion: 1.0
-Nodes (0): 
+Nodes (1): CourseOutcomeModel
 
 ### Community 48 - "Community 48"
 Cohesion: 1.0
-Nodes (0): 
+Nodes (1): TeamMemberModel
 
 ### Community 49 - "Community 49"
 Cohesion: 1.0
@@ -533,8 +535,16 @@ Nodes (0):
 Cohesion: 1.0
 Nodes (0): 
 
+### Community 101 - "Community 101"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 102 - "Community 102"
+Cohesion: 1.0
+Nodes (0): 
+
 ## Knowledge Gaps
-- **35 isolated node(s):** `App`, `Autoload`, `Cache`, `ContentSecurityPolicy`, `Cookie` (+30 more)
+- **36 isolated node(s):** `App`, `Autoload`, `Cache`, `ContentSecurityPolicy`, `Cookie` (+31 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **Thin community `Community 12`** (2 nodes): `App`, `App.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
@@ -602,130 +612,136 @@ Nodes (0):
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 44`** (2 nodes): `WorkerMode.php`, `WorkerMode`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 45`** (2 nodes): `CourseModel.php`, `CourseModel`
+- **Thin community `Community 45`** (2 nodes): `setting_helper.php`, `get_setting()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 46`** (2 nodes): `CourseOutcomeModel.php`, `CourseOutcomeModel`
+- **Thin community `Community 46`** (2 nodes): `CourseModel.php`, `CourseModel`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 47`** (1 nodes): `Common.php`
+- **Thin community `Community 47`** (2 nodes): `CourseOutcomeModel.php`, `CourseOutcomeModel`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 48`** (1 nodes): `Constants.php`
+- **Thin community `Community 48`** (2 nodes): `TeamMemberModel.php`, `TeamMemberModel`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 49`** (1 nodes): `Events.php`
+- **Thin community `Community 49`** (1 nodes): `Common.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 50`** (1 nodes): `Routes.php`
+- **Thin community `Community 50`** (1 nodes): `Constants.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 51`** (1 nodes): `development.php`
+- **Thin community `Community 51`** (1 nodes): `Events.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 52`** (1 nodes): `production.php`
+- **Thin community `Community 52`** (1 nodes): `Routes.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 53`** (1 nodes): `testing.php`
+- **Thin community `Community 53`** (1 nodes): `development.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 54`** (1 nodes): `Validation.php`
+- **Thin community `Community 54`** (1 nodes): `production.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 55`** (1 nodes): `about.php`
+- **Thin community `Community 55`** (1 nodes): `testing.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 56`** (1 nodes): `contact.php`
+- **Thin community `Community 56`** (1 nodes): `Validation.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 57`** (1 nodes): `courses.php`
+- **Thin community `Community 57`** (1 nodes): `about.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 58`** (1 nodes): `course_detail.php`
+- **Thin community `Community 58`** (1 nodes): `contact.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 59`** (1 nodes): `index.php`
+- **Thin community `Community 59`** (1 nodes): `courses.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 60`** (1 nodes): `login.php`
+- **Thin community `Community 60`** (1 nodes): `course_detail.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 61`** (1 nodes): `register.php`
+- **Thin community `Community 61`** (1 nodes): `index.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 62`** (1 nodes): `blogs.php`
+- **Thin community `Community 62`** (1 nodes): `login.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 63`** (1 nodes): `bookings.php`
+- **Thin community `Community 63`** (1 nodes): `register.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 64`** (1 nodes): `courses.php`
+- **Thin community `Community 64`** (1 nodes): `blogs.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 65`** (1 nodes): `dashboard.php`
+- **Thin community `Community 65`** (1 nodes): `bookings.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 66`** (1 nodes): `layout.php`
+- **Thin community `Community 66`** (1 nodes): `courses.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 67`** (1 nodes): `settings.php`
+- **Thin community `Community 67`** (1 nodes): `dashboard.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 68`** (1 nodes): `users.php`
+- **Thin community `Community 68`** (1 nodes): `layout.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 69`** (1 nodes): `create.php`
+- **Thin community `Community 69`** (1 nodes): `settings.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 70`** (1 nodes): `edit.php`
+- **Thin community `Community 70`** (1 nodes): `users.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 71`** (1 nodes): `index.php`
+- **Thin community `Community 71`** (1 nodes): `create.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 72`** (1 nodes): `login.php`
+- **Thin community `Community 72`** (1 nodes): `edit.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 73`** (1 nodes): `step1.php`
+- **Thin community `Community 73`** (1 nodes): `index.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 74`** (1 nodes): `step2.php`
+- **Thin community `Community 74`** (1 nodes): `login.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 75`** (1 nodes): `success.php`
+- **Thin community `Community 75`** (1 nodes): `step1.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 76`** (1 nodes): `admin_sidebar.php`
+- **Thin community `Community 76`** (1 nodes): `step2.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 77`** (1 nodes): `footer.php`
+- **Thin community `Community 77`** (1 nodes): `success.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 78`** (1 nodes): `header.php`
+- **Thin community `Community 78`** (1 nodes): `admin_sidebar.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 79`** (1 nodes): `parent_sidebar.php`
+- **Thin community `Community 79`** (1 nodes): `footer.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 80`** (1 nodes): `portal_footer.php`
+- **Thin community `Community 80`** (1 nodes): `header.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 81`** (1 nodes): `portal_header.php`
+- **Thin community `Community 81`** (1 nodes): `parent_sidebar.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 82`** (1 nodes): `portal_topbar.php`
+- **Thin community `Community 82`** (1 nodes): `portal_footer.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 83`** (1 nodes): `student_sidebar.php`
+- **Thin community `Community 83`** (1 nodes): `portal_header.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 84`** (1 nodes): `teacher_sidebar.php`
+- **Thin community `Community 84`** (1 nodes): `portal_topbar.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 85`** (1 nodes): `error_404.php`
+- **Thin community `Community 85`** (1 nodes): `student_sidebar.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 86`** (1 nodes): `error_exception.php`
+- **Thin community `Community 86`** (1 nodes): `teacher_sidebar.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 87`** (1 nodes): `production.php`
+- **Thin community `Community 87`** (1 nodes): `error_404.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 88`** (1 nodes): `error_400.php`
+- **Thin community `Community 88`** (1 nodes): `error_exception.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 89`** (1 nodes): `error_404.php`
+- **Thin community `Community 89`** (1 nodes): `production.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 90`** (1 nodes): `error_exception.php`
+- **Thin community `Community 90`** (1 nodes): `error_400.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 91`** (1 nodes): `production.php`
+- **Thin community `Community 91`** (1 nodes): `error_404.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 92`** (1 nodes): `main.php`
+- **Thin community `Community 92`** (1 nodes): `error_exception.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 93`** (1 nodes): `portal.php`
+- **Thin community `Community 93`** (1 nodes): `production.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 94`** (1 nodes): `dashboard.php`
+- **Thin community `Community 94`** (1 nodes): `main.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 95`** (1 nodes): `plans.php`
+- **Thin community `Community 95`** (1 nodes): `portal.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 96`** (1 nodes): `assignments.php`
+- **Thin community `Community 96`** (1 nodes): `dashboard.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 97`** (1 nodes): `dashboard.php`
+- **Thin community `Community 97`** (1 nodes): `plans.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 98`** (1 nodes): `my_courses.php`
+- **Thin community `Community 98`** (1 nodes): `assignments.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 99`** (1 nodes): `profile.php`
+- **Thin community `Community 99`** (1 nodes): `dashboard.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 100`** (1 nodes): `dashboard.php`
+- **Thin community `Community 100`** (1 nodes): `my_courses.php`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 101`** (1 nodes): `profile.php`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 102`** (1 nodes): `dashboard.php`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `View` connect `Community 0` to `Community 1`, `Community 2`, `Community 3`, `Community 4`?**
-  _High betweenness centrality (0.088) - this node is a cross-community bridge._
+  _High betweenness centrality (0.089) - this node is a cross-community bridge._
+- **Why does `Session` connect `Community 1` to `Community 4`?**
+  _High betweenness centrality (0.021) - this node is a cross-community bridge._
 - **Are the 27 inferred relationships involving `View` (e.g. with `.login()` and `.index()`) actually correct?**
   _`View` has 27 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 8 inferred relationships involving `Session` (e.g. with `.login()` and `.postLogin()`) actually correct?**
   _`Session` has 8 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `App`, `Autoload`, `Cache` to the rest of the system?**
-  _35 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _36 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.1 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
