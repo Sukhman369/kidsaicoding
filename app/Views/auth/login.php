@@ -151,8 +151,8 @@
 
             <?= csrf_field() ?>
             <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" name="email" id="email" class="form-control" placeholder="admin@kidsai.com" required autocomplete="email">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" class="form-control" placeholder="Admin" required autocomplete="username">
             </div>
 
             <div class="form-group">

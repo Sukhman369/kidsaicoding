@@ -22,6 +22,11 @@ class SettingModel extends Model
 
     public function updateSetting($key, $value)
     {
-        return $this->where('key', $key)->set(['value' => $value])->update();
+        $existing = $this->where('key', $key)->first();
+        if ($existing) {
+            return $this->update($existing['id'], ['value' => $value]);
+        } else {
+            return $this->insert(['key' => $key, 'value' => $value]);
+        }
     }
 }

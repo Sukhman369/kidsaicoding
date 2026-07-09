@@ -6,13 +6,34 @@ class Website extends BaseController
 {
     public function courses()
     {
-        return view('courses');
+        $courseModel = new \App\Models\CourseModel();
+        $courses = $courseModel->where('status', 'published')
+                               ->orderBy('order_index', 'ASC')
+                               ->findAll();
+
+        return view('courses', [
+            'courses' => $courses
+        ]);
     }
 
     public function courseDetail($slug)
     {
-        // For now, we just load the static detail view
-        return view('course_detail');
+        $courseModel = new \App\Models\CourseModel();
+        $course = $courseModel->where('slug', $slug)
+                              ->where('status', 'published')
+                              ->first();
+                              
+        if (!$course) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Course not found");
+        }
+
+        $outcomeModel = new \App\Models\CourseOutcomeModel();
+        $outcomes = $outcomeModel->where('course_id', $course['id'])->findAll();
+
+        return view('course_detail', [
+            'course' => $course,
+            'outcomes' => $outcomes
+        ]);
     }
 
     public function about()

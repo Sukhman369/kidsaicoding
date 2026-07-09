@@ -9,11 +9,11 @@
                 </span>
 
                 <h1>
-                    <?= isset($settings['hero_title']) ? $settings['hero_title'] : 'Learn AI, Coding & Robotics The Fun Way.' ?>
+                    <?= esc(get_setting('hero_title', 'Learn AI, Coding & Robotics The Fun Way.')) ?>
                 </h1>
 
                 <p>
-                    <?= isset($settings['hero_subtitle']) ? nl2br($settings['hero_subtitle']) : 'Interactive project-based learning for kids aged 6–18. Build games, websites, apps and AI projects with expert mentors.' ?>
+                    <?= nl2br(esc(get_setting('hero_subtitle', 'Interactive project-based learning for kids aged 6–18. Build games, websites, apps and AI projects with expert mentors.'))) ?>
                 </p>
 
                 <div class="hero-features">
@@ -50,9 +50,13 @@
             </div>
 
             <div class="hero-right">
-                <div class="hero-image-placeholder">
-                    IMAGE PLACEHOLDER
-                </div>
+                <?php if (get_setting('hero_image')): ?>
+                    <img src="<?= base_url(get_setting('hero_image')) ?>" alt="<?= esc(get_setting('brand_name', 'KidsAI')) ?> Hero" style="width: 100%; max-width: 550px; aspect-ratio: 1.1 / 1; border-radius: 40px; object-fit: cover; box-shadow: 0 20px 60px rgba(0,0,0,.05);">
+                <?php else: ?>
+                    <div class="hero-image-placeholder">
+                        IMAGE PLACEHOLDER
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
     </header>
@@ -332,9 +336,15 @@
 
     <div class="mentor-container">
 
-        <!-- LEFT: Image Placeholder -->
-        <div class="mentor-image-placeholder">
-            IMAGE PLACEHOLDER
+        <!-- LEFT: Image -->
+        <div class="mentor-image-wrap" style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
+            <?php if (get_setting('mentor_section_image')): ?>
+                <img src="<?= base_url(get_setting('mentor_section_image')) ?>" alt="Industry Experts" style="width: 100%; max-width: 500px; height: 350px; border-radius: 24px; object-fit: cover; box-shadow: 0 15px 40px rgba(0,0,0,0.06);">
+            <?php else: ?>
+                <div class="mentor-image-placeholder">
+                    IMAGE PLACEHOLDER
+                </div>
+            <?php endif; ?>
         </div>
 
         <!-- RIGHT: Stats Grid -->
@@ -380,8 +390,8 @@
 <section class="guarantee-section">
 
     <div class="section-title">
-        <h2>100% Risk-Free Learning Guarantee</h2>
-        <p>We are committed to providing the best learning experience for every child.</p>
+        <h2><?= esc(get_setting('guarantee_title', '100% Risk-Free Learning Guarantee')) ?></h2>
+        <p><?= esc(get_setting('guarantee_subtitle', 'We are committed to providing the best learning experience for every child.')) ?></p>
     </div>
 
     <div class="guarantee-card">
@@ -395,19 +405,20 @@
 
         <!-- RIGHT: Content -->
         <div class="guarantee-content">
-            <h3>Your Satisfaction Comes First</h3>
+            <h3><?= esc(get_setting('guarantee_detail_title', 'Your Satisfaction Comes First')) ?></h3>
             <p>
-                We believe in the quality of our mentors and curriculum.
-                If you feel our classes aren't the right fit after your first
-                session, we'll refund your payment—no complicated process,
-                no hidden conditions.
+                <?= nl2br(esc(get_setting('guarantee_detail_text', "We believe in the quality of our mentors and curriculum.\nIf you feel our classes aren't the right fit after your first\nsession, we'll refund your payment—no complicated process,\nno hidden conditions."))) ?>
             </p>
 
             <div class="guarantee-list">
-                <div class="check-item"><span>✔</span> 100% Money Back</div>
-                <div class="check-item"><span>✔</span> Cancel Anytime</div>
-                <div class="check-item"><span>✔</span> Transparent Pricing</div>
-                <div class="check-item"><span>✔</span> Dedicated Support</div>
+                <?php 
+                $feats = explode(',', get_setting('guarantee_features', '100% Money Back, Cancel Anytime, Transparent Pricing, Dedicated Support'));
+                foreach ($feats as $f): 
+                    $f = trim($f);
+                    if (!$f) continue;
+                ?>
+                    <div class="check-item"><span>✔</span> <?= esc($f) ?></div>
+                <?php endforeach; ?>
             </div>
 
             <div class="guarantee-btn-wrap">
@@ -424,21 +435,24 @@
 <section class="why-code">
 
     <div class="section-title">
-        <h2>Why Every Child Should Learn Coding</h2>
-        <p>Coding isn't just about computers. It develops creativity, confidence and problem-solving skills that last a lifetime.</p>
+        <h2><?= esc(get_setting('why_code_title', 'Why Every Child Should Learn Coding')) ?></h2>
+        <p><?= esc(get_setting('why_code_subtitle', "Coding isn't just about computers. It develops creativity, confidence and problem-solving skills that last a lifetime.")) ?></p>
     </div>
 
     <!-- ITEM 1 -->
     <div class="why-row">
         <div class="why-image">
-            IMAGE PLACEHOLDER
+            <?php if (get_setting('why_code_r1_image')): ?>
+                <img src="<?= base_url(get_setting('why_code_r1_image')) ?>" alt="Critical Thinking" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+            <?php else: ?>
+                IMAGE PLACEHOLDER
+            <?php endif; ?>
         </div>
         <div class="why-content">
-            <div class="icon-box">🧠</div>
-            <h3>Develop Critical Thinking</h3>
+            <div class="icon-box"><?= esc(get_setting('why_code_r1_icon', '🧠')) ?></div>
+            <h3><?= esc(get_setting('why_code_r1_title', 'Develop Critical Thinking')) ?></h3>
             <p>
-                Coding strengthens logical reasoning, analytical thinking and creative problem-solving,
-                helping children perform better in academics and everyday life.
+                <?= nl2br(esc(get_setting('why_code_r1_desc', 'Coding strengthens logical reasoning, analytical thinking and creative problem-solving, helping children perform better in academics and everyday life.'))) ?>
             </p>
         </div>
     </div>
@@ -446,14 +460,17 @@
     <!-- ITEM 2 -->
     <div class="why-row reverse">
         <div class="why-image">
-            IMAGE PLACEHOLDER
+            <?php if (get_setting('why_code_r2_image')): ?>
+                <img src="<?= base_url(get_setting('why_code_r2_image')) ?>" alt="Future Careers" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+            <?php else: ?>
+                IMAGE PLACEHOLDER
+            <?php endif; ?>
         </div>
         <div class="why-content">
-            <div class="icon-box">🚀</div>
-            <h3>Prepare for Future Careers</h3>
+            <div class="icon-box"><?= esc(get_setting('why_code_r2_icon', '🚀')) ?></div>
+            <h3><?= esc(get_setting('why_code_r2_title', 'Prepare for Future Careers')) ?></h3>
             <p>
-                Technology is shaping every industry. Learning programming early gives children
-                confidence to succeed in tomorrow's digital world.
+                <?= nl2br(esc(get_setting('why_code_r2_desc', "Technology is shaping every industry. Learning programming early gives children\nconfidence to succeed in tomorrow's digital world."))) ?>
             </p>
         </div>
     </div>
@@ -461,14 +478,17 @@
     <!-- ITEM 3 -->
     <div class="why-row">
         <div class="why-image">
-            IMAGE PLACEHOLDER
+            <?php if (get_setting('why_code_r3_image')): ?>
+                <img src="<?= base_url(get_setting('why_code_r3_image')) ?>" alt="Project Based" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+            <?php else: ?>
+                IMAGE PLACEHOLDER
+            <?php endif; ?>
         </div>
         <div class="why-content">
-            <div class="icon-box">🎯</div>
-            <h3>Learn Through Projects</h3>
+            <div class="icon-box"><?= esc(get_setting('why_code_r3_icon', '🎯')) ?></div>
+            <h3><?= esc(get_setting('why_code_r3_title', 'Learn Through Projects')) ?></h3>
             <p>
-                Kids build games, websites, AI applications and real projects,
-                making learning practical and enjoyable.
+                <?= nl2br(esc(get_setting('why_code_r3_desc', 'Kids build games, websites, AI applications and real projects, making learning practical and enjoyable.'))) ?>
             </p>
         </div>
     </div>
@@ -520,36 +540,6 @@
             </div>
         </div>
 
-        <!-- CARD 4 -->
-        <div class="team-card">
-            <div class="team-image-placeholder">IMAGE PLACEHOLDER</div>
-            <div class="team-content">
-                <h3>Sukhman<h3>
-                <span>Creative Design Lead</span>
-                <p>Specializes in teaching UI/UX and Web Design, helping students build beautiful digital experiences.</p>
-            </div>
-        </div>
-
-        <!-- CARD 5 -->
-        <div class="team-card">
-            <div class="team-image-placeholder">IMAGE PLACEHOLDER</div>
-            <div class="team-content">
-                <h3>Sameer</h3>
-                <span>Robotics Expert</span>
-                <p>Engineer focused on hands-on robotics and hardware programming for students of all skill levels.</p>
-            </div>
-        </div>
-
-        <!-- CARD 6 -->
-        <div class="team-card">
-            <div class="team-image-placeholder">IMAGE PLACEHOLDER</div>
-            <div class="team-content">
-                <h3>Name</h3>
-                <span>Student Success Mgr</span>
-                <p>Ensures every child's learning journey is personalized, fun and productive at every step.</p>
-            </div>
-        </div>
-
     </div>
 
     <div class="team-btn-wrap">
@@ -563,30 +553,30 @@
     <section class="py-5 mt-5">
         <div class="container">
             <div class="text-center mb-5">
-                <span class="text-primary fw-bold text-uppercase letter-spacing-lg small">The KidsAI Advantage</span>
-                <h2 class="fw-bold h1 mt-2" style="font-family: 'Outfit', sans-serif;">Why Choose Us?</h2>
+                <span class="text-primary fw-bold text-uppercase letter-spacing-lg small"><?= esc(get_setting('choose_us_tag', 'The KidsAI Advantage')) ?></span>
+                <h2 class="fw-bold h1 mt-2" style="font-family: 'Outfit', sans-serif;"><?= esc(get_setting('choose_us_title', 'Why Choose Us?')) ?></h2>
                 <div class="bg-primary mx-auto mt-3" style="width: 60px; height: 4px; border-radius: 2px;"></div>
             </div>
             <div class="row g-4 pt-4">
                 <div class="col-md-4">
                     <div class="card h-100 p-4 p-lg-5 border-0 shadow-sm rounded-5 hover-lift transition">
-                        <div class="feature-icon mb-4" style="font-size: 3rem;">🎯</div>
-                        <h3 class="h4 fw-bold mb-3">Goal-Based Path</h3>
-                        <p class="text-muted small lh-lg">Every child gets a customized roadmap based on their age, interests, and learning speed. No one gets left behind.</p>
+                        <div class="feature-icon mb-4" style="font-size: 3rem;"><?= esc(get_setting('choose_us_f1_icon', '🎯')) ?></div>
+                        <h3 class="h4 fw-bold mb-3"><?= esc(get_setting('choose_us_f1_title', 'Goal-Based Path')) ?></h3>
+                        <p class="text-muted small lh-lg"><?= esc(get_setting('choose_us_f1_desc', 'Every child gets a customized roadmap based on their age, interests, and learning speed. No one gets left behind.')) ?></p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card h-100 p-4 p-lg-5 border-0 shadow-sm rounded-5 hover-lift transition">
-                        <div class="feature-icon mb-4" style="font-size: 3rem;">👩‍🏫</div>
-                        <h3 class="h4 fw-bold mb-3">Expert Mentors</h3>
-                        <p class="text-muted small lh-lg">Our educators are not just teachers; they are professionals from top tech backgrounds who love teaching kids.</p>
+                        <div class="feature-icon mb-4" style="font-size: 3rem;"><?= esc(get_setting('choose_us_f2_icon', '👩‍🏫')) ?></div>
+                        <h3 class="h4 fw-bold mb-3"><?= esc(get_setting('choose_us_f2_title', 'Expert Mentors')) ?></h3>
+                        <p class="text-muted small lh-lg"><?= esc(get_setting('choose_us_f2_desc', 'Our educators are not just teachers; they are professionals from top tech backgrounds who love teaching kids.')) ?></p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card h-100 p-4 p-lg-5 border-0 shadow-sm rounded-5 hover-lift transition">
-                        <div class="feature-icon mb-4" style="font-size: 3rem;">🛠️</div>
-                        <h3 class="h4 fw-bold mb-3">Real-World Projects</h3>
-                        <p class="text-muted small lh-lg">From mobile apps to AI models, students create a professional portfolio of real-world work by the end of each module.</p>
+                        <div class="feature-icon mb-4" style="font-size: 3rem;"><?= esc(get_setting('choose_us_f3_icon', '🛠️')) ?></div>
+                        <h3 class="h4 fw-bold mb-3"><?= esc(get_setting('choose_us_f3_title', 'Real-World Projects')) ?></h3>
+                        <p class="text-muted small lh-lg"><?= esc(get_setting('choose_us_f3_desc', 'From mobile apps to AI models, students create a professional portfolio of real-world work by the end of each module.')) ?></p>
                     </div>
                 </div>
             </div>
@@ -601,6 +591,7 @@
     const slider = document.querySelector('.testimonial-slider');
     const prevBtn = document.querySelector('.slider-btn.prev');
     const nextBtn = document.querySelector('.slider-btn.next');
+    const dots = document.querySelectorAll('.slider-dots span');
 
     if (slider && prevBtn && nextBtn) {
         nextBtn.addEventListener('click', () => {
@@ -611,6 +602,33 @@
         prevBtn.addEventListener('click', () => {
             const cardWidth = slider.querySelector('.testimonial-card').offsetWidth + 25;
             slider.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+        });
+
+        // Sync dots on scroll
+        slider.addEventListener('scroll', () => {
+            const maxScroll = slider.scrollWidth - slider.clientWidth;
+            if (maxScroll <= 0) return;
+            const scrollPercent = slider.scrollLeft / maxScroll;
+            const activeIndex = Math.min(
+                dots.length - 1,
+                Math.round(scrollPercent * (dots.length - 1))
+            );
+            dots.forEach((dot, index) => {
+                if (index === activeIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        });
+
+        // Click dots to scroll
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                const maxScroll = slider.scrollWidth - slider.clientWidth;
+                const targetScroll = (index / (dots.length - 1)) * maxScroll;
+                slider.scrollTo({ left: targetScroll, behavior: 'smooth' });
+            });
         });
     }
 </script>

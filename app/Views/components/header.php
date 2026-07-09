@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?? 'Home' ?> | Kids AI Coding Squad</title>
+    <title><?= $title ?? 'Home' ?> | <?= esc(get_setting('brand_name', 'Kids AI Coding Squad')) ?></title>
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -43,8 +43,12 @@
     <nav class="custom-navbar">
         <div class="container d-flex justify-content-between align-items-center py-2">
             <a class="navbar-brand d-flex align-items-center gap-2 text-decoration-none" href="<?= base_url() ?>">
-                <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 8px;"></div>
-                <span class="fw-bold h4 mb-0" style="font-family: 'Outfit', sans-serif; color: var(--primary);">Kids AI Coding Squad</span>
+                <?php if (get_setting('brand_logo')): ?>
+                    <img src="<?= base_url(get_setting('brand_logo')) ?>" alt="Logo" style="max-height: 36px; max-width: 120px; object-fit: contain; border-radius: 8px;">
+                <?php else: ?>
+                    <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 8px;"></div>
+                <?php endif; ?>
+                <span class="fw-bold h4 mb-0" style="font-family: 'Outfit', sans-serif; color: var(--primary);"><?= esc(get_setting('brand_name', 'Kids AI Coding Squad')) ?></span>
             </a>
             
             <ul class="nav-links d-none d-lg-flex list-unstyled align-items-center gap-4 mb-0">

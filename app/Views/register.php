@@ -33,7 +33,7 @@
     <div class="register-card">
         <div class="auth-logo">
             <div class="shadow-sm"></div>
-            <h1 class="h4 fw-bold mb-0">Join KidsAI Coding</h1>
+            <h1 class="h4 fw-bold mb-0">Join Kids AI Coding Squad</h1>
             <p class="text-muted small">Start your child's coding journey today</p>
         </div>
 

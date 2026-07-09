@@ -6,8 +6,12 @@
             <div class="row g-4 mb-5 pb-5 border-bottom border-secondary border-opacity-25">
                 <div class="col-lg-4">
                     <div class="navbar-brand text-white mb-3 d-block">
-                        <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 8px; display: inline-block; vertical-align: middle;"></div>
-                        <span class="ms-2 fw-bold h4 mb-0" style="font-family: 'Outfit', sans-serif;">KidsAI Coding</span>
+                        <?php if (get_setting('brand_logo')): ?>
+                            <img src="<?= base_url(get_setting('brand_logo')) ?>" alt="Logo" style="max-height: 32px; max-width: 120px; object-fit: contain; vertical-align: middle; border-radius: 8px;">
+                        <?php else: ?>
+                            <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 8px; display: inline-block; vertical-align: middle;"></div>
+                        <?php endif; ?>
+                        <span class="ms-2 fw-bold h4 mb-0" style="font-family: 'Outfit', sans-serif; vertical-align: middle;"><?= esc(get_setting('brand_name', 'KidsAI Coding')) ?></span>
                     </div>
                     <p class="small" style="max-width: 300px;">Empowering the next generation of innovators through high-quality coding education. Based in India, reaching the world.</p>
                 </div>
@@ -37,7 +41,7 @@
                 </div>
             </div>
             <div class="text-center pt-2">
-                <p class="x-small mb-0">&copy; <?= date('Y') ?> KidsAI Coding Academy. All rights reserved.</p>
+                <p class="x-small mb-0">&copy; <?= date('Y') ?> <?= esc(get_setting('brand_name', 'KidsAI Coding Academy')) ?>. All rights reserved.</p>
             </div>
         </div>
     </footer>

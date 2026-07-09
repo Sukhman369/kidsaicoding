@@ -15,7 +15,9 @@ class CourseModel extends Model
     protected $allowedFields    = [
         'title', 'slug', 'age_range', 'grade_range', 'num_lessons', 
         'num_activities', 'duration', 'description', 'badge', 
-        'image_path', 'course_type', 'curriculum_url', 'status', 'order_index'
+        'image_path', 'course_type', 'curriculum_url', 'status', 'order_index',
+        'price', 'compare_price', 'difficulty', 'rating_val', 'rating_count', 'seats_percent',
+        'curriculum_text', 'instructor_name', 'instructor_bio', 'instructor_image'
     ];
 
     // Dates

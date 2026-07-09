@@ -30,4 +30,15 @@ class UserModel extends Model
         }
         return false;
     }
+
+    public function loginByName($name, $password)
+    {
+        $user = $this->where('name', $name)->first();
+        if ($user) {
+            if (password_verify($password, $user['password'])) {
+                return $user;
+            }
+        }
+        return false;
+    }
 }

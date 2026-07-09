@@ -33,7 +33,7 @@
     <div class="login-card">
         <div class="auth-logo">
             <div class="shadow-sm"></div>
-            <h1 class="h4 fw-bold mb-0">KidsAI Coding</h1>
+            <h1 class="h4 fw-bold mb-0">Kids AI Coding Squad</h1>
             <p class="text-muted small">Sign in to your dashboard</p>
         </div>
 

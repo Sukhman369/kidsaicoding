@@ -8,7 +8,7 @@
             <h1 class="courses-hero-title">Find Your <span class="hero-gradient-text">Perfect Course</span></h1>
             <p class="courses-hero-sub">Project-based learning tracks curated for every age group and interest level.</p>
             <div class="courses-hero-stats">
-                <div class="hero-stat"><span class="hero-stat-num">12+</span><span class="hero-stat-label">Courses</span></div>
+                <div class="hero-stat"><span class="hero-stat-num"><?= count($courses) ?></span><span class="hero-stat-label">Courses</span></div>
                 <div class="hero-stat-divider"></div>
                 <div class="hero-stat"><span class="hero-stat-num">500+</span><span class="hero-stat-label">Students</span></div>
                 <div class="hero-stat-divider"></div>
@@ -22,7 +22,7 @@
 <main class="courses-main container">
     <div class="courses-layout">
 
-        <!-- ── Sidebar ── -->
+        <!-- ── Sidebar Filter ── -->
         <aside class="filter-sidebar">
             <div class="filter-header">
                 <span class="filter-icon">🎯</span>
@@ -42,7 +42,7 @@
                 <h4 class="filter-label">🎂 Age Group</h4>
                 <div class="filter-options">
                     <label class="filter-chip" for="age1">
-                        <input type="checkbox" id="age1">
+                        <input type="checkbox" id="age1" checked>
                         <span>Junior (7–10)</span>
                     </label>
                     <label class="filter-chip" for="age2">
@@ -50,32 +50,35 @@
                         <span>Middle (10–14)</span>
                     </label>
                     <label class="filter-chip" for="age3">
-                        <input type="checkbox" id="age3">
+                        <input type="checkbox" id="age3" checked>
                         <span>Senior (14–18)</span>
                     </label>
                 </div>
             </div>
 
-            <!-- Track -->
+            <!-- Track / Category (Dynamically Generated) -->
             <div class="filter-group">
                 <h4 class="filter-label">🛤️ Track</h4>
                 <div class="filter-options">
-                    <label class="filter-chip" for="cat1">
-                        <input type="checkbox" id="cat1" checked>
-                        <span>Programming</span>
-                    </label>
-                    <label class="filter-chip" for="cat2">
-                        <input type="checkbox" id="cat2">
-                        <span>Game Design</span>
-                    </label>
-                    <label class="filter-chip" for="cat3">
-                        <input type="checkbox" id="cat3">
-                        <span>AI &amp; Robotics</span>
-                    </label>
-                    <label class="filter-chip" for="cat4">
-                        <input type="checkbox" id="cat4">
-                        <span>Web Dev</span>
-                    </label>
+                    <?php
+                    $uniqueTracks = [];
+                    foreach ($courses as $c) {
+                        $track = !empty($c['course_type']) ? $c['course_type'] : 'Other';
+                        if (!in_array($track, $uniqueTracks)) {
+                            $uniqueTracks[] = $track;
+                        }
+                    }
+                    $tcIdx = 1;
+                    foreach ($uniqueTracks as $trk):
+                    ?>
+                        <label class="filter-chip" for="cat<?= $tcIdx ?>">
+                            <input type="checkbox" class="track-filter-checkbox" id="cat<?= $tcIdx ?>" value="<?= esc($trk) ?>" checked>
+                            <span><?= esc($trk) ?></span>
+                        </label>
+                    <?php 
+                        $tcIdx++;
+                    endforeach; 
+                    ?>
                 </div>
             </div>
 
@@ -88,296 +91,166 @@
                         <span>Beginner</span>
                     </label>
                     <label class="filter-chip" for="diff2">
-                        <input type="checkbox" id="diff2">
+                        <input type="checkbox" id="diff2" checked>
                         <span>Intermediate</span>
                     </label>
                     <label class="filter-chip" for="diff3">
-                        <input type="checkbox" id="diff3">
+                        <input type="checkbox" id="diff3" checked>
                         <span>Advanced</span>
                     </label>
                 </div>
             </div>
 
-            <button class="btn-filter-apply" id="applyFilter">Apply Filters</button>
-            <button class="btn-filter-reset" id="resetFilter">Reset</button>
+            <button class="btn-filter-reset" id="resetFilter" style="margin-top: 15px;">Clear / Select All</button>
         </aside>
 
-        <!-- ── Course Grid ── -->
+        <!-- ── Course Grid Results ── -->
         <section class="courses-results">
             <div class="results-topbar">
-                <p class="results-count"><strong>6 courses</strong> found</p>
+                <p class="results-count" id="resultsCount"><strong><?= count($courses) ?> courses</strong> found</p>
                 <div class="results-sort">
                     <label for="sortBy" class="sort-label">Sort:</label>
                     <select id="sortBy" class="sort-select">
-                        <option>Most Popular</option>
-                        <option>Newest First</option>
-                        <option>Price: Low–High</option>
-                        <option>Price: High–Low</option>
+                        <option value="popular">Most Popular</option>
+                        <option value="price-asc">Price: Low–High</option>
+                        <option value="price-desc">Price: High–Low</option>
                     </select>
                 </div>
             </div>
 
             <div class="course-cards-grid" id="courseGrid">
+                <?php foreach($courses as $course): ?>
+                    <?php
+                    // Dynamic layout variables mapping
+                    $gradientClass = 'gradient-orange';
+                    $emoji = '💻';
+                    $trackShort = 'Other';
+                    $type = strtolower($course['course_type'] ?? '');
+                    
+                    if (strpos($type, 'program') !== false) {
+                        $gradientClass = 'gradient-orange';
+                        $emoji = '🐍';
+                        $trackShort = 'Programming';
+                    } elseif (strpos($type, 'game') !== false) {
+                        $gradientClass = 'gradient-purple';
+                        $emoji = '🎮';
+                        $trackShort = 'Game Design';
+                    } elseif (strpos($type, 'ai') !== false || strpos($type, 'robot') !== false) {
+                        $gradientClass = 'gradient-green';
+                        $emoji = '🤖';
+                        $trackShort = 'AI & Robotics';
+                    } elseif (strpos($type, 'web') !== false) {
+                        $gradientClass = 'gradient-blue';
+                        $emoji = '🌐';
+                        $trackShort = 'Web Dev';
+                    } else {
+                        $gradientClass = 'gradient-amber';
+                        $emoji = '💻';
+                        $trackShort = 'Other';
+                    }
 
-                <!-- ══ Card 1: Python ══ -->
-                <article class="cc-card" id="card-python">
-                    <div class="cc-ribbon popular">🔥 Popular</div>
-                    <div class="cc-header gradient-orange">
-                        <div class="cc-icon">🐍</div>
-                        <div class="cc-header-overlay"></div>
-                    </div>
-                    <div class="cc-body">
-                        <div class="cc-meta">
-                            <span class="cc-badge age">Age 10–14</span>
-                            <span class="cc-badge diff beginner">Beginner</span>
-                        </div>
-                        <h2 class="cc-title">Python Beginners</h2>
-                        <p class="cc-desc">Start your coding journey with the most popular language in the world. Build real projects from day one.</p>
-                        <div class="cc-stats">
-                            <span class="cc-stat">📚 24 Sessions</span>
-                            <span class="cc-stat">⏱️ 3 hrs/week</span>
-                            <span class="cc-stat">👨‍🏫 Live Classes</span>
-                        </div>
-                        <div class="cc-rating">
-                            <span class="cc-stars">★★★★★</span>
-                            <span class="cc-rating-val">4.9</span>
-                            <span class="cc-rating-count">(128 reviews)</span>
-                        </div>
-                        <div class="cc-progress-wrap">
-                            <div class="cc-progress-label">
-                                <span>Seats Filling Fast</span>
-                                <span>78%</span>
-                            </div>
-                            <div class="cc-progress-bar"><div class="cc-progress-fill" style="width:78%; background: linear-gradient(90deg,#f97316,#fb923c);"></div></div>
-                        </div>
-                        <div class="cc-footer">
-                            <div class="cc-price-wrap">
-                                <span class="cc-price-orig">₹16,999</span>
-                                <span class="cc-price">₹12,499</span>
-                            </div>
-                            <a href="<?= base_url('course/python-beginners') ?>" class="cc-cta-btn">
-                                Enroll Now <span class="cc-cta-arrow">→</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
+                    // Dynamically parse age groups for client side filtering
+                    $isJunior = 0; $isMiddle = 0; $isSenior = 0;
+                    preg_match_all('/\d+/', $course['age_range'] ?? '', $ageParts);
+                    if (!empty($ageParts[0])) {
+                        $min = intval($ageParts[0][0]);
+                        $max = isset($ageParts[0][1]) ? intval($ageParts[0][1]) : $min;
+                        if ($min <= 10 && $max >= 7) $isJunior = 1;
+                        if ($min <= 14 && $max >= 10) $isMiddle = 1;
+                        if ($min <= 18 && $max >= 14) $isSenior = 1;
+                    } else {
+                        $isMiddle = 1; // Fallback default
+                    }
+                    ?>
+                    
+                    <article class="cc-card" 
+                             data-title="<?= esc(strtolower($course['title'])) ?>"
+                             data-junior="<?= $isJunior ?>"
+                             data-middle="<?= $isMiddle ?>"
+                             data-senior="<?= $isSenior ?>"
+                             data-track="<?= $trackShort ?>"
+                             data-diff="<?= esc($course['difficulty'] ?? 'Beginner') ?>"
+                             data-price="<?= intval($course['price'] ?? 0) ?>"
+                             data-pop="<?= intval($course['rating_count'] ?? 10) ?>">
+                        
+                        <?php if (!empty($course['badge'])): ?>
+                            <div class="cc-ribbon popular"><?= esc($course['badge']) ?></div>
+                        <?php endif; ?>
 
-                <!-- ══ Card 2: Web Dev ══ -->
-                <article class="cc-card" id="card-webdev">
-                    <div class="cc-ribbon new">✨ New</div>
-                    <div class="cc-header gradient-blue">
-                        <div class="cc-icon">🌐</div>
-                        <div class="cc-header-overlay"></div>
-                    </div>
-                    <div class="cc-body">
-                        <div class="cc-meta">
-                            <span class="cc-badge age">Age 12–18</span>
-                            <span class="cc-badge diff intermediate">Intermediate</span>
+                        <!-- Card Header -->
+                        <div class="cc-header <?= $gradientClass ?>">
+                            <?php if(!empty($course['image_path'])): ?>
+                                <img src="<?= base_url($course['image_path']) ?>" alt="<?= esc($course['title']) ?>" style="width: 100%; height: 100%; object-fit: cover; position: absolute; inset:0; opacity: 0.9;">
+                                <div class="cc-header-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.6) 100%); z-index: 1;"></div>
+                            <?php else: ?>
+                                <div class="cc-icon"><?= $emoji ?></div>
+                                <div class="cc-header-overlay"></div>
+                            <?php endif; ?>
                         </div>
-                        <h2 class="cc-title">Full Stack Web Dev</h2>
-                        <p class="cc-desc">Master HTML, CSS, and JavaScript to build stunning, modern websites that work on any device.</p>
-                        <div class="cc-stats">
-                            <span class="cc-stat">📚 32 Sessions</span>
-                            <span class="cc-stat">⏱️ 4 hrs/week</span>
-                            <span class="cc-stat">🖥️ Project-Based</span>
-                        </div>
-                        <div class="cc-rating">
-                            <span class="cc-stars">★★★★★</span>
-                            <span class="cc-rating-val">4.8</span>
-                            <span class="cc-rating-count">(94 reviews)</span>
-                        </div>
-                        <div class="cc-progress-wrap">
-                            <div class="cc-progress-label">
-                                <span>Seats Filling Fast</span>
-                                <span>55%</span>
-                            </div>
-                            <div class="cc-progress-bar"><div class="cc-progress-fill" style="width:55%; background: linear-gradient(90deg,#0ea5e9,#38bdf8);"></div></div>
-                        </div>
-                        <div class="cc-footer">
-                            <div class="cc-price-wrap">
-                                <span class="cc-price-orig">₹19,999</span>
-                                <span class="cc-price">₹15,999</span>
-                            </div>
-                            <a href="#" class="cc-cta-btn">
-                                Enroll Now <span class="cc-cta-arrow">→</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
 
-                <!-- ══ Card 3: Game Design ══ -->
-                <article class="cc-card" id="card-game">
-                    <div class="cc-header gradient-purple">
-                        <div class="cc-icon">🎮</div>
-                        <div class="cc-header-overlay"></div>
-                    </div>
-                    <div class="cc-body">
-                        <div class="cc-meta">
-                            <span class="cc-badge age">Age 8–13</span>
-                            <span class="cc-badge diff beginner">Beginner</span>
-                        </div>
-                        <h2 class="cc-title">Game Design with Scratch</h2>
-                        <p class="cc-desc">Design and publish your own video games using Scratch. Learn logic, storytelling &amp; animation.</p>
-                        <div class="cc-stats">
-                            <span class="cc-stat">📚 20 Sessions</span>
-                            <span class="cc-stat">⏱️ 2 hrs/week</span>
-                            <span class="cc-stat">🎯 Fun Projects</span>
-                        </div>
-                        <div class="cc-rating">
-                            <span class="cc-stars">★★★★☆</span>
-                            <span class="cc-rating-val">4.7</span>
-                            <span class="cc-rating-count">(76 reviews)</span>
-                        </div>
-                        <div class="cc-progress-wrap">
-                            <div class="cc-progress-label">
-                                <span>Seats Filling Fast</span>
-                                <span>40%</span>
+                        <!-- Card Body -->
+                        <div class="cc-body">
+                            <div class="cc-meta">
+                                <span class="cc-badge age">Age <?= esc($course['age_range']) ?></span>
+                                <span class="cc-badge diff <?= strtolower($course['difficulty'] ?? 'beginner') ?>"><?= esc($course['difficulty'] ?? 'Beginner') ?></span>
                             </div>
-                            <div class="cc-progress-bar"><div class="cc-progress-fill" style="width:40%; background: linear-gradient(90deg,#a855f7,#c084fc);"></div></div>
-                        </div>
-                        <div class="cc-footer">
-                            <div class="cc-price-wrap">
-                                <span class="cc-price-orig">₹12,999</span>
-                                <span class="cc-price">₹9,499</span>
+                            
+                            <h2 class="cc-title"><?= esc($course['title']) ?></h2>
+                            <p class="cc-desc"><?= esc(strip_tags($course['description'] ?? '')) ?></p>
+                            
+                            <div class="cc-stats">
+                                <span class="cc-stat">📚 <?= esc($course['num_lessons']) ?> Sessions</span>
+                                <span class="cc-stat">⏱️ <?= esc($course['duration']) ?></span>
+                                <span class="cc-stat">⚙️ Live Projects</span>
                             </div>
-                            <a href="#" class="cc-cta-btn">
-                                Enroll Now <span class="cc-cta-arrow">→</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
 
-                <!-- ══ Card 4: AI & ML ══ -->
-                <article class="cc-card" id="card-ai">
-                    <div class="cc-ribbon popular">🤖 Trending</div>
-                    <div class="cc-header gradient-green">
-                        <div class="cc-icon">🤖</div>
-                        <div class="cc-header-overlay"></div>
-                    </div>
-                    <div class="cc-body">
-                        <div class="cc-meta">
-                            <span class="cc-badge age">Age 13–18</span>
-                            <span class="cc-badge diff advanced">Advanced</span>
-                        </div>
-                        <h2 class="cc-title">AI &amp; Machine Learning</h2>
-                        <p class="cc-desc">Dive into the world of Artificial Intelligence. Build chatbots, image classifiers &amp; smart apps.</p>
-                        <div class="cc-stats">
-                            <span class="cc-stat">📚 36 Sessions</span>
-                            <span class="cc-stat">⏱️ 5 hrs/week</span>
-                            <span class="cc-stat">🧠 Real AI Tools</span>
-                        </div>
-                        <div class="cc-rating">
-                            <span class="cc-stars">★★★★★</span>
-                            <span class="cc-rating-val">5.0</span>
-                            <span class="cc-rating-count">(42 reviews)</span>
-                        </div>
-                        <div class="cc-progress-wrap">
-                            <div class="cc-progress-label">
-                                <span>Almost Full!</span>
-                                <span>91%</span>
+                            <div class="cc-rating">
+                                <span class="cc-stars">
+                                    <?php 
+                                    $stars = round(floatval($course['rating_val'] ?? 4.8));
+                                    echo str_repeat('★', $stars) . str_repeat('☆', 5 - $stars);
+                                    ?>
+                                </span>
+                                <span class="cc-rating-val"><?= esc($course['rating_val'] ?? '4.8') ?></span>
+                                <span class="cc-rating-count">(<?= esc($course['rating_count'] ?? '32') ?> reviews)</span>
                             </div>
-                            <div class="cc-progress-bar"><div class="cc-progress-fill" style="width:91%; background: linear-gradient(90deg,#22c55e,#86efac);"></div></div>
-                        </div>
-                        <div class="cc-footer">
-                            <div class="cc-price-wrap">
-                                <span class="cc-price-orig">₹24,999</span>
-                                <span class="cc-price">₹18,999</span>
-                            </div>
-                            <a href="#" class="cc-cta-btn">
-                                Enroll Now <span class="cc-cta-arrow">→</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
 
-                <!-- ══ Card 5: App Dev ══ -->
-                <article class="cc-card" id="card-app">
-                    <div class="cc-header gradient-red">
-                        <div class="cc-icon">📱</div>
-                        <div class="cc-header-overlay"></div>
-                    </div>
-                    <div class="cc-body">
-                        <div class="cc-meta">
-                            <span class="cc-badge age">Age 12–16</span>
-                            <span class="cc-badge diff intermediate">Intermediate</span>
-                        </div>
-                        <h2 class="cc-title">Mobile App Development</h2>
-                        <p class="cc-desc">Build Android &amp; iOS apps using MIT App Inventor. Launch your idea on the App Store!</p>
-                        <div class="cc-stats">
-                            <span class="cc-stat">📚 28 Sessions</span>
-                            <span class="cc-stat">⏱️ 3 hrs/week</span>
-                            <span class="cc-stat">📲 Publish App</span>
-                        </div>
-                        <div class="cc-rating">
-                            <span class="cc-stars">★★★★☆</span>
-                            <span class="cc-rating-val">4.6</span>
-                            <span class="cc-rating-count">(58 reviews)</span>
-                        </div>
-                        <div class="cc-progress-wrap">
-                            <div class="cc-progress-label">
-                                <span>Seats Filling Fast</span>
-                                <span>62%</span>
+                            <!-- Progress Bar -->
+                            <div class="cc-progress-wrap">
+                                <div class="cc-progress-label">
+                                    <span>Seats Filling Fast</span>
+                                    <span><?= esc($course['seats_percent'] ?? '75') ?>%</span>
+                                </div>
+                                <div class="cc-progress-bar">
+                                    <div class="cc-progress-fill" style="width: <?= esc($course['seats_percent'] ?? '75') ?>%; background: linear-gradient(90deg, #f97316, #0ea5e9);"></div>
+                                </div>
                             </div>
-                            <div class="cc-progress-bar"><div class="cc-progress-fill" style="width:62%; background: linear-gradient(90deg,#ef4444,#f87171);"></div></div>
-                        </div>
-                        <div class="cc-footer">
-                            <div class="cc-price-wrap">
-                                <span class="cc-price-orig">₹17,499</span>
-                                <span class="cc-price">₹13,999</span>
-                            </div>
-                            <a href="#" class="cc-cta-btn">
-                                Enroll Now <span class="cc-cta-arrow">→</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
 
-                <!-- ══ Card 6: Robotics ══ -->
-                <article class="cc-card" id="card-robotics">
-                    <div class="cc-ribbon new">🌟 Bestseller</div>
-                    <div class="cc-header gradient-amber">
-                        <div class="cc-icon">🦾</div>
-                        <div class="cc-header-overlay"></div>
-                    </div>
-                    <div class="cc-body">
-                        <div class="cc-meta">
-                            <span class="cc-badge age">Age 9–14</span>
-                            <span class="cc-badge diff beginner">Beginner</span>
-                        </div>
-                        <h2 class="cc-title">Robotics &amp; Arduino</h2>
-                        <p class="cc-desc">Program real robots using Arduino! Build line-followers, obstacle avoiders &amp; more in this hands-on course.</p>
-                        <div class="cc-stats">
-                            <span class="cc-stat">📚 18 Sessions</span>
-                            <span class="cc-stat">⏱️ 2 hrs/week</span>
-                            <span class="cc-stat">🔧 Hardware Kit</span>
-                        </div>
-                        <div class="cc-rating">
-                            <span class="cc-stars">★★★★★</span>
-                            <span class="cc-rating-val">4.9</span>
-                            <span class="cc-rating-count">(89 reviews)</span>
-                        </div>
-                        <div class="cc-progress-wrap">
-                            <div class="cc-progress-label">
-                                <span>Seats Filling Fast</span>
-                                <span>85%</span>
+                            <!-- Footer -->
+                            <div class="cc-footer">
+                                <div class="cc-price-wrap">
+                                    <?php if (!empty($course['compare_price'])): ?>
+                                        <span class="cc-price-orig">₹<?= number_format($course['compare_price']) ?></span>
+                                    <?php endif; ?>
+                                    <span class="cc-price">₹<?= number_format($course['price'] ?? 9999) ?></span>
+                                </div>
+                                <a href="<?= base_url('course/' . $course['slug']) ?>" class="cc-cta-btn">
+                                    Details <span class="cc-cta-arrow">→</span>
+                                </a>
                             </div>
-                            <div class="cc-progress-bar"><div class="cc-progress-fill" style="width:85%; background: linear-gradient(90deg,#f59e0b,#fbbf24);"></div></div>
                         </div>
-                        <div class="cc-footer">
-                            <div class="cc-price-wrap">
-                                <span class="cc-price-orig">₹21,999</span>
-                                <span class="cc-price">₹16,499</span>
-                            </div>
-                            <a href="#" class="cc-cta-btn">
-                                Enroll Now <span class="cc-cta-arrow">→</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-            </div><!-- /course-cards-grid -->
+                    </article>
+                <?php endforeach; ?>
+            </div>
+            
+            <div id="noResults" style="display: none; text-align: center; padding: 60px 20px; color: var(--text-muted);">
+                <span style="font-size: 3rem; display: block; margin-bottom: 12px;">🔍</span>
+                <h4 style="font-weight: 700; color: var(--text-main); margin-bottom: 8px;">No Courses Found</h4>
+                <p>Try clearing some of your search filters to view more courses.</p>
+            </div>
         </section>
-    </div><!-- /courses-layout -->
+
+    </div>
 </main>
 
 <!-- ══════════ INLINE CSS FOR COURSE CARDS ══════════ -->
@@ -385,7 +258,7 @@
 /* ─── Hero ─────────────────────────────────────────── */
 .courses-hero {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #1a3a4a 100%);
-    padding: 80px 0 70px;
+    padding: 85px 0 75px;
     position: relative;
     overflow: hidden;
 }
@@ -417,7 +290,7 @@
 }
 .courses-hero-title {
     font-family: 'Outfit', sans-serif;
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
     font-weight: 800;
     color: #fff;
     line-height: 1.15;
@@ -443,7 +316,7 @@
 .hero-stat { text-align: center; }
 .hero-stat-num {
     display: block;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 800;
     color: #fff;
     font-family: 'Outfit', sans-serif;
@@ -466,7 +339,7 @@
 }
 .courses-layout {
     display: grid;
-    grid-template-columns: 260px 1fr;
+    grid-template-columns: 270px 1fr;
     gap: 36px;
     align-items: start;
 }
@@ -476,7 +349,7 @@
     background: #fff;
     border-radius: 20px;
     padding: 28px 24px;
-    box-shadow: 0 2px 24px rgba(15,23,42,0.07);
+    box-shadow: 0 4px 30px rgba(15,23,42,0.04);
     position: sticky;
     top: 90px;
     border: 1px solid #f1f5f9;
@@ -492,18 +365,18 @@
 .filter-icon { font-size: 1.3rem; }
 .filter-header h3 {
     font-size: 1.05rem;
-    font-weight: 700;
+    font-weight: 800;
     color: #1e293b;
     margin: 0;
 }
-.filter-group { margin-bottom: 22px; }
+.filter-group { margin-bottom: 24px; }
 .filter-label {
     font-size: 0.78rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: #64748b;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 .filter-options { display: flex; flex-direction: column; gap: 8px; }
 .filter-chip {
@@ -542,7 +415,7 @@
 }
 .filter-search-input {
     width: 100%;
-    padding: 9px 12px 9px 36px;
+    padding: 10px 12px 10px 36px;
     border: 1.5px solid #e2e8f0;
     border-radius: 10px;
     font-size: 0.88rem;
@@ -555,36 +428,20 @@
     border-color: #f97316;
     box-shadow: 0 0 0 3px rgba(249,115,22,0.1);
 }
-.btn-filter-apply {
-    width: 100%;
-    padding: 11px;
-    background: linear-gradient(135deg, #f97316, #ea580c);
-    color: #fff;
-    font-weight: 700;
-    font-size: 0.9rem;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    margin-top: 8px;
-    box-shadow: 0 4px 14px rgba(249,115,22,0.35);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-.btn-filter-apply:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(249,115,22,0.45);
-}
 .btn-filter-reset {
     width: 100%;
-    padding: 9px;
-    background: transparent;
-    color: #94a3b8;
-    font-size: 0.82rem;
+    padding: 12px;
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 12px;
     border: none;
     cursor: pointer;
-    margin-top: 8px;
-    transition: color 0.2s;
+    text-align: center;
+    transition: background 0.2s, color 0.2s;
 }
-.btn-filter-reset:hover { color: #ef4444; }
+.btn-filter-reset:hover { background: #e2e8f0; color: #0f172a; }
 
 /* ─── Results Topbar ────────────────────────────────── */
 .results-topbar {
@@ -593,11 +450,11 @@
     align-items: center;
     margin-bottom: 24px;
 }
-.results-count { color: #64748b; font-size: 0.9rem; }
+.results-count { color: #64748b; font-size: 0.9rem; margin: 0; }
 .results-count strong { color: #1e293b; }
 .sort-label { font-size: 0.85rem; color: #64748b; margin-right: 6px; }
 .sort-select {
-    padding: 6px 12px;
+    padding: 8px 12px;
     border: 1.5px solid #e2e8f0;
     border-radius: 8px;
     font-size: 0.85rem;
@@ -610,8 +467,8 @@
 /* ─── Course Cards Grid ─────────────────────────────── */
 .course-cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-    gap: 26px;
+    grid-template-columns: repeat(auto-fill, minmax(295px, 1fr));
+    gap: 28px;
 }
 
 /* ─── Course Card ───────────────────────────────────── */
@@ -619,74 +476,49 @@
     background: #fff;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 4px 24px rgba(15,23,42,0.07);
+    box-shadow: 0 4px 24px rgba(15,23,42,0.06);
     border: 1px solid #f1f5f9;
     display: flex;
     flex-direction: column;
     position: relative;
-    transition: transform 0.35s cubic-bezier(.25,.8,.25,1),
-                box-shadow 0.35s cubic-bezier(.25,.8,.25,1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .cc-card:hover {
-    transform: translateY(-8px) scale(1.01);
-    box-shadow: 0 20px 50px rgba(15,23,42,0.13);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(15,23,42,0.12);
 }
 
 /* Ribbon */
 .cc-ribbon {
     position: absolute;
     top: 16px;
-    right: -28px;
-    padding: 4px 36px 4px 16px;
+    right: 16px;
+    padding: 4px 12px;
     font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.04em;
-    border-radius: 4px 0 0 4px;
+    border-radius: 6px;
     z-index: 10;
-    transform: rotate(0deg);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    background: linear-gradient(135deg, #ea580c, #f97316);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(249,115,22,0.3);
 }
-.cc-ribbon.popular { background: linear-gradient(90deg,#f97316,#fb923c); color: #fff; }
-.cc-ribbon.new     { background: linear-gradient(90deg,#0ea5e9,#38bdf8); color: #fff; }
 
-/* Card Header / Banner */
+/* Card Header */
 .cc-header {
-    height: 140px;
+    height: 155px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
 }
-.cc-header::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.18) 100%);
-}
-/* Shimmer on hover */
-.cc-card:hover .cc-header::before {
-    content: '';
-    position: absolute;
-    top: 0; left: -60%;
-    width: 40%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
-    animation: shimmer 0.5s ease forwards;
-    z-index: 3;
-}
-@keyframes shimmer {
-    from { left: -60%; }
-    to   { left: 120%; }
-}
-
 .cc-icon {
     font-size: 3.6rem;
-    position: relative;
     z-index: 2;
-    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
-    transition: transform 0.35s ease;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
+    transition: transform 0.3s ease;
 }
-.cc-card:hover .cc-icon { transform: scale(1.15) rotate(-4deg); }
+.cc-card:hover .cc-icon { transform: scale(1.1) rotate(-3deg); }
 
 /* Gradient Themes */
 .gradient-orange { background: linear-gradient(135deg, #f97316 0%, #fdba74 100%); }
@@ -698,7 +530,7 @@
 
 /* Card Body */
 .cc-body {
-    padding: 22px 22px 20px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -707,7 +539,6 @@
     display: flex;
     gap: 8px;
     margin-bottom: 12px;
-    flex-wrap: wrap;
 }
 .cc-badge {
     display: inline-block;
@@ -715,42 +546,41 @@
     border-radius: 999px;
     font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.03em;
 }
 .cc-badge.age         { background: #eff6ff; color: #2563eb; }
 .cc-badge.beginner    { background: #f0fdf4; color: #16a34a; }
 .cc-badge.intermediate{ background: #fff7ed; color: #ea580c; }
-.cc-badge.advanced    { background: #fdf2f8; color: #9333ea; }
+.cc-badge.advanced    { background: #fdf2f8; color: #ca8a04; }
 
 .cc-title {
     font-family: 'Outfit', sans-serif;
-    font-size: 1.13rem;
+    font-size: 1.15rem;
     font-weight: 800;
-    color: #1e293b;
+    color: #0f172a;
     margin-bottom: 8px;
     line-height: 1.3;
 }
 .cc-desc {
-    font-size: 0.84rem;
+    font-size: 0.85rem;
     color: #64748b;
     line-height: 1.6;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
     flex-grow: 1;
 }
 
-/* Stats row */
+/* Stats */
 .cc-stats {
     display: flex;
     gap: 6px;
     flex-wrap: wrap;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
 }
 .cc-stat {
     font-size: 0.75rem;
     font-weight: 600;
     color: #475569;
     background: #f8fafc;
-    padding: 4px 9px;
+    padding: 4px 10px;
     border-radius: 8px;
     border: 1px solid #e2e8f0;
 }
@@ -760,14 +590,14 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
 }
-.cc-stars { color: #f59e0b; font-size: 0.9rem; letter-spacing: -1px; }
+.cc-stars { color: #f59e0b; font-size: 0.9rem; }
 .cc-rating-val { font-weight: 700; font-size: 0.88rem; color: #1e293b; }
 .cc-rating-count { font-size: 0.78rem; color: #94a3b8; }
 
-/* Seat Progress */
-.cc-progress-wrap { margin-bottom: 18px; }
+/* Seats progress */
+.cc-progress-wrap { margin-bottom: 20px; }
 .cc-progress-label {
     display: flex;
     justify-content: space-between;
@@ -779,12 +609,12 @@
 .cc-progress-bar {
     height: 6px;
     background: #f1f5f9;
-    border-radius: 999px;
+    border-radius: 99px;
     overflow: hidden;
 }
 .cc-progress-fill {
     height: 100%;
-    border-radius: 999px;
+    border-radius: 99px;
     transition: width 1s ease;
 }
 
@@ -793,7 +623,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 14px;
+    padding-top: 16px;
     border-top: 1px solid #f1f5f9;
 }
 .cc-price-wrap { display: flex; flex-direction: column; }
@@ -820,19 +650,16 @@
     padding: 10px 18px;
     border-radius: 12px;
     text-decoration: none;
-    box-shadow: 0 4px 14px rgba(249,115,22,0.35);
+    box-shadow: 0 4px 14px rgba(249,115,22,0.25);
     transition: transform 0.2s, box-shadow 0.2s;
-    white-space: nowrap;
 }
 .cc-cta-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(249,115,22,0.5);
+    box-shadow: 0 6px 20px rgba(249,115,22,0.35);
     color: #fff;
 }
-.cc-cta-arrow {
-    transition: transform 0.25s ease;
-}
-.cc-cta-btn:hover .cc-cta-arrow { transform: translateX(4px); }
+.cc-cta-arrow { transition: transform 0.2s; }
+.cc-cta-btn:hover .cc-cta-arrow { transform: translateX(3px); }
 
 /* ─── Responsive ────────────────────────────────────── */
 @media (max-width: 992px) {
@@ -845,14 +672,126 @@
 }
 </style>
 
-<!-- Animate progress bars on scroll -->
+<!-- Public client-side instant filtering scripts -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    const fills = document.querySelectorAll('.cc-progress-fill');
-    fills.forEach(el => {
-        const target = el.style.width;
-        el.style.width = '0%';
-        setTimeout(() => { el.style.width = target; }, 400);
+    // Select selectors
+    const searchInput = document.getElementById('courseSearch');
+    const ageJunior = document.getElementById('age1');
+    const ageMiddle = document.getElementById('age2');
+    const ageSenior = document.getElementById('age3');
+    
+    // Select all dynamically loaded track checkboxes
+    const trackCheckboxes = Array.from(document.querySelectorAll('.track-filter-checkbox'));
+    
+    const diffBeg = document.getElementById('diff1');
+    const diffInt = document.getElementById('diff2');
+    const diffAdv = document.getElementById('diff3');
+    
+    const resetButton = document.getElementById('resetFilter');
+    const sortSelect = document.getElementById('sortBy');
+    
+    const cards = Array.from(document.querySelectorAll('.cc-card'));
+    const grid = document.getElementById('courseGrid');
+    const countText = document.getElementById('resultsCount');
+    const noResultsDiv = document.getElementById('noResults');
+
+    // Run filters
+    function runFiltering() {
+        const query = searchInput.value.toLowerCase().trim();
+        
+        let checkedAges = [];
+        if (ageJunior.checked) checkedAges.push('junior');
+        if (ageMiddle.checked) checkedAges.push('middle');
+        if (ageSenior.checked) checkedAges.push('senior');
+        
+        let checkedTracks = [];
+        trackCheckboxes.forEach(cb => {
+            if (cb.checked) {
+                checkedTracks.push(cb.value);
+            }
+        });
+        
+        let checkedDiffs = [];
+        if (diffBeg.checked) checkedDiffs.push('Beginner');
+        if (diffInt.checked) checkedDiffs.push('Intermediate');
+        if (diffAdv.checked) checkedDiffs.push('Advanced');
+        
+        let visibleCount = 0;
+        
+        cards.forEach(card => {
+            const title = card.getAttribute('data-title');
+            
+            // Age Match logic
+            const juniorMatch = ageJunior.checked && (card.getAttribute('data-junior') === '1');
+            const middleMatch = ageMiddle.checked && (card.getAttribute('data-middle') === '1');
+            const seniorMatch = ageSenior.checked && (card.getAttribute('data-senior') === '1');
+            const ageMatch = juniorMatch || middleMatch || seniorMatch || (checkedAges.length === 0);
+            
+            // Track Match
+            const trackVal = card.getAttribute('data-track');
+            const trackMatch = checkedTracks.includes(trackVal) || (checkedTracks.length === 0);
+            
+            // Difficulty Match
+            const diffVal = card.getAttribute('data-diff');
+            const diffMatch = checkedDiffs.includes(diffVal) || (checkedDiffs.length === 0);
+            
+            // Text search match
+            const textMatch = (title.indexOf(query) !== -1 || query === '');
+            
+            if (ageMatch && trackMatch && diffMatch && textMatch) {
+                card.style.display = 'flex';
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        
+        countText.innerHTML = `<strong>${visibleCount} courses</strong> found`;
+        
+        if (visibleCount === 0) {
+            noResultsDiv.style.display = 'block';
+            grid.style.display = 'none';
+        } else {
+            noResultsDiv.style.display = 'none';
+            grid.style.display = 'grid';
+        }
+    }
+
+    // Sort function
+    function sortCards() {
+        const method = sortSelect.value;
+        let sorted = [...cards];
+        
+        if (method === 'price-asc') {
+            sorted.sort((a,b) => parseInt(a.getAttribute('data-price')) - parseInt(b.getAttribute('data-price')));
+        } else if (method === 'price-desc') {
+            sorted.sort((a,b) => parseInt(b.getAttribute('data-price')) - parseInt(a.getAttribute('data-price')));
+        } else {
+            // popular
+            sorted.sort((a,b) => parseInt(b.getAttribute('data-pop')) - parseInt(a.getAttribute('data-pop')));
+        }
+        
+        sorted.forEach(c => grid.appendChild(c));
+    }
+
+    // Attach listeners
+    searchInput.addEventListener('input', runFiltering);
+    
+    // Attach change events to all inputs
+    const filterInputs = [ageJunior, ageMiddle, ageSenior, diffBeg, diffInt, diffAdv].concat(trackCheckboxes);
+    filterInputs.forEach(input => {
+        if(input) input.addEventListener('change', runFiltering);
+    });
+    
+    sortSelect.addEventListener('change', sortCards);
+    
+    resetButton.addEventListener('click', () => {
+        searchInput.value = '';
+        filterInputs.forEach(input => {
+            if(input) input.checked = true;
+        });
+        runFiltering();
     });
 });
 </script>

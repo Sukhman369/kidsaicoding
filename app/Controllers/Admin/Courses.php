@@ -49,7 +49,33 @@ class Courses extends BaseController
             $data['image_path'] = 'uploads/' . $newName;
         }
 
-        $this->courseModel->insert($data);
+        // Handle Instructor Image Upload
+        $instImg = $this->request->getFile('instructor_image');
+        if ($instImg && $instImg->isValid() && !$instImg->hasMoved()) {
+            if ($instImg->getMimeType() !== 'image/webp') {
+                return redirect()->back()->with('error', 'Only .webp format is supported for Instructor Image.')->withInput();
+            }
+            
+            $newName = $instImg->getRandomName();
+            $instImg->move(FCPATH . 'uploads', $newName);
+            $data['instructor_image'] = 'uploads/' . $newName;
+        }
+
+        $courseId = $this->courseModel->insert($data);
+
+        // Store outcomes
+        $outcomesText = $this->request->getPost('outcomes') ?? '';
+        $outcomes = explode("\n", $outcomesText);
+        foreach ($outcomes as $outcome) {
+            $outcome = trim($outcome);
+            if (!empty($outcome)) {
+                $this->outcomeModel->insert([
+                    'course_id' => $courseId,
+                    'outcome_text' => $outcome
+                ]);
+            }
+        }
+
         return redirect()->to('/admin/courses')->with('success', 'Course created successfully.');
     }
 
@@ -59,9 +85,13 @@ class Courses extends BaseController
         $course = $this->courseModel->find($id);
         if (!$course) return redirect()->to('/admin/courses');
 
+        $outcomes = $this->outcomeModel->where('course_id', $id)->findAll();
+        $outcomesText = implode("\n", array_column($outcomes, 'outcome_text'));
+
         $data = [
             'title' => 'Edit Course',
-            'course' => $course
+            'course' => $course,
+            'outcomes_text' => $outcomesText
         ];
         return view('admin/courses/edit', $data);
     }
@@ -82,7 +112,34 @@ class Courses extends BaseController
             $data['image_path'] = 'uploads/' . $newName;
         }
 
+        // Handle Instructor Image Upload
+        $instImg = $this->request->getFile('instructor_image');
+        if ($instImg && $instImg->isValid() && !$instImg->hasMoved()) {
+            if ($instImg->getMimeType() !== 'image/webp') {
+                return redirect()->back()->with('error', 'Only .webp format is supported for Instructor Image.');
+            }
+            
+            $newName = $instImg->getRandomName();
+            $instImg->move(FCPATH . 'uploads', $newName);
+            $data['instructor_image'] = 'uploads/' . $newName;
+        }
+
         $this->courseModel->update($id, $data);
+
+        // Update Outcomes
+        $this->outcomeModel->where('course_id', $id)->delete();
+        $outcomesText = $this->request->getPost('outcomes') ?? '';
+        $outcomes = explode("\n", $outcomesText);
+        foreach ($outcomes as $outcome) {
+            $outcome = trim($outcome);
+            if (!empty($outcome)) {
+                $this->outcomeModel->insert([
+                    'course_id' => $id,
+                    'outcome_text' => $outcome
+                ]);
+            }
+        }
+
         return redirect()->to('/admin/courses')->with('success', 'Course updated successfully.');
     }
 

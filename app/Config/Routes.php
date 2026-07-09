@@ -66,7 +66,7 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
     $routes->post('users/store', 'Users::store');
     $routes->get('users/delete/(:num)', 'Users::delete/$1');
 
-    // Booking Management
+    // Booking Management   
     $routes->get('bookings', 'Bookings::index');
     $routes->post('bookings/update/(:num)', 'Bookings::updateStatus/$1');
 

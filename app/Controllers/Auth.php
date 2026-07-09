@@ -17,10 +17,10 @@ class Auth extends BaseController
     public function postLogin()
     {
         $userModel = new UserModel();
-        $email = $this->request->getPost('email');
+        $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
 
-        $user = $userModel->login($email, $password);
+        $user = $userModel->loginByName($username, $password);
 
         if ($user) {
             if ($user['role'] !== 'admin') {
