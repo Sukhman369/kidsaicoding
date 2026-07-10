@@ -38,10 +38,10 @@
     <div class="card" style="border-left: 4px solid #10b981; position: relative; overflow: hidden;">
         <div style="display: flex; justify-content: space-between; align-items: flex-start;">
             <div>
-                <div style="color: var(--text-muted); font-size: 13px; font-weight: 600; text-transform: uppercase; margin-bottom: 8px;">Est. Revenue</div>
-                <div style="font-size: 36px; font-weight: 800; line-height: 1;">₹<?= number_format($totalRevenue) ?></div>
+                <div style="color: var(--text-muted); font-size: 13px; font-weight: 600; text-transform: uppercase; margin-bottom: 8px;">Revenue</div>
+                <div style="font-size: 36px; font-weight: 800; line-height: 1;">₹<?= number_format($totalRevenue, 2) ?></div>
                 <div style="margin-top: 10px;">
-                    <span style="font-size: 11px; font-weight: 700; background: #ecfdf5; color: #065f46; padding: 3px 8px; border-radius: 6px;">💰 From Attended Sessions</span>
+                    <span style="font-size: 11px; font-weight: 700; background: #ecfdf5; color: #065f46; padding: 3px 8px; border-radius: 6px;">💰 Received Payments</span>
                 </div>
             </div>
             <div style="width: 48px; height: 48px; border-radius: 12px; background: #ecfdf5; display: flex; align-items: center; justify-content: center; font-size: 22px;">💵</div>

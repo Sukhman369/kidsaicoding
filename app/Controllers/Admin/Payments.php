@@ -21,8 +21,13 @@ class Payments extends BaseController
             return redirect()->to('/admin/login');
         }
 
-        // Fetch payments with details
-        $payments = $this->paymentModel->getPaymentsDetails();
+        // Fetch paginated payments with details
+        $payments = $this->paymentModel
+                         ->select('payments.*, users.name as student_name, users.email as student_email, courses.title as course_title, courses.image_path as course_image')
+                         ->join('users', 'users.id = payments.user_id')
+                         ->join('courses', 'courses.id = payments.course_id')
+                         ->orderBy('payments.created_at', 'DESC')
+                         ->paginate(10, 'payments');
 
         // Calculate helper statistics
         $db = \Config\Database::connect();
@@ -40,6 +45,7 @@ class Payments extends BaseController
         $data = [
             'title'          => 'Payment Transactions',
             'payments'       => $payments,
+            'pager'          => $this->paymentModel->pager,
             'totalRevenue'   => $totalRevenue,
             'completedCount' => $completedCount,
             'pendingCount'   => $pendingCount,

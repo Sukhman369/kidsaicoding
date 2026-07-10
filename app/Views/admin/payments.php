@@ -295,7 +295,7 @@
     <div class="stat-card">
         <div class="stat-info">
             <h4>Total Revenue</h4>
-            <div class="value">$<?= number_format($totalRevenue, 2) ?></div>
+            <div class="value">₹<?= number_format($totalRevenue, 2) ?></div>
         </div>
         <div class="stat-icon revenue">
             <i class="fa-solid fa-sack-dollar"></i>
@@ -400,7 +400,7 @@
 
                         <!-- Price -->
                         <td>
-                            <span class="amount-text">$<?= number_format($payment['amount'], 2) ?></span>
+                            <span class="amount-text">₹<?= number_format($payment['amount'], 2) ?></span>
                         </td>
 
                         <!-- Txn Ref -->
@@ -437,7 +437,7 @@
 
                         <!-- Actions -->
                         <td style="text-align: right;">
-                            <a href="#" onclick="alert('Transaction Details:\n\nReference: <?= esc($payment['transaction_id']) ?>\nStudent: <?= esc($payment['student_name']) ?>\nAmount: $<?= number_format($payment['amount'], 2) ?>\nMethod: <?= esc($payment['payment_method']) ?>\nStatus: <?= esc(ucfirst($payment['status'])) ?>\nDate: <?= esc($payment['created_at']) ?>'); return false;" class="receipt-btn">
+                            <a href="#" onclick="alert('Transaction Details:\n\nReference: <?= esc($payment['transaction_id']) ?>\nStudent: <?= esc($payment['student_name']) ?>\nAmount: ₹<?= number_format($payment['amount'], 2) ?>\nMethod: <?= esc($payment['payment_method']) ?>\nStatus: <?= esc(ucfirst($payment['status'])) ?>\nDate: <?= esc($payment['created_at']) ?>'); return false;" class="receipt-btn">
                                 <i class="fa-solid fa-file-invoice"></i> Details
                             </a>
                         </td>
@@ -464,6 +464,13 @@
             </tbody>
         </table>
     </div>
+
+    <!-- Pagination Links -->
+    <?php if (isset($pager)): ?>
+        <div style="margin-top: 20px;">
+            <?= $pager->links('payments', 'admin_pager') ?>
+        </div>
+    <?php endif; ?>
 
 </div>
 

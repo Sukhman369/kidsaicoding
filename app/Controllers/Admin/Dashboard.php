@@ -24,14 +24,13 @@ class Dashboard extends BaseController
         // Registered students
         $totalStudents = $db->table('users')->where('role', 'student')->countAllResults();
 
-        // Revenue: sum of price from confirmed/attended bookings that have a linked course
-        // For now, count confirmed bookings * avg course price as estimated revenue
-        $totalRevenue = 0;
-        $avgPrice = $db->table('courses')->selectAvg('price')->get()->getRow();
-        if ($avgPrice && $avgPrice->price) {
-            $attendedBookings = $db->table('bookings')->where('status', 'attended')->countAllResults();
-            $totalRevenue = $attendedBookings * (float) $avgPrice->price;
-        }
+        // Revenue: Sum of received payments (where status is completed)
+        $totalRevenue = $db->table('payments')
+                           ->where('status', 'completed')
+                           ->selectSum('amount')
+                           ->get()
+                           ->getRow()
+                           ->amount ?? 0.00;
 
         // Latest 5 bookings for the activity feed
         $recentBookings = $db->table('bookings')
