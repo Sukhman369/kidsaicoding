@@ -220,6 +220,9 @@
                     </a>
                 <?php endif; ?>
                 <?php if ($isSuper): ?>
+                    <a href="<?= base_url('admin/jobs') ?>" class="menu-item <?= url_is('admin/jobs*') ? 'active' : '' ?>">
+                        <i class="fa-solid fa-briefcase"></i> Jobs (Careers)
+                    </a>
                     <a href="<?= base_url('admin/settings') ?>" class="menu-item <?= url_is('admin/settings*') ? 'active' : '' ?>">
                         <i class="fa-solid fa-gears"></i> Site Settings
                     </a>
@@ -245,13 +248,13 @@
             <!-- Others -->
             <?php if ($isSuper): ?>
                 <div style="padding: 20px 24px 6px; font-size: 11px; text-transform: uppercase; font-weight: 700; color: #475569; letter-spacing: 0.05em;">Others</div>
-                <a href="#" class="menu-item">
+                <a href="<?= base_url('admin/enquiries') ?>" class="menu-item <?= url_is('admin/enquiries*') ? 'active' : '' ?>">
                     <i class="fa-solid fa-envelope"></i> Enquiries
                 </a>
-                <a href="#" class="menu-item">
-                    <i class="fa-solid fa-briefcase"></i> Job applicants
+                <a href="<?= base_url('admin/applicants') ?>" class="menu-item <?= url_is('admin/applicants*') ? 'active' : '' ?>">
+                    <i class="fa-solid fa-user-tie"></i> Job applicants
                 </a>
-                <a href="#" class="menu-item">
+                <a href="<?= base_url('admin/subscribers') ?>" class="menu-item <?= url_is('admin/subscribers*') ? 'active' : '' ?>">
                     <i class="fa-solid fa-paper-plane"></i> News letter subscribers
                 </a>
             <?php endif; ?>

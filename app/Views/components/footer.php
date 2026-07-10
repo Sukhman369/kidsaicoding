@@ -29,16 +29,31 @@
                         <li><a href="<?= base_url('about') ?>" class="text-white-50 text-decoration-none">About Us</a></li>
                         <li><a href="<?= base_url('blog') ?>" class="text-white-50 text-decoration-none">Blog</a></li>
                         <li><a href="<?= base_url('contact') ?>" class="text-white-50 text-decoration-none">Contact</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Careers</a></li>
+                        <li><a href="<?= base_url('careers') ?>" class="text-white-50 text-decoration-none">Careers</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3">
                     <h5 class="text-white fw-bold mb-4">Newsletter</h5>
                     <p class="x-small">Get updates on new batches and scholarship exams.</p>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control bg-transparent border-secondary text-white small" placeholder="Email addr">
-                        <button class="btn btn-primary" type="button">Go</button>
-                    </div>
+                    
+                    <?php if(session()->getFlashdata('newsletter_error')): ?>
+                        <div style="background: rgba(239, 68, 68, 0.15); color: #f87171; font-size: 0.75rem; padding: 6px 10px; border-radius: 6px; margin-bottom: 10px; font-weight: 500;">
+                            <?= session()->getFlashdata('newsletter_error') ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if(session()->getFlashdata('newsletter_success')): ?>
+                        <div style="background: rgba(16, 185, 129, 0.15); color: #34d399; font-size: 0.75rem; padding: 6px 10px; border-radius: 6px; margin-bottom: 10px; font-weight: 500;">
+                            <?= session()->getFlashdata('newsletter_success') ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <form action="<?= base_url('newsletter/subscribe') ?>" method="POST">
+                        <?= csrf_field() ?>
+                        <div class="input-group mb-3">
+                            <input type="email" name="email" class="form-control bg-transparent border-secondary text-white small" placeholder="Email address" required>
+                            <button class="btn btn-primary" type="submit">Go</button>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="text-center pt-2">

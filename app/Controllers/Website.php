@@ -144,4 +144,128 @@ class Website extends BaseController
             'blog' => $blog
         ]);
     }
+
+    public function submitContactEnquiry()
+    {
+        $enquiryModel = new \App\Models\EnquiryModel();
+        
+        $name = $this->request->getPost('name');
+        $email = $this->request->getPost('email');
+        $phone = $this->request->getPost('phone');
+        $message = $this->request->getPost('message');
+
+        if (empty($name) || empty($email) || empty($phone) || empty($message)) {
+            return redirect()->back()->with('error', 'All fields are required.')->withInput();
+        }
+
+        $enquiryModel->insert([
+            'name' => $name,
+            'email' => $email,
+            'phone' => $phone,
+            'message' => $message,
+            'status' => 'pending'
+        ]);
+
+        return redirect()->back()->with('success', 'Your message has been sent successfully! Our advisors will contact you shortly.');
+    }
+
+    public function subscribeNewsletter()
+    {
+        $newsletterModel = new \App\Models\NewsletterModel();
+        
+        $email = $this->request->getPost('email');
+        if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return redirect()->back()->with('newsletter_error', 'Please enter a valid email address.');
+        }
+
+        // Check if already subscribed
+        $existing = $newsletterModel->where('email', $email)->first();
+        if ($existing) {
+            return redirect()->back()->with('newsletter_success', 'You are already subscribed to our newsletter!');
+        }
+
+        $newsletterModel->insert([
+            'email' => $email,
+            'status' => 'subscribed'
+        ]);
+
+        return redirect()->back()->with('newsletter_success', 'Thank you for subscribing to our newsletter!');
+    }
+
+    public function careers()
+    {
+        $jobModel = new \App\Models\JobModel();
+        $jobs = $jobModel->where('status', 'active')->orderBy('created_at', 'DESC')->findAll();
+
+        return view('careers', [
+            'title' => 'Careers | KidsAI Coding Academy',
+            'meta_description' => 'Join our team of passionate educators, designers, and software engineers reshaping K-12 engineering education.',
+            'jobs' => $jobs
+        ]);
+    }
+
+    public function jobDetail($id)
+    {
+        $jobModel = new \App\Models\JobModel();
+        $job = $jobModel->find($id);
+
+        if (!$job || $job['status'] !== 'active') {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Job position not found");
+        }
+
+        return view('job_detail', [
+            'title' => $job['title'] . ' | Careers',
+            'meta_description' => 'Apply for the ' . $job['title'] . ' role in the ' . $job['department'] . ' department.',
+            'job' => $job
+        ]);
+    }
+
+    public function submitJobApplication()
+    {
+        $jobApplicationModel = new \App\Models\JobApplicationModel();
+        $jobId = $this->request->getPost('job_id');
+        $name = $this->request->getPost('name');
+        $email = $this->request->getPost('email');
+        $phone = $this->request->getPost('phone');
+        $coverLetter = $this->request->getPost('cover_letter');
+
+        if (empty($name) || empty($email) || empty($phone) || empty($jobId)) {
+            return redirect()->back()->with('error', 'Please fill in all required fields.')->withInput();
+        }
+
+        // Handle resume file upload
+        $resume = $this->request->getFile('resume');
+        if (!$resume || !$resume->isValid() || $resume->hasMoved()) {
+            return redirect()->back()->with('error', 'Please upload a valid resume document.')->withInput();
+        }
+
+        $allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+        if (!in_array($resume->getMimeType(), $allowedTypes)) {
+            return redirect()->back()->with('error', 'Only PDF or Word documents (.pdf, .doc, .docx) are allowed for resumes.')->withInput();
+        }
+
+        if ($resume->getSizeByUnit('mb') > 5) {
+            return redirect()->back()->with('error', 'Resume document file size cannot exceed 5MB.')->withInput();
+        }
+
+        $newName = $resume->getRandomName();
+        // Ensure directory exists
+        if (!is_dir(FCPATH . 'uploads/resumes')) {
+            mkdir(FCPATH . 'uploads/resumes', 0755, true);
+        }
+        $resume->move(FCPATH . 'uploads/resumes', $newName);
+        $resumePath = 'uploads/resumes/' . $newName;
+
+        $jobApplicationModel->insert([
+            'job_id' => $jobId,
+            'name' => $name,
+            'email' => $email,
+            'phone' => $phone,
+            'cover_letter' => $coverLetter,
+            'resume_path' => $resumePath,
+            'status' => 'pending'
+        ]);
+
+        return redirect()->to(base_url('careers'))->with('success', 'Your application has been submitted successfully. Thank you for your interest in joining KidsAI!');
+    }
 }

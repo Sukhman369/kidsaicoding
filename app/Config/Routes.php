@@ -39,6 +39,12 @@ $routes->get('blog/(:segment)', 'Website::blogDetail/$1');
 
 $routes->get('about', 'Website::about');
 $routes->get('contact', 'Website::contact');
+$routes->post('contact/submit', 'Website::submitContactEnquiry');
+$routes->post('newsletter/subscribe', 'Website::subscribeNewsletter');
+
+$routes->get('careers', 'Website::careers');
+$routes->get('careers/(:num)', 'Website::jobDetail/$1');
+$routes->post('careers/submit', 'Website::submitJobApplication');
 
 // Portal Pages (Student)
 $routes->get('student/dashboard', 'Student\Dashboard::index');
@@ -105,4 +111,26 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
     $routes->get('blogs/edit/(:num)', 'Blogs::edit/$1');
     $routes->post('blogs/update/(:num)', 'Blogs::update/$1');
     $routes->get('blogs/delete/(:num)', 'Blogs::delete/$1');
+
+    // Enquiries Management
+    $routes->get('enquiries', 'Enquiries::index');
+    $routes->post('enquiries/resolve/(:num)', 'Enquiries::resolve/$1');
+    $routes->get('enquiries/delete/(:num)', 'Enquiries::delete/$1');
+
+    // Jobs CRUD
+    $routes->get('jobs', 'Jobs::index');
+    $routes->get('jobs/create', 'Jobs::create');
+    $routes->post('jobs/store', 'Jobs::store');
+    $routes->get('jobs/edit/(:num)', 'Jobs::edit/$1');
+    $routes->post('jobs/update/(:num)', 'Jobs::update/$1');
+    $routes->get('jobs/delete/(:num)', 'Jobs::delete/$1');
+
+    // Job Applicants Management
+    $routes->get('applicants', 'Applicants::index');
+    $routes->post('applicants/update-status/(:num)', 'Applicants::updateStatus/$1');
+    $routes->get('applicants/delete/(:num)', 'Applicants::delete/$1');
+
+    // Newsletter Subscribers
+    $routes->get('subscribers', 'Subscribers::index');
+    $routes->get('subscribers/delete/(:num)', 'Subscribers::delete/$1');
 });

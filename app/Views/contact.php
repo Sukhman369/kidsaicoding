@@ -25,22 +25,41 @@
 
             <div class="col-lg-7">
                 <div class="card border-0 shadow-sm p-4 rounded-4">
-                    <form action="#" method="POST">
+                    <h5 class="fw-bold mb-3">Send Enquiry</h5>
+
+                    <?php if(session()->getFlashdata('error')): ?>
+                        <div class="alert alert-danger" style="border-radius: 8px; font-size: 0.85rem; padding: 10px 14px;">
+                            <?= session()->getFlashdata('error') ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if(session()->getFlashdata('success')): ?>
+                        <div class="alert alert-success" style="border-radius: 8px; font-size: 0.85rem; padding: 10px 14px;">
+                            <?= session()->getFlashdata('success') ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <form action="<?= base_url('contact/submit') ?>" method="POST">
+                        <?= csrf_field() ?>
                         <div class="row g-3 mb-3">
                             <div class="col-md-6">
                                 <label class="form-label small fw-bold">Your Name</label>
-                                <input type="text" class="form-control" placeholder="John Doe" required>
+                                <input type="text" name="name" class="form-control" placeholder="John Doe" value="<?= old('name') ?>" required>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label small fw-bold">Phone Number</label>
-                                <input type="tel" class="form-control" placeholder="+91 00000 00000" required>
+                                <label class="form-label small fw-bold">Email Address</label>
+                                <input type="email" name="email" class="form-control" placeholder="john@example.com" value="<?= old('email') ?>" required>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label small fw-bold">Message</label>
-                            <textarea class="form-control" rows="5" placeholder="How can we help you?" required></textarea>
+                            <label class="form-label small fw-bold">Phone Number</label>
+                            <input type="tel" name="phone" class="form-control" placeholder="+91 00000 00000" value="<?= old('phone') ?>" required>
                         </div>
-                        <button type="submit" class="btn btn-primary d-flex align-items-center gap-2 px-4 py-2">
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold">Message</label>
+                            <textarea name="message" class="form-control" rows="5" placeholder="How can we help you?" required><?= old('message') ?></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary d-flex align-items-center gap-2 px-4 py-2 shadow-sm">
                             <span>Send Message</span> 🚀
                         </button>
                     </form>
