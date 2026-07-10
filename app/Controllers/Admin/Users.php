@@ -41,6 +41,24 @@ class Users extends BaseController
             return redirect()->to('/admin/dashboard')->with('error', 'Only super administrators have access to write/delete RBAC.');
         }
 
+        $rules = [
+            'name'     => 'required|min_length[3]|max_length[255]',
+            'email'    => 'required|valid_email|is_unique[users.email]',
+            'password' => 'required|min_length[6]',
+            'role'     => 'required|in_list[admin,super_admin,blogger,course_manager,trainer]'
+        ];
+
+        $errors = [
+            'email' => [
+                'is_unique' => 'This email address is already registered.'
+            ]
+        ];
+
+        if (!$this->validate($rules, $errors)) {
+            $firstError = current($this->validator->getErrors());
+            return redirect()->back()->withInput()->with('error', $firstError);
+        }
+
         $data = $this->request->getPost();
         $this->userModel->insert([
             'name'     => $data['name'],

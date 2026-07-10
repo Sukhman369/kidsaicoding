@@ -8,8 +8,10 @@ class Dashboard extends BaseController
 {
     public function index()
     {
-        if (!session()->get('isLoggedIn') || session()->get('userRole') !== 'admin') {
-            return redirect()->to('/login');
+        $role = session()->get('userRole');
+        $allowedRoles = ['admin', 'super_admin', 'blogger', 'course_manager', 'trainer'];
+        if (!session()->get('isLoggedIn') || !in_array($role, $allowedRoles)) {
+            return redirect()->to('/admin/login');
         }
 
         $db = \Config\Database::connect();
@@ -22,7 +24,7 @@ class Dashboard extends BaseController
         $confirmedBookings = $db->table('bookings')->where('status', 'confirmed')->countAllResults();
 
         // Registered students
-        $totalStudents = $db->table('users')->where('role', 'student')->countAllResults();
+        $totalStudents = $db->table('students')->countAllResults();
 
         // Revenue: Sum of received payments (where status is completed)
         $totalRevenue = $db->table('payments')
@@ -40,8 +42,7 @@ class Dashboard extends BaseController
             ->getResultArray();
 
         // Latest 5 students
-        $recentStudents = $db->table('users')
-            ->where('role', 'student')
+        $recentStudents = $db->table('students')
             ->orderBy('created_at', 'DESC')
             ->limit(5)
             ->get()

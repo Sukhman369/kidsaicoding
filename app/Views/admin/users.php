@@ -71,19 +71,19 @@
             <?= csrf_field() ?>
             <div class="form-group" style="margin-bottom: 16px;">
                 <label style="display: block; margin-bottom: 6px; font-weight: 600; font-size: 14px;">Full Name</label>
-                <input type="text" name="name" required style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px;">
+                <input type="text" name="name" value="<?= esc(old('name')) ?>" required style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px;">
             </div>
             <div class="form-group" style="margin-bottom: 16px;">
                 <label style="display: block; margin-bottom: 6px; font-weight: 600; font-size: 14px;">Email Address</label>
-                <input type="email" name="email" required style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px;">
+                <input type="email" name="email" value="<?= esc(old('email')) ?>" required style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px;">
             </div>
             <div class="form-group" style="margin-bottom: 16px;">
                 <label style="display: block; margin-bottom: 6px; font-weight: 600; font-size: 14px;">Role</label>
                 <select name="role" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px;">
-                    <option value="admin">Super Admin</option>
-                    <option value="blogger">Blogger</option>
-                    <option value="course_manager">Course Manager</option>
-                    <option value="trainer">Trainer</option>
+                    <option value="admin" <?= old('role') === 'admin' ? 'selected' : '' ?>>Super Admin</option>
+                    <option value="blogger" <?= old('role') === 'blogger' ? 'selected' : '' ?>>Blogger</option>
+                    <option value="course_manager" <?= old('role') === 'course_manager' ? 'selected' : '' ?>>Course Manager</option>
+                    <option value="trainer" <?= old('role') === 'trainer' ? 'selected' : '' ?>>Trainer</option>
                 </select>
             </div>
             <div class="form-group" style="margin-bottom: 24px;">

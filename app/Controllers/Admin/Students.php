@@ -13,17 +13,16 @@ class Students extends BaseController
             return redirect()->to('/admin/login');
         }
 
-        $userModel = new UserModel();
+        $studentModel = new \App\Models\StudentModel();
 
         // Paginate students: 10 per page
-        $students = $userModel->where('role', 'student')
-                             ->orderBy('created_at', 'DESC')
-                             ->paginate(10, 'students');
+        $students = $studentModel->orderBy('created_at', 'DESC')
+                                 ->paginate(10, 'students');
 
         $data = [
             'title'    => 'Student Management',
             'students' => $students,
-            'pager'    => $userModel->pager,
+            'pager'    => $studentModel->pager,
         ];
 
         return view('admin/students', $data);

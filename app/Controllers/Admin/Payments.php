@@ -17,14 +17,16 @@ class Payments extends BaseController
     public function index()
     {
         // Enforce admin validation checks
-        if (!session()->get('isLoggedIn') || session()->get('userRole') !== 'admin') {
+        $role = session()->get('userRole');
+        $allowedRoles = ['admin', 'super_admin'];
+        if (!session()->get('isLoggedIn') || !in_array($role, $allowedRoles)) {
             return redirect()->to('/admin/login');
         }
 
         // Fetch paginated payments with details
         $payments = $this->paymentModel
-                         ->select('payments.*, users.name as student_name, users.email as student_email, courses.title as course_title, courses.image_path as course_image')
-                         ->join('users', 'users.id = payments.user_id')
+                         ->select('payments.*, students.name as student_name, students.email as student_email, courses.title as course_title, courses.image_path as course_image')
+                         ->join('students', 'students.id = payments.user_id')
                          ->join('courses', 'courses.id = payments.course_id')
                          ->orderBy('payments.created_at', 'DESC')
                          ->paginate(10, 'payments');

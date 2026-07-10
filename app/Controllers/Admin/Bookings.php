@@ -16,7 +16,9 @@ class Bookings extends BaseController
 
     public function index()
     {
-        if (!session()->get('isLoggedIn') || session()->get('userRole') !== 'admin') {
+        $role = session()->get('userRole');
+        $allowedRoles = ['admin', 'super_admin', 'trainer'];
+        if (!session()->get('isLoggedIn') || !in_array($role, $allowedRoles)) {
             return redirect()->to('/admin/login');
         }
 
@@ -34,7 +36,9 @@ class Bookings extends BaseController
 
     public function updateStatus($id)
     {
-        if (!session()->get('isLoggedIn') || session()->get('userRole') !== 'admin') {
+        $role = session()->get('userRole');
+        $allowedRoles = ['admin', 'super_admin', 'trainer'];
+        if (!session()->get('isLoggedIn') || !in_array($role, $allowedRoles)) {
             return redirect()->to('/admin/login');
         }
 

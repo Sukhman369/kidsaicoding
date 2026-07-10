@@ -260,6 +260,12 @@
             </div>
         <?php endif; ?>
 
+        <?php if(session()->getFlashdata('error')): ?>
+            <div class="alert alert-danger" style="background: #fee2e2; color: #991b1b; padding: 16px; border-radius: 12px; margin-bottom: 24px;">
+                <i class="fa-solid fa-triangle-exclamation"></i> <?= session()->getFlashdata('error') ?>
+            </div>
+        <?php endif; ?>
+
         <?= $this->renderSection('content') ?>
     </main>
 

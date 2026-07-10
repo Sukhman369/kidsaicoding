@@ -17,7 +17,9 @@ class Blogs extends BaseController
 
     public function index()
     {
-        if (!session()->get('isLoggedIn') || session()->get('userRole') !== 'admin') {
+        $role = session()->get('userRole');
+        $allowedRoles = ['admin', 'super_admin', 'blogger'];
+        if (!session()->get('isLoggedIn') || !in_array($role, $allowedRoles)) {
             return redirect()->to('/admin/login');
         }
 
@@ -33,7 +35,9 @@ class Blogs extends BaseController
 
     public function create()
     {
-        if (!session()->get('isLoggedIn') || session()->get('userRole') !== 'admin') {
+        $role = session()->get('userRole');
+        $allowedRoles = ['admin', 'super_admin', 'blogger'];
+        if (!session()->get('isLoggedIn') || !in_array($role, $allowedRoles)) {
             return redirect()->to('/admin/login');
         }
 
@@ -45,7 +49,9 @@ class Blogs extends BaseController
 
     public function store()
     {
-        if (!session()->get('isLoggedIn') || session()->get('userRole') !== 'admin') {
+        $role = session()->get('userRole');
+        $allowedRoles = ['admin', 'super_admin', 'blogger'];
+        if (!session()->get('isLoggedIn') || !in_array($role, $allowedRoles)) {
             return redirect()->to('/admin/login');
         }
 
@@ -90,7 +96,9 @@ class Blogs extends BaseController
 
     public function edit($id)
     {
-        if (!session()->get('isLoggedIn') || session()->get('userRole') !== 'admin') {
+        $role = session()->get('userRole');
+        $allowedRoles = ['admin', 'super_admin', 'blogger'];
+        if (!session()->get('isLoggedIn') || !in_array($role, $allowedRoles)) {
             return redirect()->to('/admin/login');
         }
 
@@ -108,7 +116,9 @@ class Blogs extends BaseController
 
     public function update($id)
     {
-        if (!session()->get('isLoggedIn') || session()->get('userRole') !== 'admin') {
+        $role = session()->get('userRole');
+        $allowedRoles = ['admin', 'super_admin', 'blogger'];
+        if (!session()->get('isLoggedIn') || !in_array($role, $allowedRoles)) {
             return redirect()->to('/admin/login');
         }
 
@@ -161,7 +171,9 @@ class Blogs extends BaseController
 
     public function delete($id)
     {
-        if (!session()->get('isLoggedIn') || session()->get('userRole') !== 'admin') {
+        $role = session()->get('userRole');
+        $allowedRoles = ['admin', 'super_admin', 'blogger'];
+        if (!session()->get('isLoggedIn') || !in_array($role, $allowedRoles)) {
             return redirect()->to('/admin/login');
         }
 

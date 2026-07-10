@@ -51,7 +51,7 @@ class Auth extends BaseController
     // Student Login POST
     public function postStudentLogin()
     {
-        $userModel = new UserModel();
+        $studentModel = new \App\Models\StudentModel();
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
 
@@ -59,23 +59,18 @@ class Auth extends BaseController
             return redirect()->back()->with('error', 'Please enter both email and password.')->withInput();
         }
 
-        $user = $userModel->login($email, $password);
+        $student = $studentModel->login($email, $password);
 
-        if ($user) {
-            // "Email login is for Students only"
-            if ($user['role'] !== 'student') {
-                return redirect()->back()->with('error', 'Invalid email or password.');
-            }
-
-            if ($user['status'] !== 'active') {
+        if ($student) {
+            if ($student['status'] !== 'active') {
                 return redirect()->back()->with('error', 'Your account is inactive.');
             }
 
             $sessionData = [
-                'userId' => $user['id'],
-                'userName' => $user['name'],
-                'userEmail' => $user['email'],
-                'userRole' => $user['role'],
+                'userId' => $student['id'],
+                'userName' => $student['name'],
+                'userEmail' => $student['email'],
+                'userRole' => 'student',
                 'isLoggedIn' => true,
             ];
             session()->set($sessionData);
@@ -93,7 +88,7 @@ class Auth extends BaseController
     // Student Register POST
     public function postStudentRegister()
     {
-        $userModel = new UserModel();
+        $studentModel = new \App\Models\StudentModel();
         $firstName = $this->request->getPost('first_name');
         $lastName = $this->request->getPost('last_name');
         $email = $this->request->getPost('email');
@@ -108,7 +103,7 @@ class Auth extends BaseController
             return redirect()->back()->with('error', 'Passwords do not match.')->withInput();
         }
 
-        if ($userModel->where('email', $email)->first()) {
+        if ($studentModel->where('email', $email)->first()) {
             return redirect()->back()->with('error', 'This email address is already registered.')->withInput();
         }
 
@@ -116,17 +111,16 @@ class Auth extends BaseController
             'name' => trim($firstName . ' ' . $lastName),
             'email' => $email,
             'password' => password_hash($password, PASSWORD_DEFAULT),
-            'role' => 'student',
             'status' => 'active'
         ];
 
-        if ($userModel->insert($data)) {
-            $insertedId = $userModel->getInsertID();
+        if ($studentModel->insert($data)) {
+            $insertedId = $studentModel->getInsertID();
             $sessionData = [
                 'userId' => $insertedId,
                 'userName' => $data['name'],
                 'userEmail' => $data['email'],
-                'userRole' => $data['role'],
+                'userRole' => 'student',
                 'isLoggedIn' => true,
             ];
             session()->set($sessionData);
