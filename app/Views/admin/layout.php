@@ -182,18 +182,18 @@
                     <i class="fa-solid fa-calendar-check"></i> Bookings
                 </a>
             <?php endif; ?>
+            <?php if ($isSuper): ?>
+                <a href="<?= base_url('admin/payments') ?>" class="menu-item <?= url_is('admin/payments*') ? 'active' : '' ?>">
+                    <i class="fa-solid fa-credit-card"></i> Payments
+                </a>
+            <?php endif; ?>
 
-            <!-- Content Management -->
+            <!-- Content -->
             <?php if ($isSuper || $isCourse || $isBlogger): ?>
                 <div style="padding: 20px 24px 6px; font-size: 11px; text-transform: uppercase; font-weight: 700; color: #475569; letter-spacing: 0.05em;">Content</div>
                 <?php if ($isSuper || $isCourse): ?>
                     <a href="<?= base_url('admin/courses') ?>" class="menu-item <?= url_is('admin/courses*') ? 'active' : '' ?>">
                         <i class="fa-solid fa-graduation-cap"></i> Courses
-                    </a>
-                <?php endif; ?>
-                <?php if ($isSuper): ?>
-                    <a href="<?= base_url('admin/team') ?>" class="menu-item <?= url_is('admin/team*') ? 'active' : '' ?>">
-                        <i class="fa-solid fa-people-group"></i> Team Members
                     </a>
                 <?php endif; ?>
                 <?php if ($isSuper || $isBlogger): ?>
@@ -205,8 +205,8 @@
                     <a href="<?= base_url('admin/settings') ?>" class="menu-item <?= url_is('admin/settings*') ? 'active' : '' ?>">
                         <i class="fa-solid fa-gears"></i> Site Settings
                     </a>
-                    <a href="<?= base_url('admin/payments') ?>" class="menu-item <?= url_is('admin/payments*') ? 'active' : '' ?>">
-                        <i class="fa-solid fa-credit-card"></i> Payments
+                    <a href="<?= base_url('admin/team') ?>" class="menu-item <?= url_is('admin/team*') ? 'active' : '' ?>">
+                        <i class="fa-solid fa-people-group"></i> Team Members
                     </a>
                 <?php endif; ?>
             <?php endif; ?>
@@ -219,9 +219,23 @@
                 </a>
                 <?php if ($isSuper): ?>
                     <a href="<?= base_url('admin/users') ?>" class="menu-item <?= url_is('admin/users*') ? 'active' : '' ?>">
-                        <i class="fa-solid fa-user-shield"></i> Admins / RBAC
+                        <i class="fa-solid fa-user-shield"></i> Admin/RBAC
                     </a>
                 <?php endif; ?>
+            <?php endif; ?>
+
+            <!-- Others -->
+            <?php if ($isSuper): ?>
+                <div style="padding: 20px 24px 6px; font-size: 11px; text-transform: uppercase; font-weight: 700; color: #475569; letter-spacing: 0.05em;">Others</div>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-envelope"></i> Enquiries
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-briefcase"></i> Job applicants
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-paper-plane"></i> News letter subscribers
+                </a>
             <?php endif; ?>
 
             <!-- Logout -->
