@@ -268,4 +268,49 @@ class Website extends BaseController
 
         return redirect()->to(base_url('careers'))->with('success', 'Your application has been submitted successfully. Thank you for your interest in joining KidsAI!');
     }
+
+    public function termsOfService()
+    {
+        return view('legal/terms', [
+            'title' => 'Terms of Service',
+            'meta_description' => 'Read the terms of service governing the usage of KidsAI Coding Academy platforms, virtual classrooms, courses, and digital materials.',
+            'meta_keywords' => 'terms of service, legal usage agreement, kidsai guidelines, terms and conditions'
+        ]);
+    }
+
+    public function privacyPolicy()
+    {
+        return view('legal/privacy', [
+            'title' => 'Privacy Policy',
+            'meta_description' => 'Learn how KidsAI Coding Academy collects, processes, and protects your personal and kids\' information under strict privacy frameworks.',
+            'meta_keywords' => 'privacy policy, student data safety, kids privacy, personal data security'
+        ]);
+    }
+
+    public function refundPolicy()
+    {
+        return view('legal/refund', [
+            'title' => 'Cancellation & Refund Policy',
+            'meta_description' => 'Understand our course enrollment cancellation terms, trial details, and refund policy for KidsAI Coding classes and subscriptions.',
+            'meta_keywords' => 'refund policy, cancellation instructions, school fees refund, money back guarantee'
+        ]);
+    }
+
+    public function paymentPolicy()
+    {
+        return view('legal/payment', [
+            'title' => 'Payment & Subscription Policy',
+            'meta_description' => 'Find terms concerning automated renewals, accepted international and local payment methods, and secure gateways used at KidsAI.',
+            'meta_keywords' => 'payment policy, safe transactions, secure payment gateway, subscription renewals'
+        ]);
+    }
+
+    public function pricingPolicy()
+    {
+        return view('legal/pricing', [
+            'title' => 'Course Pricing Policy',
+            'meta_description' => 'Explore details about pricing models, package subscriptions, scholarships, and seasonal discounts at KidsAI Coding Academy.',
+            'meta_keywords' => 'pricing policy, course structure costs, batch tuition fee, coding class discount'
+        ]);
+    }
 }

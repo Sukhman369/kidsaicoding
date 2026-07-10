@@ -56,9 +56,25 @@
                     </form>
                 </div>
             </div>
-            <div class="text-center pt-2">
-                <p class="x-small mb-0">&copy; <?= date('Y') ?> <?= esc(get_setting('brand_name', 'KidsAI Coding Academy')) ?>. All rights reserved.</p>
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center pt-4 border-top border-secondary border-opacity-25 gap-3">
+                <p class="x-small mb-0 text-white-50">&copy; <?= date('Y') ?> <?= esc(get_setting('brand_name', 'KidsAI Coding Academy')) ?>. All rights reserved.</p>
+                <div class="d-flex flex-wrap gap-3 justify-content-center align-items-center">
+                    <a href="<?= base_url('terms-of-service') ?>" class="x-small text-white-50 text-decoration-none hover-light" style="transition: color 0.2s ease;">Terms of Service</a>
+                    <span class="text-secondary opacity-25">|</span>
+                    <a href="<?= base_url('privacy-policy') ?>" class="x-small text-white-50 text-decoration-none hover-light" style="transition: color 0.2s ease;">Privacy Policy</a>
+                    <span class="text-secondary opacity-25">|</span>
+                    <a href="<?= base_url('refund-policy') ?>" class="x-small text-white-50 text-decoration-none hover-light" style="transition: color 0.2s ease;">Refund Policy</a>
+                    <span class="text-secondary opacity-25">|</span>
+                    <a href="<?= base_url('payment-policy') ?>" class="x-small text-white-50 text-decoration-none hover-light" style="transition: color 0.2s ease;">Payment Policy</a>
+                    <span class="text-secondary opacity-25">|</span>
+                    <a href="<?= base_url('pricing-policy') ?>" class="x-small text-white-50 text-decoration-none hover-light" style="transition: color 0.2s ease;">Pricing Policy</a>
+                </div>
             </div>
+            <style>
+                .hover-light:hover {
+                    color: #fff !important;
+                }
+            </style>
         </div>
     </footer>
 

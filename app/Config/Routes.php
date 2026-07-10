@@ -42,6 +42,13 @@ $routes->get('contact', 'Website::contact');
 $routes->post('contact/submit', 'Website::submitContactEnquiry');
 $routes->post('newsletter/subscribe', 'Website::subscribeNewsletter');
 
+// Legal Policies
+$routes->get('terms-of-service', 'Website::termsOfService');
+$routes->get('privacy-policy', 'Website::privacyPolicy');
+$routes->get('refund-policy', 'Website::refundPolicy');
+$routes->get('payment-policy', 'Website::paymentPolicy');
+$routes->get('pricing-policy', 'Website::pricingPolicy');
+
 $routes->get('careers', 'Website::careers');
 $routes->get('careers/(:num)', 'Website::jobDetail/$1');
 $routes->post('careers/submit', 'Website::submitJobApplication');
