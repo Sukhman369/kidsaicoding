@@ -205,6 +205,9 @@
                     <a href="<?= base_url('admin/settings') ?>" class="menu-item <?= url_is('admin/settings*') ? 'active' : '' ?>">
                         <i class="fa-solid fa-gears"></i> Site Settings
                     </a>
+                    <a href="<?= base_url('admin/payments') ?>" class="menu-item <?= url_is('admin/payments*') ? 'active' : '' ?>">
+                        <i class="fa-solid fa-credit-card"></i> Payments
+                    </a>
                 <?php endif; ?>
             <?php endif; ?>
 

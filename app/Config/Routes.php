@@ -79,6 +79,9 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
     $routes->get('settings', 'Settings::index');
     $routes->post('settings/update', 'Settings::update');
 
+    // Payments Management
+    $routes->get('payments', 'Payments::index');
+
     // Team CRUD
     $routes->get('team', 'Team::index');
     $routes->get('team/create', 'Team::create');
