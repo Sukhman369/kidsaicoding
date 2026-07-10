@@ -29,6 +29,11 @@ $routes->get('book-free-class/success', 'Booking::success');
 $routes->get('courses', 'Website::courses');
 $routes->get('course/(:segment)', 'Website::courseDetail/$1');
 
+// Course Purchase Flow
+$routes->get('course/buy/(:segment)', 'BuyCourse::checkout/$1');
+$routes->post('course/checkout/(:num)', 'BuyCourse::process/$1');
+$routes->get('course/success/(:any)', 'BuyCourse::success/$1');
+
 $routes->get('blog', 'Website::blogs');
 $routes->get('blog/(:segment)', 'Website::blogDetail/$1');
 

@@ -10,6 +10,7 @@ class Dashboard extends BaseController
     {
         $db = \Config\Database::connect();
         $userEmail = session()->get('userEmail');
+        $userId = session()->get('userId');
 
         // Fetch bookings/free trials matching this student email
         $bookings = [];
@@ -23,15 +24,28 @@ class Dashboard extends BaseController
 
         // Fetch active courses to suggest/display on dashboard
         $courses = $db->table('courses')
-                      ->where('status', 'active')
+                      ->where('status', 'published')
                       ->orderBy('order_index', 'ASC')
                       ->limit(3)
                       ->get()
                       ->getResultArray();
 
+        // Fetch user's enrolled (purchased) courses
+        $enrolledCourses = [];
+        if (!empty($userId)) {
+            $enrolledCourses = $db->table('payments')
+                                  ->select('courses.*, payments.created_at as purchase_date')
+                                  ->join('courses', 'courses.id = payments.course_id')
+                                  ->where('payments.user_id', $userId)
+                                  ->where('payments.status', 'completed')
+                                  ->get()
+                                  ->getResultArray();
+        }
+
         $data = [
             'bookings' => $bookings,
             'courses' => $courses,
+            'enrolledCourses' => $enrolledCourses,
             'student_name' => session()->get('userName') ?? 'Learner',
         ];
 
@@ -40,7 +54,22 @@ class Dashboard extends BaseController
 
     public function myCourses()
     {
-        return view('student/my_courses');
+        $db = \Config\Database::connect();
+        $userId = session()->get('userId');
+        $enrolledCourses = [];
+        if (!empty($userId)) {
+            $enrolledCourses = $db->table('payments')
+                                  ->select('courses.*, payments.created_at as purchase_date, payments.amount as purchase_amount')
+                                  ->join('courses', 'courses.id = payments.course_id')
+                                  ->where('payments.user_id', $userId)
+                                  ->where('payments.status', 'completed')
+                                  ->get()
+                                  ->getResultArray();
+        }
+
+        return view('student/my_courses', [
+            'enrolledCourses' => $enrolledCourses
+        ]);
     }
 
     public function assignments()

@@ -33,7 +33,7 @@ $welcome_msg = $greeting . ', ' . esc($student_name) . '! 👋';
             </div>
         </div>
     </div>
-    <!-- Stat 2: Active Courses Mocked or Booked status -->
+    <!-- Stat 2: Active Courses -->
     <div class="col-6 col-sm-6 col-md-3">
         <div class="student-stat-card">
             <div class="student-stat-icon-wrapper" style="background: rgba(34, 197, 94, 0.1); color: var(--success);">
@@ -43,8 +43,8 @@ $welcome_msg = $greeting . ', ' . esc($student_name) . '! 👋';
                 </svg>
             </div>
             <div class="student-stat-info">
-                <span class="student-stat-number"><?= count($bookings) > 0 ? 1 : 0 ?></span>
-                <span class="student-stat-name">Active Classes</span>
+                <span class="student-stat-number"><?= count($enrolledCourses) ?></span>
+                <span class="student-stat-name">Active Courses</span>
             </div>
         </div>
     </div>

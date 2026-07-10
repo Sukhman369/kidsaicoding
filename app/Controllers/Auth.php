@@ -79,6 +79,11 @@ class Auth extends BaseController
                 'isLoggedIn' => true,
             ];
             session()->set($sessionData);
+
+            if ($checkoutRedirect = session()->get('redirect_after_login')) {
+                session()->remove('redirect_after_login');
+                return redirect()->to($checkoutRedirect);
+            }
             return redirect()->to('/student/dashboard');
         } else {
             return redirect()->back()->with('error', 'Invalid email or password.');
@@ -116,7 +121,21 @@ class Auth extends BaseController
         ];
 
         if ($userModel->insert($data)) {
-            return redirect()->to('/login')->with('success', 'Account created successfully! Please sign in using your email.');
+            $insertedId = $userModel->getInsertID();
+            $sessionData = [
+                'userId' => $insertedId,
+                'userName' => $data['name'],
+                'userEmail' => $data['email'],
+                'userRole' => $data['role'],
+                'isLoggedIn' => true,
+            ];
+            session()->set($sessionData);
+
+            if ($checkoutRedirect = session()->get('redirect_after_login')) {
+                session()->remove('redirect_after_login');
+                return redirect()->to($checkoutRedirect)->with('success', 'Account created successfully! Proceeding to checkout.');
+            }
+            return redirect()->to('/student/dashboard')->with('success', 'Welcome to your learning portal!');
         } else {
             return redirect()->back()->with('error', 'Failed to register account. Please try again.')->withInput();
         }

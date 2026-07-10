@@ -217,7 +217,7 @@
                 
                 <p class="text-danger small fw-bold mb-4">⏰ Seats filling fast! Only a few discounts remain for this cohort.</p>
                 
-                <a href="<?= base_url('contact?enroll='.urlencode($course['title'])) ?>" class="btn btn-primary btn-lg w-100 mb-3 shadow" style="font-weight: 700; border-radius: 10px;">
+                <a href="<?= base_url('course/buy/' . esc($course['slug'])) ?>" class="btn btn-primary btn-lg w-100 mb-3 shadow" style="font-weight: 700; border-radius: 10px;">
                     Enroll In Course
                 </a>
                 <a href="<?= base_url('contact?demo='.urlencode($course['title'])) ?>" class="btn btn-outline-secondary btn-lg w-100 mb-4" style="font-weight: 600; border-radius: 10px;">
