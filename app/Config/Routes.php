@@ -53,6 +53,12 @@ $routes->get('careers', 'Website::careers');
 $routes->get('careers/(:num)', 'Website::jobDetail/$1');
 $routes->post('careers/submit', 'Website::submitJobApplication');
 
+// Open-Source Monetization & Services Routes
+$routes->get('consultation', 'Consultation::index');
+$routes->post('consultation/submit', 'Consultation::submit');
+$routes->get('training', 'Training::index');
+$routes->post('training/submit', 'Training::submit');
+
 // Portal Pages (Student)
 $routes->get('student/dashboard', 'Student\Dashboard::index');
 $routes->get('student/my-courses', 'Student\Dashboard::myCourses');
@@ -140,4 +146,9 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
     // Newsletter Subscribers
     $routes->get('subscribers', 'Subscribers::index');
     $routes->get('subscribers/delete/(:num)', 'Subscribers::delete/$1');
+
+    // Monetization Requests (Consultations & Training)
+    $routes->get('consultations', 'Consultations::index');
+    $routes->post('consultations/update-status/(:num)', 'Consultations::updateStatus/$1');
+    $routes->post('consultations/update-training-status/(:num)', 'Consultations::updateTrainingStatus/$1');
 });

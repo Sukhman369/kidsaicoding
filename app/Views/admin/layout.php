@@ -247,7 +247,10 @@
 
             <!-- Others -->
             <?php if ($isSuper): ?>
-                <div style="padding: 20px 24px 6px; font-size: 11px; text-transform: uppercase; font-weight: 700; color: #475569; letter-spacing: 0.05em;">Others</div>
+                <div style="padding: 20px 24px 6px; font-size: 11px; text-transform: uppercase; font-weight: 700; color: #475569; letter-spacing: 0.05em;">Services & Monetization</div>
+                <a href="<?= base_url('admin/consultations') ?>" class="menu-item <?= url_is('admin/consultations*') ? 'active' : '' ?>">
+                    <i class="fa-solid fa-handshake"></i> Consultations & Training
+                </a>
                 <a href="<?= base_url('admin/enquiries') ?>" class="menu-item <?= url_is('admin/enquiries*') ? 'active' : '' ?>">
                     <i class="fa-solid fa-envelope"></i> Enquiries
                 </a>

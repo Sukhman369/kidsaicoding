@@ -16,11 +16,11 @@
                     <p class="small" style="max-width: 300px;">Empowering the next generation of innovators through high-quality coding education. Based in India, reaching the world.</p>
                 </div>
                 <div class="col-lg-2 offset-lg-1 col-6">
-                    <h5 class="text-white fw-bold mb-4">Platform</h5>
+                    <h5 class="text-white fw-bold mb-4">Services</h5>
                     <ul class="list-unstyled d-grid gap-2 small">
                         <li><a href="<?= base_url('courses') ?>" class="text-white-50 text-decoration-none">Courses</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Curriculum</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">For Schools</a></li>
+                        <li><a href="<?= base_url('consultation') ?>" class="text-white-50 text-decoration-none">Enterprise Consultation</a></li>
+                        <li><a href="<?= base_url('training') ?>" class="text-white-50 text-decoration-none">Teacher Certification</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-6">
