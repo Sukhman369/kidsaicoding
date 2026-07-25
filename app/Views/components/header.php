@@ -74,10 +74,9 @@
             <ul class="nav-links d-none d-lg-flex list-unstyled align-items-center gap-4 mb-0">
                 <li><a href="<?= base_url() ?>" class="text-decoration-none fw-semibold <?= current_url() == base_url() ? 'text-primary' : 'text-muted' ?>">Home</a></li>
                 <li><a href="<?= base_url('courses') ?>" class="text-decoration-none fw-semibold <?= strpos(current_url(), 'courses') !== false ? 'text-primary' : 'text-muted' ?>">Courses</a></li>
-                <li><a href="<?= base_url('consultation') ?>" class="text-decoration-none fw-semibold <?= strpos(current_url(), 'consultation') !== false ? 'text-primary' : 'text-muted' ?>">Consultation</a></li>
-                <li><a href="<?= base_url('training') ?>" class="text-decoration-none fw-semibold <?= strpos(current_url(), 'training') !== false ? 'text-primary' : 'text-muted' ?>">Teacher Training</a></li>
                 <li><a href="<?= base_url('about') ?>" class="text-decoration-none fw-semibold <?= strpos(current_url(), 'about') !== false ? 'text-primary' : 'text-muted' ?>">About</a></li>
                 <li><a href="<?= base_url('blog') ?>" class="text-decoration-none fw-semibold <?= strpos(current_url(), 'blog') !== false ? 'text-primary' : 'text-muted' ?>">Blog</a></li>
+                <li><a href="<?= base_url('contact') ?>" class="text-decoration-none fw-semibold <?= strpos(current_url(), 'contact') !== false ? 'text-primary' : 'text-muted' ?>">Contact</a></li>
                 <li><a href="<?= base_url('login') ?>" class="text-decoration-none fw-bold text-dark px-3">Login</a></li>
                 <li><a href="<?= base_url('book-free-class') ?>" class="btn btn-primary px-4 py-2 fw-bold text-white shadow-sm" style="border-radius: 12px; background: #4f46e5; border: none;">Book Free Class</a></li>
             </ul>
@@ -94,8 +93,6 @@
             <ul class="list-unstyled p-4 text-center">
                 <li class="mb-3"><a href="<?= base_url() ?>" class="text-decoration-none fw-bold text-dark">Home</a></li>
                 <li class="mb-3"><a href="<?= base_url('courses') ?>" class="text-decoration-none fw-bold text-dark">Courses</a></li>
-                <li class="mb-3"><a href="<?= base_url('consultation') ?>" class="text-decoration-none fw-bold text-dark">Consultation & Setup</a></li>
-                <li class="mb-3"><a href="<?= base_url('training') ?>" class="text-decoration-none fw-bold text-dark">Teacher Training</a></li>
                 <li class="mb-3"><a href="<?= base_url('about') ?>" class="text-decoration-none fw-bold text-dark">About</a></li>
                 <li class="mb-3"><a href="<?= base_url('blog') ?>" class="text-decoration-none fw-bold text-dark">Blog</a></li>
                 <li class="mb-3"><a href="<?= base_url('contact') ?>" class="text-decoration-none fw-bold text-dark">Contact</a></li>

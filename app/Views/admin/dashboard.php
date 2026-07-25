@@ -130,6 +130,23 @@
             </div>
         </div>
 
+        <!-- Business Owner Platform Services Card -->
+        <div class="card" style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); color: white;">
+            <div style="font-size: 11px; text-transform: uppercase; font-weight: 800; color: #a5b4fc; letter-spacing: 0.05em; margin-bottom: 6px;">Platform Operator Services</div>
+            <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">White-Label & Enterprise Support</h4>
+            <p style="font-size: 12px; color: #cbd5e1; line-height: 1.4; margin-bottom: 16px;">
+                Need custom server deployment, custom domain setup, feature engineering, or certified teacher training?
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <a href="<?= base_url('consultation') ?>" target="_blank" style="background: #f97316; color: white; text-align: center; padding: 8px 12px; border-radius: 8px; font-size: 12px; font-weight: 700; text-decoration: none;">
+                    🚀 Request Enterprise Consultation
+                </a>
+                <a href="<?= base_url('training') ?>" target="_blank" style="background: rgba(255,255,255,0.15); color: white; text-align: center; padding: 8px 12px; border-radius: 8px; font-size: 12px; font-weight: 700; text-decoration: none; border: 1px solid rgba(255,255,255,0.2);">
+                    🎓 Teacher Certification Program
+                </a>
+            </div>
+        </div>
+
         <!-- Recent Students -->
         <div class="card">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
