@@ -146,9 +146,4 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
     // Newsletter Subscribers
     $routes->get('subscribers', 'Subscribers::index');
     $routes->get('subscribers/delete/(:num)', 'Subscribers::delete/$1');
-
-    // Monetization Requests (Consultations & Training)
-    $routes->get('consultations', 'Consultations::index');
-    $routes->post('consultations/update-status/(:num)', 'Consultations::updateStatus/$1');
-    $routes->post('consultations/update-training-status/(:num)', 'Consultations::updateTrainingStatus/$1');
 });

@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\ConsultationModel;
-
 class Consultation extends BaseController
 {
     public function index()
@@ -17,8 +15,6 @@ class Consultation extends BaseController
 
     public function submit()
     {
-        $consultationModel = new ConsultationModel();
-
         $name         = $this->request->getPost('name');
         $email        = $this->request->getPost('email');
         $phone        = $this->request->getPost('phone');
@@ -35,17 +31,29 @@ class Consultation extends BaseController
             return redirect()->back()->with('error', 'Please enter a valid email address.')->withInput();
         }
 
-        $consultationModel->insert([
-            'name'         => $name,
-            'email'        => $email,
-            'phone'        => $phone,
-            'organization' => $organization,
-            'service_type' => $serviceType ?? 'custom_deployment',
-            'budget'       => $budget,
-            'message'      => $message,
-            'status'       => 'new'
-        ]);
+        // Direct Transmission to Platform Founder/Owner Central Email
+        $recipientEmail = env('PLATFORM_CENTRAL_EMAIL', '888sukhmn@gmail.com');
 
-        return redirect()->back()->with('success', 'Thank you for requesting consultation! Our technical solution architects will reach out to you within 24 hours.');
+        $emailBody  = "New Enterprise Consultation Request:\n\n";
+        $emailBody .= "Name: {$name}\n";
+        $emailBody .= "Email: {$email}\n";
+        $emailBody .= "Phone: {$phone}\n";
+        $emailBody .= "Organization: {$organization}\n";
+        $emailBody .= "Service Requested: {$serviceType}\n";
+        $emailBody .= "Budget Range: {$budget}\n\n";
+        $emailBody .= "Details:\n{$message}\n";
+
+        try {
+            $emailService = \Config\Services::email();
+            $emailService->setTo($recipientEmail);
+            $emailService->setFrom('no-reply@kidsaicoding.com', 'Kids AI Coding Platform');
+            $emailService->setSubject("🚀 Enterprise Consultation Request from {$name}");
+            $emailService->setMessage($emailBody);
+            @$emailService->send();
+        } catch (\Throwable $e) {
+            // Silently handle if local mail server is not configured
+        }
+
+        return redirect()->back()->with('success', 'Thank you for requesting enterprise consultation! Our technical solution architects will reach out to you at ' . esc($email) . ' within 24 hours.');
     }
 }

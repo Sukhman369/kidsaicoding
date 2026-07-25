@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\TrainingRegistrationModel;
-
 class Training extends BaseController
 {
     public function index()
@@ -17,8 +15,6 @@ class Training extends BaseController
 
     public function submit()
     {
-        $trainingModel = new TrainingRegistrationModel();
-
         $fullName        = $this->request->getPost('full_name');
         $email           = $this->request->getPost('email');
         $phone           = $this->request->getPost('phone');
@@ -35,17 +31,29 @@ class Training extends BaseController
             return redirect()->back()->with('error', 'Please provide a valid email address.')->withInput();
         }
 
-        $trainingModel->insert([
-            'full_name'        => $fullName,
-            'email'           => $email,
-            'phone'           => $phone,
-            'role'            => $role ?? 'teacher',
-            'experience_years' => $experienceYears,
-            'program_type'    => $programType ?? 'certification',
-            'notes'           => $notes,
-            'status'          => 'pending'
-        ]);
+        // Direct Transmission to Platform Founder/Owner Central Email
+        $recipientEmail = env('PLATFORM_CENTRAL_EMAIL', '888sukhman@gmail.com');
 
-        return redirect()->back()->with('success', 'Your registration for the Kids AI Coding Educator Certification has been received! We will send you the training schedule shortly.');
+        $emailBody  = "New Teacher Training Registration:\n\n";
+        $emailBody .= "Full Name: {$fullName}\n";
+        $emailBody .= "Email: {$email}\n";
+        $emailBody .= "Phone: {$phone}\n";
+        $emailBody .= "Role: {$role}\n";
+        $emailBody .= "Experience: {$experienceYears}\n";
+        $emailBody .= "Program Preference: {$programType}\n\n";
+        $emailBody .= "Notes:\n{$notes}\n";
+
+        try {
+            $emailService = \Config\Services::email();
+            $emailService->setTo($recipientEmail);
+            $emailService->setFrom('no-reply@kidsaicoding.com', 'Kids AI Coding Platform');
+            $emailService->setSubject("🎓 Teacher Training Application from {$fullName}");
+            $emailService->setMessage($emailBody);
+            @$emailService->send();
+        } catch (\Throwable $e) {
+            // Silently handle if mail is unconfigured locally
+        }
+
+        return redirect()->back()->with('success', 'Your registration for the Kids AI Coding Educator Certification has been received! We will send you the training schedule at ' . esc($email) . ' shortly.');
     }
 }
